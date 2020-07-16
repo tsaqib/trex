@@ -8,7 +8,7 @@
 		"test": "tests"
 	},
 	"scripts": {
-		"build": "tsc",
+		"build": "rimraf dist/ && tsc",
 		"test": "jest --config jestconfig.json",
 		"test:watch": "jest --config jestconfig.json --watchAll",
 		"format": "prettier --write \"src/**/*.ts\"",
@@ -29,9 +29,13 @@
 		"@types/jest": "^26.0.4",
 		"jest": "^26.1.0",
 		"prettier": "^2.0.5",
+		"rimraf": "^3.0.2",
 		"ts-jest": "^26.1.2",
 		"tslint": "^6.1.2",
 		"tslint-config-prettier": "^1.18.0",
 		"typescript": "^3.9.6"
+	},
+	"dependencies": {
+		"nanoid": "^3.1.10"
 	}
 }
