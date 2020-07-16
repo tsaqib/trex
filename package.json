@@ -1,0 +1,37 @@
+{
+	"name": "trex",
+	"version": "1.0.0",
+	"description": "Reactive Extension in TypeScript (TREX)",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"directories": {
+		"test": "tests"
+	},
+	"scripts": {
+		"build": "tsc",
+		"test": "jest --config jestconfig.json",
+		"test:watch": "jest --config jestconfig.json --watchAll",
+		"format": "prettier --write \"src/**/*.ts\"",
+		"lint": "tslint -p tsconfig.json"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/tsaqib/trex.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/tsaqib/trex/issues"
+	},
+	"homepage": "https://github.com/tsaqib/trex#readme",
+	"devDependencies": {
+		"@types/jest": "^26.0.4",
+		"jest": "^26.1.0",
+		"prettier": "^2.0.5",
+		"ts-jest": "^26.1.2",
+		"tslint": "^6.1.2",
+		"tslint-config-prettier": "^1.18.0",
+		"typescript": "^3.9.6"
+	}
+}
