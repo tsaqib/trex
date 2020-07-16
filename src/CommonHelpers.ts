@@ -2,21 +2,32 @@
 
 import { MapOperator } from './MapOperator';
 import { FilterOperator } from './FilterOperator';
-import { IObservable } from './Observable';
+import { IObservable } from './IObservable';
 
-export const tap: <T>(fn: Function) => (item: T) => T = (fn) => (item) => {
+export type LinkedList<T> = {
+	value: T;
+	next?: LinkedList<T>;
+};
+
+export const tap: (fn: (item: any) => any) => (item: any) => any = (fn) => (
+	item
+) => {
 	fn(item);
 	return item;
 };
 
-export const map: <T>(fn: Function) => IObservable<T> = (fn) => {
+export const map: (fn: (item: any) => any) => IObservable = (fn) => {
 	return new MapOperator(fn);
 };
 
-export const filter: <T>(fn: Function) => IObservable<T> = (fn) => {
+export const filter: (fn: (item: any) => any) => IObservable = (fn) => {
 	return new FilterOperator(fn);
 };
 
-export const pipe: <T>(...fns: Function[]) => (item: T) => T = (...fns) => (item) => {
-	return fns.reduce(<T>(acc: T, fn: Function) => fn(acc), item);
+// tslint:disable-next-line:ban-types
+export const pipe: (...fns: Function[]) => (item: any) => any = (...fns) => (
+	item
+) => {
+	// tslint:disable-next-line:ban-types
+	return fns.reduce((acc: any, fn: Function) => fn(acc), item);
 };

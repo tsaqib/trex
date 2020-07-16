@@ -1,13 +1,13 @@
-export interface IObserver<T> {
-	next: (item: T) => void;
+export interface IObserver {
+	next: (item: any) => void;
 	error?(err: any): void;
 }
 
-export class Observer<T> implements IObserver<T> {
-	next: (item: T) => void;
+export class Observer implements IObserver {
+	next: (item: any) => void;
 	error?: (err: any) => void;
 
-	constructor(next: (item: T) => void, error?: any) {
+	constructor(next: (item: any) => void, error?: any) {
 		this.next = next;
 		this.error = error;
 	}

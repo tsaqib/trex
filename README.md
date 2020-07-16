@@ -1,5 +1,8 @@
-# Reactive Extension in TypeScript (TREX)
+## Reactive Extension in TypeScript (TRex)
 
-# Tests
+## Tests
 
 ```npm run test:watch```
+
+## Roadmap
+
