@@ -1,8 +1,8 @@
-import { Observable } from './Observable';
-import { IObservable } from './IObservable';
-import { IObserver } from './IObserver';
-import { LinkedList } from './CommonHelpers';
-import { ObservableBase } from './ObservableBase';
+import { Observable } from '../Observable';
+import { IObservable } from '../IObservable';
+import { IObserver } from '../IObserver';
+import { LinkedList } from '../CommonHelpers';
+import { ObservableBase } from '../ObservableBase';
 
 export class OperatorBase extends ObservableBase {
 	fn: (item: any) => any;

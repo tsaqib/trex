@@ -11,6 +11,21 @@ test('An observer must recieve an emitted value from the observable.', () => {
 	expect(result).toStrictEqual([10]);
 });
 
+test('An observer can be added only once to an observable.', () => {
+	const result: number[] = [];
+	const observable = new TRex.Observable();
+	const observer = new TRex.Observer((num) => {
+		result.push(num);
+	});
+	observable.subscribe(observer);
+
+	// Intentionally add two more of the same observer
+	observable.subscribe(observer);
+	observable.subscribe(observer);
+	observable.emit(10);
+	expect(result).toStrictEqual([10]);
+});
+
 test('Observer pipe can operate on recieved values.', () => {
 	const result: number[] = [];
 	const observable = new TRex.Observable();

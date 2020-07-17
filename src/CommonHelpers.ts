@@ -1,7 +1,7 @@
 // const pipe = (...fns) => (item) => fns.reduce((acc, fn) => fn(acc), item);
 
-import { MapOperator } from './MapOperator';
-import { FilterOperator } from './FilterOperator';
+import { MapOperator } from './operators/MapOperator';
+import { FilterOperator } from './operators/FilterOperator';
 import { IObservable } from './IObservable';
 
 export type LinkedList<T> = {

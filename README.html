@@ -1,0 +1,1120 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+<ul>
+<li><a href="#tsaqibtrex">@tsaqib/trex</a></li>
+<li><a href="#reactive-extension-in-typescript-trex">Reactive Extension in TypeScript (TRex)</a></li>
+<li><a href="#examples">Examples:</a></li>
+<li><a href="#tests">Tests</a></li>
+<li><a href="#build-documentation">Build documentation</a></li>
+<li><a href="#classes">Classes</a></li>
+<li><a href="#class-filteroperator">Class: FilterOperator</a><ul>
+<li><a href="#hierarchy">Hierarchy</a></li>
+<li><a href="#implements">Implements</a></li>
+<li><a href="#index">Index</a></li>
+<li><a href="#constructors">Constructors</a></li>
+<li><a href="#properties">Properties</a></li>
+<li><a href="#methods">Methods</a></li></ul></li>
+<li><a href="#class-mapoperator">Class: MapOperator</a><ul>
+<li><a href="#hierarchy-1">Hierarchy</a></li>
+<li><a href="#implements-1">Implements</a></li>
+<li><a href="#index-1">Index</a></li>
+<li><a href="#constructors-1">Constructors</a></li>
+<li><a href="#properties-1">Properties</a></li>
+<li><a href="#methods-1">Methods</a></li></ul></li>
+<li><a href="#class-observable">Class: Observable</a><ul>
+<li><a href="#hierarchy-2">Hierarchy</a></li>
+<li><a href="#implements-2">Implements</a></li>
+<li><a href="#index-2">Index</a></li>
+<li><a href="#constructors-2">Constructors</a></li>
+<li><a href="#properties-2">Properties</a></li>
+<li><a href="#methods-2">Methods</a></li></ul></li>
+<li><a href="#class-observablebase">Class: ObservableBase</a><ul>
+<li><a href="#hierarchy-3">Hierarchy</a></li>
+<li><a href="#implements-3">Implements</a></li>
+<li><a href="#index-3">Index</a></li>
+<li><a href="#constructors-3">Constructors</a></li>
+<li><a href="#properties-3">Properties</a></li>
+<li><a href="#methods-3">Methods</a></li></ul></li>
+<li><a href="#class-observer">Class: Observer</a><ul>
+<li><a href="#hierarchy-4">Hierarchy</a></li>
+<li><a href="#implements-4">Implements</a></li>
+<li><a href="#index-4">Index</a></li>
+<li><a href="#constructors-4">Constructors</a></li>
+<li><a href="#properties-4">Properties</a></li></ul></li>
+<li><a href="#class-observermaps">Class: ObserverMaps</a><ul>
+<li><a href="#hierarchy-5">Hierarchy</a></li>
+<li><a href="#index-5">Index</a></li>
+<li><a href="#constructors-5">Constructors</a></li>
+<li><a href="#properties-5">Properties</a></li>
+<li><a href="#methods-4">Methods</a></li></ul></li>
+<li><a href="#class-operatorbase">Class: OperatorBase</a><ul>
+<li><a href="#hierarchy-6">Hierarchy</a></li>
+<li><a href="#implements-5">Implements</a></li>
+<li><a href="#index-6">Index</a></li>
+<li><a href="#constructors-6">Constructors</a></li>
+<li><a href="#properties-6">Properties</a></li>
+<li><a href="#methods-5">Methods</a></li></ul></li>
+<li><a href="#tsaqibtrex-1">@tsaqib/trex</a></li>
+<li><a href="#index-7">Index</a><ul>
+<li><a href="#classes-1">Classes</a></li>
+<li><a href="#interfaces">Interfaces</a></li>
+<li><a href="#type-aliases">Type aliases</a></li>
+<li><a href="#functions">Functions</a></li></ul></li>
+<li><a href="#type-aliases-1">Type aliases</a><ul>
+<li><a href="#linkedlist">LinkedList</a></li>
+<li><a href="#observermap">ObserverMap</a></li></ul></li>
+<li><a href="#functions-1">Functions</a><ul>
+<li><a href="#const-filter"><code>Const</code> filter</a></li>
+<li><a href="#const-map"><code>Const</code> map</a></li>
+<li><a href="#const-pipe"><code>Const</code> pipe</a></li>
+<li><a href="#const-tap"><code>Const</code> tap</a></li></ul></li>
+<li><a href="#interfaces-1">Interfaces</a></li>
+<li><a href="#interface-iobservable">Interface: IObservable</a><ul>
+<li><a href="#hierarchy-7">Hierarchy</a></li>
+<li><a href="#implemented-by">Implemented by</a></li>
+<li><a href="#index-8">Index</a></li>
+<li><a href="#properties-7">Properties</a></li>
+<li><a href="#methods-6">Methods</a></li></ul></li>
+<li><a href="#interface-iobserver">Interface: IObserver</a><ul>
+<li><a href="#hierarchy-8">Hierarchy</a></li>
+<li><a href="#implemented-by-1">Implemented by</a></li>
+<li><a href="#index-9">Index</a></li>
+<li><a href="#properties-8">Properties</a></li>
+<li><a href="#methods-7">Methods</a></li></ul></li>
+</ul>
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+<p><a name="readmemd"></a></p>
+<p><a href="#readmemd">@tsaqib/trex</a> › <a href="#globalsmd">Globals</a></p>
+<h1 id="tsaqibtrex">@tsaqib/trex</h1>
+<h2 id="reactiveextensionintypescripttrex">Reactive Extension in TypeScript (TRex)</h2>
+<p>This package helps you do functional reactive programming both on server-side and front-end apps. It helps you define and destroy data streams easily which works as an event bus. You can subscribe
+and unsubscribe to the streams. You can perform map, filter and pass on your own functions both at the observables and observers level.</p>
+<p>The computations that each of ours activities cause for free applications such as Facebook and Google are incredibly expensive. Even if you had billions of dollars an optimized and profitable solution squeezing out of those dollars is still very much non-trivial. Such immense scale applications we use everyday are built on top of the reactive programming paradigm to help them process data only when needed. Only responding to a relevant query results in massive cost savings.</p>
+<h2 id="examples">Examples:</h2>
+<pre><code class="typescript language-typescript">import * as TRex from '@tsaqib/trex';
+
+const messageObservable = new TRex.Observable();
+const workflowWorker = new TRex.Observer((message) =&gt; {
+    // TODO: start a workflow
+});
+const coworkersNotifier = new TRex.Observer((message) =&gt; {
+    TRex.pipe(
+        (message: string) =&gt; formatMessage(message),
+        TRex.tap((num) =&gt; console.log(`Sending message: ${message}`)),
+        (message: string) =&gt; emailer.send(message)
+    );
+});
+const analyticsTracker = new TRex.Observer((message) =&gt; {
+    // TODO: track analytics
+});
+
+messageObservable
+    .pipe(
+        TRex.map((message) =&gt; parseJSON(message)),
+        TRex.map((json) =&gt; validateMessage(json)),
+        TRex.filter((message) =&gt; message.urgent)
+    )
+    .multicast(workflowWorker, coworkersNotifier, analyticsTracker);
+
+observable.emit(`{ message: "I'm sick.", to: "Office", urgent: true }`);
+</code></pre>
+<h2 id="tests">Tests</h2>
+<p><code>npm run test:watch</code></p>
+<h2 id="builddocumentation">Build documentation</h2>
+<p><code>npm run build:docs</code></p>
+<h1 id="classes">Classes</h1>
+<p><a name="classesfilteroperatormd"></a></p>
+<p><a href="#readmemd">@tsaqib/trex</a> › <a href="#globalsmd">Globals</a> › <a href="#classesfilteroperatormd">FilterOperator</a></p>
+<h2 id="classfilteroperator">Class: FilterOperator</h2>
+<h3 id="hierarchy">Hierarchy</h3>
+<p>↳ <a href="#classesoperatorbasemd">OperatorBase</a></p>
+<p>↳ <strong>FilterOperator</strong></p>
+<h3 id="implements">Implements</h3>
+<ul>
+<li><a href="#interfacesiobservablemd">IObservable</a></li>
+</ul>
+<h3 id="index">Index</h3>
+<h4 id="constructors">Constructors</h4>
+<ul>
+<li><a href="#constructor">constructor</a></li>
+</ul>
+<h4 id="properties">Properties</h4>
+<ul>
+<li><a href="#fn">fn</a></li>
+<li><a href="#observable">observable</a></li>
+<li><a href="#observers">observers</a></li>
+<li><a href="#optional-pipehead">pipeHead</a></li>
+</ul>
+<h4 id="methods">Methods</h4>
+<ul>
+<li><a href="#destroy">destroy</a></li>
+<li><a href="#emit">emit</a></li>
+<li><a href="#multicast">multicast</a></li>
+<li><a href="#pipe">pipe</a></li>
+<li><a href="#subscribe">subscribe</a></li>
+<li><a href="#unsubscribe">unsubscribe</a></li>
+</ul>
+<h3 id="constructors-1">Constructors</h3>
+<h4 id="constructor-NaN">constructor</h4>
+<p>+ <strong>new FilterOperator</strong>(<code>fn</code>: function): <em><a href="#classesfilteroperatormd">FilterOperator</a></em></p>
+<p><em>Inherited from <a href="#classesoperatorbasemd">OperatorBase</a>.<a href="#constructor">constructor</a></em></p>
+<p><em>Overrides <a href="#classesobservablebasemd">ObservableBase</a>.<a href="#constructor">constructor</a></em></p>
+<p>Defined in operators/OperatorBase.ts:10</p>
+<p><strong>Parameters:</strong></p>
+<p>▪ <strong>fn</strong>: <em>function</em></p>
+<p>▸ (<code>item</code>: any): <em>any</em></p>
+<p><strong>Parameters:</strong></p>
+<p>Name | Type |
+------ | ------ |
+<code>item</code> | any |</p>
+<p><strong>Returns:</strong> <em><a href="#classesfilteroperatormd">FilterOperator</a></em></p>
+<h3 id="properties-1">Properties</h3>
+<h4 id="fn">fn</h4>
+<p>• <strong>fn</strong>: <em>function</em></p>
+<p><em>Inherited from <a href="#classesoperatorbasemd">OperatorBase</a>.<a href="#fn">fn</a></em></p>
+<p>Defined in operators/OperatorBase.ts:8</p>
+<h5 id="typedeclaration">Type declaration:</h5>
+<p>▸ (<code>item</code>: any): <em>any</em></p>
+<p><strong>Parameters:</strong></p>
+<p>Name | Type |
+------ | ------ |
+<code>item</code> | any |</p>
+<hr />
+<h4 id="observable">observable</h4>
+<p>• <strong>observable</strong>: <em><a href="#interfacesiobservablemd">IObservable</a></em></p>
+<p><em>Inherited from <a href="#classesoperatorbasemd">OperatorBase</a>.<a href="#observable">observable</a></em></p>
+<p>Defined in operators/OperatorBase.ts:9</p>
+<hr />
+<h4 id="observers">observers</h4>
+<p>• <strong>observers</strong>: <em><a href="#interfacesiobservermd">IObserver</a>[]</em></p>
+<p><em>Inherited from <a href="#classesobservablebasemd">ObservableBase</a>.<a href="#observers">observers</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/b6fab0f/src/ObservableBase.ts#L14">ObservableBase.ts:14</a></em></p>
+<hr />
+<h4 id="optionalpipehead"><code>Optional</code> pipeHead</h4>
+<p>• <strong>pipeHead</strong>? : <em><a href="#linkedlist">LinkedList</a>‹<a href="#interfacesiobservablemd">IObservable</a>›</em></p>
+<p><em>Implementation of <a href="#interfacesiobservablemd">IObservable</a>.<a href="#optional-pipehead">pipeHead</a></em></p>
+<p><em>Inherited from <a href="#classesoperatorbasemd">OperatorBase</a>.<a href="#optional-pipehead">pipeHead</a></em></p>
+<p><em>Overrides <a href="#classesobservablebasemd">ObservableBase</a>.<a href="#optional-pipehead">pipeHead</a></em></p>
+<p>Defined in operators/OperatorBase.ts:10</p>
+<h3 id="methods-1">Methods</h3>
+<h4 id="destroy">destroy</h4>
+<p>▸ <strong>destroy</strong>(): <em>void</em></p>
+<p><em>Implementation of <a href="#interfacesiobservablemd">IObservable</a></em></p>
+<p><em>Inherited from <a href="#classesobservablebasemd">ObservableBase</a>.<a href="#destroy">destroy</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/b6fab0f/src/ObservableBase.ts#L100">ObservableBase.ts:100</a></em></p>
+<p><strong>Returns:</strong> <em>void</em></p>
+<hr />
+<h4 id="emit">emit</h4>
+<p>▸ <strong>emit</strong>(<code>item</code>: any): <em>void</em></p>
+<p><em>Implementation of <a href="#interfacesiobservablemd">IObservable</a></em></p>
+<p><em>Overrides <a href="#classesoperatorbasemd">OperatorBase</a>.<a href="#emit">emit</a></em></p>
+<p>Defined in operators/FilterOperator.ts:4</p>
+<p><strong>Parameters:</strong></p>
+<p>Name | Type |
+------ | ------ |
+<code>item</code> | any |</p>
+<p><strong>Returns:</strong> <em>void</em></p>
+<hr />
+<h4 id="multicast">multicast</h4>
+<p>▸ <strong>multicast</strong>(…<code>observers</code>: <a href="#interfacesiobservermd">IObserver</a>[]): <em>void</em></p>
+<p><em>Implementation of <a href="#interfacesiobservablemd">IObservable</a></em></p>
+<p><em>Inherited from <a href="#classesobservablebasemd">ObservableBase</a>.<a href="#multicast">multicast</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/b6fab0f/src/ObservableBase.ts#L88">ObservableBase.ts:88</a></em></p>
+<p><strong>Parameters:</strong></p>
+<p>Name | Type |
+------ | ------ |
+<code>...observers</code> | <a href="#interfacesiobservermd">IObserver</a>[] |</p>
+<p><strong>Returns:</strong> <em>void</em></p>
+<hr />
+<h4 id="pipe">pipe</h4>
+<p>▸ <strong>pipe</strong>(…<code>observables</code>: <a href="#interfacesiobservablemd">IObservable</a>[]): <em>never</em></p>
+<p><em>Implementation of <a href="#interfacesiobservablemd">IObservable</a></em></p>
+<p><em>Inherited from <a href="#classesoperatorbasemd">OperatorBase</a>.<a href="#pipe">pipe</a></em></p>
+<p><em>Overrides <a href="#classesobservablebasemd">ObservableBase</a>.<a href="#pipe">pipe</a></em></p>
+<p>Defined in operators/OperatorBase.ts:26</p>
+<p><strong>Parameters:</strong></p>
+<p>Name | Type |
+------ | ------ |
+<code>...observables</code> | <a href="#interfacesiobservablemd">IObservable</a>[] |</p>
+<p><strong>Returns:</strong> <em>never</em></p>
+<hr />
+<h4 id="subscribe">subscribe</h4>
+<p>▸ <strong>subscribe</strong>(<code>observer</code>: <a href="#interfacesiobservermd">IObserver</a>): <em>void</em></p>
+<p><em>Implementation of <a href="#interfacesiobservablemd">IObservable</a></em></p>
+<p><em>Inherited from <a href="#classesoperatorbasemd">OperatorBase</a>.<a href="#subscribe">subscribe</a></em></p>
+<p><em>Overrides <a href="#classesobservablebasemd">ObservableBase</a>.<a href="#subscribe">subscribe</a></em></p>
+<p>Defined in operators/OperatorBase.ts:18</p>
+<p><strong>Parameters:</strong></p>
+<p>Name | Type |
+------ | ------ |
+<code>observer</code> | <a href="#interfacesiobservermd">IObserver</a> |</p>
+<p><strong>Returns:</strong> <em>void</em></p>
+<hr />
+<h4 id="unsubscribe">unsubscribe</h4>
+<p>▸ <strong>unsubscribe</strong>(<code>observer</code>: <a href="#interfacesiobservermd">IObserver</a>): <em>void</em></p>
+<p><em>Implementation of <a href="#interfacesiobservablemd">IObservable</a></em></p>
+<p><em>Inherited from <a href="#classesobservablebasemd">ObservableBase</a>.<a href="#unsubscribe">unsubscribe</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/b6fab0f/src/ObservableBase.ts#L28">ObservableBase.ts:28</a></em></p>
+<p><strong>Parameters:</strong></p>
+<p>Name | Type |
+------ | ------ |
+<code>observer</code> | <a href="#interfacesiobservermd">IObserver</a> |</p>
+<p><strong>Returns:</strong> <em>void</em></p>
+<p><a name="classesmapoperatormd"></a></p>
+<p><a href="#readmemd">@tsaqib/trex</a> › <a href="#globalsmd">Globals</a> › <a href="#classesmapoperatormd">MapOperator</a></p>
+<h2 id="classmapoperator">Class: MapOperator</h2>
+<h3 id="hierarchy-1">Hierarchy</h3>
+<p>↳ <a href="#classesoperatorbasemd">OperatorBase</a></p>
+<p>↳ <strong>MapOperator</strong></p>
+<h3 id="implements-1">Implements</h3>
+<ul>
+<li><a href="#interfacesiobservablemd">IObservable</a></li>
+</ul>
+<h3 id="index-1">Index</h3>
+<h4 id="constructors-2">Constructors</h4>
+<ul>
+<li><a href="#constructor">constructor</a></li>
+</ul>
+<h4 id="properties-2">Properties</h4>
+<ul>
+<li><a href="#fn">fn</a></li>
+<li><a href="#observable">observable</a></li>
+<li><a href="#observers">observers</a></li>
+<li><a href="#optional-pipehead">pipeHead</a></li>
+</ul>
+<h4 id="methods-2">Methods</h4>
+<ul>
+<li><a href="#destroy">destroy</a></li>
+<li><a href="#emit">emit</a></li>
+<li><a href="#multicast">multicast</a></li>
+<li><a href="#pipe">pipe</a></li>
+<li><a href="#subscribe">subscribe</a></li>
+<li><a href="#unsubscribe">unsubscribe</a></li>
+</ul>
+<h3 id="constructors-3">Constructors</h3>
+<h4 id="constructor">constructor</h4>
+<p>+ <strong>new MapOperator</strong>(<code>fn</code>: function): <em><a href="#classesmapoperatormd">MapOperator</a></em></p>
+<p><em>Inherited from <a href="#classesoperatorbasemd">OperatorBase</a>.<a href="#constructor">constructor</a></em></p>
+<p><em>Overrides <a href="#classesobservablebasemd">ObservableBase</a>.<a href="#constructor">constructor</a></em></p>
+<p>Defined in operators/OperatorBase.ts:10</p>
+<p><strong>Parameters:</strong></p>
+<p>▪ <strong>fn</strong>: <em>function</em></p>
+<p>▸ (<code>item</code>: any): <em>any</em></p>
+<p><strong>Parameters:</strong></p>
+<p>Name | Type |
+------ | ------ |
+<code>item</code> | any |</p>
+<p><strong>Returns:</strong> <em><a href="#classesmapoperatormd">MapOperator</a></em></p>
+<h3 id="properties-3">Properties</h3>
+<h4 id="fn-1">fn</h4>
+<p>• <strong>fn</strong>: <em>function</em></p>
+<p><em>Inherited from <a href="#classesoperatorbasemd">OperatorBase</a>.<a href="#fn">fn</a></em></p>
+<p>Defined in operators/OperatorBase.ts:8</p>
+<h5 id="typedeclaration-1">Type declaration:</h5>
+<p>▸ (<code>item</code>: any): <em>any</em></p>
+<p><strong>Parameters:</strong></p>
+<p>Name | Type |
+------ | ------ |
+<code>item</code> | any |</p>
+<hr />
+<h4 id="observable-1">observable</h4>
+<p>• <strong>observable</strong>: <em><a href="#interfacesiobservablemd">IObservable</a></em></p>
+<p><em>Inherited from <a href="#classesoperatorbasemd">OperatorBase</a>.<a href="#observable">observable</a></em></p>
+<p>Defined in operators/OperatorBase.ts:9</p>
+<hr />
+<h4 id="observers-1">observers</h4>
+<p>• <strong>observers</strong>: <em><a href="#interfacesiobservermd">IObserver</a>[]</em></p>
+<p><em>Inherited from <a href="#classesobservablebasemd">ObservableBase</a>.<a href="#observers">observers</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/b6fab0f/src/ObservableBase.ts#L14">ObservableBase.ts:14</a></em></p>
+<hr />
+<h4 id="optionalpipehead-1"><code>Optional</code> pipeHead</h4>
+<p>• <strong>pipeHead</strong>? : <em><a href="#linkedlist">LinkedList</a>‹<a href="#interfacesiobservablemd">IObservable</a>›</em></p>
+<p><em>Implementation of <a href="#interfacesiobservablemd">IObservable</a>.<a href="#optional-pipehead">pipeHead</a></em></p>
+<p><em>Inherited from <a href="#classesoperatorbasemd">OperatorBase</a>.<a href="#optional-pipehead">pipeHead</a></em></p>
+<p><em>Overrides <a href="#classesobservablebasemd">ObservableBase</a>.<a href="#optional-pipehead">pipeHead</a></em></p>
+<p>Defined in operators/OperatorBase.ts:10</p>
+<h3 id="methods-3">Methods</h3>
+<h4 id="destroy-1">destroy</h4>
+<p>▸ <strong>destroy</strong>(): <em>void</em></p>
+<p><em>Implementation of <a href="#interfacesiobservablemd">IObservable</a></em></p>
+<p><em>Inherited from <a href="#classesobservablebasemd">ObservableBase</a>.<a href="#destroy">destroy</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/b6fab0f/src/ObservableBase.ts#L100">ObservableBase.ts:100</a></em></p>
+<p><strong>Returns:</strong> <em>void</em></p>
+<hr />
+<h4 id="emit-1">emit</h4>
+<p>▸ <strong>emit</strong>(<code>item</code>: any): <em>void</em></p>
+<p><em>Implementation of <a href="#interfacesiobservablemd">IObservable</a></em></p>
+<p><em>Inherited from <a href="#classesoperatorbasemd">OperatorBase</a>.<a href="#emit">emit</a></em></p>
+<p><em>Overrides <a href="#classesobservablebasemd">ObservableBase</a>.<a href="#emit">emit</a></em></p>
+<p>Defined in operators/OperatorBase.ts:22</p>
+<p><strong>Parameters:</strong></p>
+<p>Name | Type |
+------ | ------ |
+<code>item</code> | any |</p>
+<p><strong>Returns:</strong> <em>void</em></p>
+<hr />
+<h4 id="multicast-1">multicast</h4>
+<p>▸ <strong>multicast</strong>(…<code>observers</code>: <a href="#interfacesiobservermd">IObserver</a>[]): <em>void</em></p>
+<p><em>Implementation of <a href="#interfacesiobservablemd">IObservable</a></em></p>
+<p><em>Inherited from <a href="#classesobservablebasemd">ObservableBase</a>.<a href="#multicast">multicast</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/b6fab0f/src/ObservableBase.ts#L88">ObservableBase.ts:88</a></em></p>
+<p><strong>Parameters:</strong></p>
+<p>Name | Type |
+------ | ------ |
+<code>...observers</code> | <a href="#interfacesiobservermd">IObserver</a>[] |</p>
+<p><strong>Returns:</strong> <em>void</em></p>
+<hr />
+<h4 id="pipe-1">pipe</h4>
+<p>▸ <strong>pipe</strong>(…<code>observables</code>: <a href="#interfacesiobservablemd">IObservable</a>[]): <em>never</em></p>
+<p><em>Implementation of <a href="#interfacesiobservablemd">IObservable</a></em></p>
+<p><em>Inherited from <a href="#classesoperatorbasemd">OperatorBase</a>.<a href="#pipe">pipe</a></em></p>
+<p><em>Overrides <a href="#classesobservablebasemd">ObservableBase</a>.<a href="#pipe">pipe</a></em></p>
+<p>Defined in operators/OperatorBase.ts:26</p>
+<p><strong>Parameters:</strong></p>
+<p>Name | Type |
+------ | ------ |
+<code>...observables</code> | <a href="#interfacesiobservablemd">IObservable</a>[] |</p>
+<p><strong>Returns:</strong> <em>never</em></p>
+<hr />
+<h4 id="subscribe-1">subscribe</h4>
+<p>▸ <strong>subscribe</strong>(<code>observer</code>: <a href="#interfacesiobservermd">IObserver</a>): <em>void</em></p>
+<p><em>Implementation of <a href="#interfacesiobservablemd">IObservable</a></em></p>
+<p><em>Inherited from <a href="#classesoperatorbasemd">OperatorBase</a>.<a href="#subscribe">subscribe</a></em></p>
+<p><em>Overrides <a href="#classesobservablebasemd">ObservableBase</a>.<a href="#subscribe">subscribe</a></em></p>
+<p>Defined in operators/OperatorBase.ts:18</p>
+<p><strong>Parameters:</strong></p>
+<p>Name | Type |
+------ | ------ |
+<code>observer</code> | <a href="#interfacesiobservermd">IObserver</a> |</p>
+<p><strong>Returns:</strong> <em>void</em></p>
+<hr />
+<h4 id="unsubscribe-1">unsubscribe</h4>
+<p>▸ <strong>unsubscribe</strong>(<code>observer</code>: <a href="#interfacesiobservermd">IObserver</a>): <em>void</em></p>
+<p><em>Implementation of <a href="#interfacesiobservablemd">IObservable</a></em></p>
+<p><em>Inherited from <a href="#classesobservablebasemd">ObservableBase</a>.<a href="#unsubscribe">unsubscribe</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/b6fab0f/src/ObservableBase.ts#L28">ObservableBase.ts:28</a></em></p>
+<p><strong>Parameters:</strong></p>
+<p>Name | Type |
+------ | ------ |
+<code>observer</code> | <a href="#interfacesiobservermd">IObserver</a> |</p>
+<p><strong>Returns:</strong> <em>void</em></p>
+<p><a name="classesobservablemd"></a></p>
+<p><a href="#readmemd">@tsaqib/trex</a> › <a href="#globalsmd">Globals</a> › <a href="#classesobservablemd">Observable</a></p>
+<h2 id="classobservable">Class: Observable</h2>
+<p>The first class you must instantiate is the <code>Observable</code>. An <code>Observable</code> listens to the
+streams of data and passes on to its observers. You use the <code>subscribe</code> function to subscribe
+and <code>emit</code> function to add a new data to the stream.</p>
+<p><code>Observer</code> is essentially a placeholder for <code>ObservableBase</code>. Most of the logic is inside the
+latter.</p>
+<h3 id="hierarchy-2">Hierarchy</h3>
+<ul>
+<li><p><a href="#classesobservablebasemd">ObservableBase</a></p>
+<p>↳ <strong>Observable</strong></p></li>
+</ul>
+<h3 id="implements-2">Implements</h3>
+<ul>
+<li><a href="#interfacesiobservablemd">IObservable</a></li>
+</ul>
+<h3 id="index-2">Index</h3>
+<h4 id="constructors-4">Constructors</h4>
+<ul>
+<li><a href="#constructor">constructor</a></li>
+</ul>
+<h4 id="properties-4">Properties</h4>
+<ul>
+<li><a href="#observers">observers</a></li>
+<li><a href="#optional-pipehead">pipeHead</a></li>
+</ul>
+<h4 id="methods-4">Methods</h4>
+<ul>
+<li><a href="#destroy">destroy</a></li>
+<li><a href="#emit">emit</a></li>
+<li><a href="#multicast">multicast</a></li>
+<li><a href="#pipe">pipe</a></li>
+<li><a href="#subscribe">subscribe</a></li>
+<li><a href="#unsubscribe">unsubscribe</a></li>
+</ul>
+<h3 id="constructors-5">Constructors</h3>
+<h4 id="constructor-1">constructor</h4>
+<p>+ <strong>new Observable</strong>(): <em><a href="#classesobservablemd">Observable</a></em></p>
+<p><em>Inherited from <a href="#classesobservablebasemd">ObservableBase</a>.<a href="#constructor">constructor</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/b6fab0f/src/ObservableBase.ts#L15">ObservableBase.ts:15</a></em></p>
+<p><strong>Returns:</strong> <em><a href="#classesobservablemd">Observable</a></em></p>
+<h3 id="properties-5">Properties</h3>
+<h4 id="observers-2">observers</h4>
+<p>• <strong>observers</strong>: <em><a href="#interfacesiobservermd">IObserver</a>[]</em></p>
+<p><em>Inherited from <a href="#classesobservablebasemd">ObservableBase</a>.<a href="#observers">observers</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/b6fab0f/src/ObservableBase.ts#L14">ObservableBase.ts:14</a></em></p>
+<hr />
+<h4 id="optionalpipehead-2"><code>Optional</code> pipeHead</h4>
+<p>• <strong>pipeHead</strong>? : <em><a href="#linkedlist">LinkedList</a>‹<a href="#interfacesiobservablemd">IObservable</a>›</em></p>
+<p><em>Implementation of <a href="#interfacesiobservablemd">IObservable</a>.<a href="#optional-pipehead">pipeHead</a></em></p>
+<p><em>Inherited from <a href="#classesobservablebasemd">ObservableBase</a>.<a href="#optional-pipehead">pipeHead</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/b6fab0f/src/ObservableBase.ts#L15">ObservableBase.ts:15</a></em></p>
+<h3 id="methods-5">Methods</h3>
+<h4 id="destroy-2">destroy</h4>
+<p>▸ <strong>destroy</strong>(): <em>void</em></p>
+<p><em>Implementation of <a href="#interfacesiobservablemd">IObservable</a></em></p>
+<p><em>Inherited from <a href="#classesobservablebasemd">ObservableBase</a>.<a href="#destroy">destroy</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/b6fab0f/src/ObservableBase.ts#L100">ObservableBase.ts:100</a></em></p>
+<p><strong>Returns:</strong> <em>void</em></p>
+<hr />
+<h4 id="emit-2">emit</h4>
+<p>▸ <strong>emit</strong>(<code>item</code>: any): <em>void</em></p>
+<p><em>Implementation of <a href="#interfacesiobservablemd">IObservable</a></em></p>
+<p><em>Inherited from <a href="#classesobservablebasemd">ObservableBase</a>.<a href="#emit">emit</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/b6fab0f/src/ObservableBase.ts#L50">ObservableBase.ts:50</a></em></p>
+<p><strong>Parameters:</strong></p>
+<p>Name | Type |
+------ | ------ |
+<code>item</code> | any |</p>
+<p><strong>Returns:</strong> <em>void</em></p>
+<hr />
+<h4 id="multicast-2">multicast</h4>
+<p>▸ <strong>multicast</strong>(…<code>observers</code>: <a href="#interfacesiobservermd">IObserver</a>[]): <em>void</em></p>
+<p><em>Implementation of <a href="#interfacesiobservablemd">IObservable</a></em></p>
+<p><em>Inherited from <a href="#classesobservablebasemd">ObservableBase</a>.<a href="#multicast">multicast</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/b6fab0f/src/ObservableBase.ts#L88">ObservableBase.ts:88</a></em></p>
+<p><strong>Parameters:</strong></p>
+<p>Name | Type |
+------ | ------ |
+<code>...observers</code> | <a href="#interfacesiobservermd">IObserver</a>[] |</p>
+<p><strong>Returns:</strong> <em>void</em></p>
+<hr />
+<h4 id="pipe-2">pipe</h4>
+<p>▸ <strong>pipe</strong>(…<code>observables</code>: <a href="#interfacesiobservablemd">IObservable</a>[]): <em><a href="#interfacesiobservablemd">IObservable</a></em></p>
+<p><em>Implementation of <a href="#interfacesiobservablemd">IObservable</a></em></p>
+<p><em>Inherited from <a href="#classesobservablebasemd">ObservableBase</a>.<a href="#pipe">pipe</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/b6fab0f/src/ObservableBase.ts#L66">ObservableBase.ts:66</a></em></p>
+<p><strong>Parameters:</strong></p>
+<p>Name | Type |
+------ | ------ |
+<code>...observables</code> | <a href="#interfacesiobservablemd">IObservable</a>[] |</p>
+<p><strong>Returns:</strong> <em><a href="#interfacesiobservablemd">IObservable</a></em></p>
+<hr />
+<h4 id="subscribe-2">subscribe</h4>
+<p>▸ <strong>subscribe</strong>(<code>observer</code>: <a href="#interfacesiobservermd">IObserver</a>): <em>void</em></p>
+<p><em>Implementation of <a href="#interfacesiobservablemd">IObservable</a></em></p>
+<p><em>Inherited from <a href="#classesobservablebasemd">ObservableBase</a>.<a href="#subscribe">subscribe</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/b6fab0f/src/ObservableBase.ts#L22">ObservableBase.ts:22</a></em></p>
+<p><strong>Parameters:</strong></p>
+<p>Name | Type |
+------ | ------ |
+<code>observer</code> | <a href="#interfacesiobservermd">IObserver</a> |</p>
+<p><strong>Returns:</strong> <em>void</em></p>
+<hr />
+<h4 id="unsubscribe-2">unsubscribe</h4>
+<p>▸ <strong>unsubscribe</strong>(<code>observer</code>: <a href="#interfacesiobservermd">IObserver</a>): <em>void</em></p>
+<p><em>Implementation of <a href="#interfacesiobservablemd">IObservable</a></em></p>
+<p><em>Inherited from <a href="#classesobservablebasemd">ObservableBase</a>.<a href="#unsubscribe">unsubscribe</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/b6fab0f/src/ObservableBase.ts#L28">ObservableBase.ts:28</a></em></p>
+<p><strong>Parameters:</strong></p>
+<p>Name | Type |
+------ | ------ |
+<code>observer</code> | <a href="#interfacesiobservermd">IObserver</a> |</p>
+<p><strong>Returns:</strong> <em>void</em></p>
+<p><a name="classesobservablebasemd"></a></p>
+<p><a href="#readmemd">@tsaqib/trex</a> › <a href="#globalsmd">Globals</a> › <a href="#classesobservablebasemd">ObservableBase</a></p>
+<h2 id="classobservablebase">Class: ObservableBase</h2>
+<p>The <code>ObservableBase</code> class, implements <code>IObservable</code>, but is not for public instantiation.
+The first class you must instantiate is the <code>Observable</code> which is a placeholder for
+<code>ObservableBase</code>.</p>
+<h3 id="hierarchy-3">Hierarchy</h3>
+<ul>
+<li><p><strong>ObservableBase</strong></p>
+<p>↳ <a href="#classesobservablemd">Observable</a></p>
+<p>↳ <a href="#classesoperatorbasemd">OperatorBase</a></p></li>
+</ul>
+<h3 id="implements-3">Implements</h3>
+<ul>
+<li><a href="#interfacesiobservablemd">IObservable</a></li>
+</ul>
+<h3 id="index-3">Index</h3>
+<h4 id="constructors-6">Constructors</h4>
+<ul>
+<li><a href="#constructor">constructor</a></li>
+</ul>
+<h4 id="properties-6">Properties</h4>
+<ul>
+<li><a href="#observers">observers</a></li>
+<li><a href="#optional-pipehead">pipeHead</a></li>
+</ul>
+<h4 id="methods-6">Methods</h4>
+<ul>
+<li><a href="#destroy">destroy</a></li>
+<li><a href="#emit">emit</a></li>
+<li><a href="#multicast">multicast</a></li>
+<li><a href="#pipe">pipe</a></li>
+<li><a href="#subscribe">subscribe</a></li>
+<li><a href="#unsubscribe">unsubscribe</a></li>
+</ul>
+<h3 id="constructors-7">Constructors</h3>
+<h4 id="constructor-2">constructor</h4>
+<p>+ <strong>new ObservableBase</strong>(): <em><a href="#classesobservablebasemd">ObservableBase</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/b6fab0f/src/ObservableBase.ts#L15">ObservableBase.ts:15</a></em></p>
+<p><strong>Returns:</strong> <em><a href="#classesobservablebasemd">ObservableBase</a></em></p>
+<h3 id="properties-7">Properties</h3>
+<h4 id="observers-3">observers</h4>
+<p>• <strong>observers</strong>: <em><a href="#interfacesiobservermd">IObserver</a>[]</em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/b6fab0f/src/ObservableBase.ts#L14">ObservableBase.ts:14</a></em></p>
+<hr />
+<h4 id="optionalpipehead-3"><code>Optional</code> pipeHead</h4>
+<p>• <strong>pipeHead</strong>? : <em><a href="#linkedlist">LinkedList</a>‹<a href="#interfacesiobservablemd">IObservable</a>›</em></p>
+<p><em>Implementation of <a href="#interfacesiobservablemd">IObservable</a>.<a href="#optional-pipehead">pipeHead</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/b6fab0f/src/ObservableBase.ts#L15">ObservableBase.ts:15</a></em></p>
+<h3 id="methods-7">Methods</h3>
+<h4 id="destroy-3">destroy</h4>
+<p>▸ <strong>destroy</strong>(): <em>void</em></p>
+<p><em>Implementation of <a href="#interfacesiobservablemd">IObservable</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/b6fab0f/src/ObservableBase.ts#L100">ObservableBase.ts:100</a></em></p>
+<p><strong>Returns:</strong> <em>void</em></p>
+<hr />
+<h4 id="emit-3">emit</h4>
+<p>▸ <strong>emit</strong>(<code>item</code>: any): <em>void</em></p>
+<p><em>Implementation of <a href="#interfacesiobservablemd">IObservable</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/b6fab0f/src/ObservableBase.ts#L50">ObservableBase.ts:50</a></em></p>
+<p><strong>Parameters:</strong></p>
+<p>Name | Type |
+------ | ------ |
+<code>item</code> | any |</p>
+<p><strong>Returns:</strong> <em>void</em></p>
+<hr />
+<h4 id="multicast-3">multicast</h4>
+<p>▸ <strong>multicast</strong>(…<code>observers</code>: <a href="#interfacesiobservermd">IObserver</a>[]): <em>void</em></p>
+<p><em>Implementation of <a href="#interfacesiobservablemd">IObservable</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/b6fab0f/src/ObservableBase.ts#L88">ObservableBase.ts:88</a></em></p>
+<p><strong>Parameters:</strong></p>
+<p>Name | Type |
+------ | ------ |
+<code>...observers</code> | <a href="#interfacesiobservermd">IObserver</a>[] |</p>
+<p><strong>Returns:</strong> <em>void</em></p>
+<hr />
+<h4 id="pipe-3">pipe</h4>
+<p>▸ <strong>pipe</strong>(…<code>observables</code>: <a href="#interfacesiobservablemd">IObservable</a>[]): <em><a href="#interfacesiobservablemd">IObservable</a></em></p>
+<p><em>Implementation of <a href="#interfacesiobservablemd">IObservable</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/b6fab0f/src/ObservableBase.ts#L66">ObservableBase.ts:66</a></em></p>
+<p><strong>Parameters:</strong></p>
+<p>Name | Type |
+------ | ------ |
+<code>...observables</code> | <a href="#interfacesiobservablemd">IObservable</a>[] |</p>
+<p><strong>Returns:</strong> <em><a href="#interfacesiobservablemd">IObservable</a></em></p>
+<hr />
+<h4 id="subscribe-3">subscribe</h4>
+<p>▸ <strong>subscribe</strong>(<code>observer</code>: <a href="#interfacesiobservermd">IObserver</a>): <em>void</em></p>
+<p><em>Implementation of <a href="#interfacesiobservablemd">IObservable</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/b6fab0f/src/ObservableBase.ts#L22">ObservableBase.ts:22</a></em></p>
+<p><strong>Parameters:</strong></p>
+<p>Name | Type |
+------ | ------ |
+<code>observer</code> | <a href="#interfacesiobservermd">IObserver</a> |</p>
+<p><strong>Returns:</strong> <em>void</em></p>
+<hr />
+<h4 id="unsubscribe-3">unsubscribe</h4>
+<p>▸ <strong>unsubscribe</strong>(<code>observer</code>: <a href="#interfacesiobservermd">IObserver</a>): <em>void</em></p>
+<p><em>Implementation of <a href="#interfacesiobservablemd">IObservable</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/b6fab0f/src/ObservableBase.ts#L28">ObservableBase.ts:28</a></em></p>
+<p><strong>Parameters:</strong></p>
+<p>Name | Type |
+------ | ------ |
+<code>observer</code> | <a href="#interfacesiobservermd">IObserver</a> |</p>
+<p><strong>Returns:</strong> <em>void</em></p>
+<p><a name="classesobservermd"></a></p>
+<p><a href="#readmemd">@tsaqib/trex</a> › <a href="#globalsmd">Globals</a> › <a href="#classesobservermd">Observer</a></p>
+<h2 id="classobserver">Class: Observer</h2>
+<h3 id="hierarchy-4">Hierarchy</h3>
+<ul>
+<li><strong>Observer</strong></li>
+</ul>
+<h3 id="implements-4">Implements</h3>
+<ul>
+<li><a href="#interfacesiobservermd">IObserver</a></li>
+</ul>
+<h3 id="index-4">Index</h3>
+<h4 id="constructors-8">Constructors</h4>
+<ul>
+<li><a href="#constructor">constructor</a></li>
+</ul>
+<h4 id="properties-8">Properties</h4>
+<ul>
+<li><a href="#optional-error">error</a></li>
+<li><a href="#next">next</a></li>
+</ul>
+<h3 id="constructors-9">Constructors</h3>
+<h4 id="constructor-3">constructor</h4>
+<p>+ <strong>new Observer</strong>(<code>next</code>: function, <code>error?</code>: any): <em><a href="#classesobservermd">Observer</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/b6fab0f/src/Observer.ts#L5">Observer.ts:5</a></em></p>
+<p><strong>Parameters:</strong></p>
+<p>▪ <strong>next</strong>: <em>function</em></p>
+<p>▸ (<code>item</code>: any): <em>void</em></p>
+<p><strong>Parameters:</strong></p>
+<p>Name | Type |
+------ | ------ |
+<code>item</code> | any |</p>
+<p>▪<code>Optional</code>  <strong>error</strong>: <em>any</em></p>
+<p><strong>Returns:</strong> <em><a href="#classesobservermd">Observer</a></em></p>
+<h3 id="properties-9">Properties</h3>
+<h4 id="optionalerror"><code>Optional</code> error</h4>
+<p>• <strong>error</strong>? : <em>undefined | function</em></p>
+<p><em>Implementation of <a href="#interfacesiobservermd">IObserver</a>.<a href="#optional-error">error</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/b6fab0f/src/Observer.ts#L5">Observer.ts:5</a></em></p>
+<hr />
+<h4 id="next">next</h4>
+<p>• <strong>next</strong>: <em>function</em></p>
+<p><em>Implementation of <a href="#interfacesiobservermd">IObserver</a>.<a href="#next">next</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/b6fab0f/src/Observer.ts#L4">Observer.ts:4</a></em></p>
+<h5 id="typedeclaration-2">Type declaration:</h5>
+<p>▸ (<code>item</code>: any): <em>void</em></p>
+<p><strong>Parameters:</strong></p>
+<p>Name | Type |
+------ | ------ |
+<code>item</code> | any |</p>
+<p><a name="classesobservermapsmd"></a></p>
+<p><a href="#readmemd">@tsaqib/trex</a> › <a href="#globalsmd">Globals</a> › <a href="#classesobservermapsmd">ObserverMaps</a></p>
+<h2 id="classobservermaps">Class: ObserverMaps</h2>
+<h3 id="hierarchy-5">Hierarchy</h3>
+<ul>
+<li><strong>ObserverMaps</strong></li>
+</ul>
+<h3 id="index-5">Index</h3>
+<h4 id="constructors-10">Constructors</h4>
+<ul>
+<li><a href="#private-constructor">constructor</a></li>
+</ul>
+<h4 id="properties-10">Properties</h4>
+<ul>
+<li><a href="#static-maps">maps</a></li>
+</ul>
+<h4 id="methods-8">Methods</h4>
+<ul>
+<li><a href="#static-add">add</a></li>
+<li><a href="#static-get">get</a></li>
+<li><a href="#static-print">print</a></li>
+<li><a href="#static-remove">remove</a></li>
+</ul>
+<h3 id="constructors-11">Constructors</h3>
+<h4 id="privateconstructor"><code>Private</code> constructor</h4>
+<p>+ <strong>new ObserverMaps</strong>(): <em><a href="#classesobservermapsmd">ObserverMaps</a></em></p>
+<p>Defined in ObvserverMaps.ts:11</p>
+<p><strong>Returns:</strong> <em><a href="#classesobservermapsmd">ObserverMaps</a></em></p>
+<h3 id="properties-11">Properties</h3>
+<h4 id="staticmaps"><code>Static</code> maps</h4>
+<p>▪ <strong>maps</strong>: <em><a href="#observermap">ObserverMap</a>[]</em> = []</p>
+<p>Defined in ObvserverMaps.ts:13</p>
+<h3 id="methods-9">Methods</h3>
+<h4 id="staticadd"><code>Static</code> add</h4>
+<p>▸ <strong>add</strong>(<code>observer</code>: <a href="#interfacesiobservermd">IObserver</a>, <code>observable</code>: <a href="#interfacesiobservablemd">IObservable</a>, <code>chainHead?</code>: <a href="#linkedlist">LinkedList</a>‹<a href="#interfacesiobservablemd">IObservable</a>›): <em>void</em></p>
+<p>Defined in ObvserverMaps.ts:19</p>
+<p><strong>Parameters:</strong></p>
+<p>Name | Type |
+------ | ------ |
+<code>observer</code> | <a href="#interfacesiobservermd">IObserver</a> |
+<code>observable</code> | <a href="#interfacesiobservablemd">IObservable</a> |
+<code>chainHead?</code> | <a href="#linkedlist">LinkedList</a>‹<a href="#interfacesiobservablemd">IObservable</a>› |</p>
+<p><strong>Returns:</strong> <em>void</em></p>
+<hr />
+<h4 id="staticget"><code>Static</code> get</h4>
+<p>▸ <strong>get</strong>(<code>observer</code>: <a href="#interfacesiobservermd">IObserver</a>): <em><a href="#observermap">ObserverMap</a>[] | undefined</em></p>
+<p>Defined in ObvserverMaps.ts:27</p>
+<p><strong>Parameters:</strong></p>
+<p>Name | Type |
+------ | ------ |
+<code>observer</code> | <a href="#interfacesiobservermd">IObserver</a> |</p>
+<p><strong>Returns:</strong> <em><a href="#observermap">ObserverMap</a>[] | undefined</em></p>
+<hr />
+<h4 id="staticprint"><code>Static</code> print</h4>
+<p>▸ <strong>print</strong>(): <em>void</em></p>
+<p>Defined in ObvserverMaps.ts:15</p>
+<p><strong>Returns:</strong> <em>void</em></p>
+<hr />
+<h4 id="staticremove"><code>Static</code> remove</h4>
+<p>▸ <strong>remove</strong>(<code>map</code>: <a href="#observermap">ObserverMap</a>): <em>void</em></p>
+<p>Defined in ObvserverMaps.ts:31</p>
+<p><strong>Parameters:</strong></p>
+<p>Name | Type |
+------ | ------ |
+<code>map</code> | <a href="#observermap">ObserverMap</a> |</p>
+<p><strong>Returns:</strong> <em>void</em></p>
+<p><a name="classesoperatorbasemd"></a></p>
+<p><a href="#readmemd">@tsaqib/trex</a> › <a href="#globalsmd">Globals</a> › <a href="#classesoperatorbasemd">OperatorBase</a></p>
+<h2 id="classoperatorbase">Class: OperatorBase</h2>
+<h3 id="hierarchy-6">Hierarchy</h3>
+<ul>
+<li><p><a href="#classesobservablebasemd">ObservableBase</a></p>
+<p>↳ <strong>OperatorBase</strong></p>
+<p>↳ <a href="#classesmapoperatormd">MapOperator</a></p>
+<p>↳ <a href="#classesfilteroperatormd">FilterOperator</a></p></li>
+</ul>
+<h3 id="implements-5">Implements</h3>
+<ul>
+<li><a href="#interfacesiobservablemd">IObservable</a></li>
+</ul>
+<h3 id="index-6">Index</h3>
+<h4 id="constructors-12">Constructors</h4>
+<ul>
+<li><a href="#constructor">constructor</a></li>
+</ul>
+<h4 id="properties-12">Properties</h4>
+<ul>
+<li><a href="#fn">fn</a></li>
+<li><a href="#observable">observable</a></li>
+<li><a href="#observers">observers</a></li>
+<li><a href="#optional-pipehead">pipeHead</a></li>
+</ul>
+<h4 id="methods-10">Methods</h4>
+<ul>
+<li><a href="#destroy">destroy</a></li>
+<li><a href="#emit">emit</a></li>
+<li><a href="#multicast">multicast</a></li>
+<li><a href="#pipe">pipe</a></li>
+<li><a href="#subscribe">subscribe</a></li>
+<li><a href="#unsubscribe">unsubscribe</a></li>
+</ul>
+<h3 id="constructors-13">Constructors</h3>
+<h4 id="constructor-4">constructor</h4>
+<p>+ <strong>new OperatorBase</strong>(<code>fn</code>: function): <em><a href="#classesoperatorbasemd">OperatorBase</a></em></p>
+<p><em>Overrides <a href="#classesobservablebasemd">ObservableBase</a>.<a href="#constructor">constructor</a></em></p>
+<p>Defined in operators/OperatorBase.ts:10</p>
+<p><strong>Parameters:</strong></p>
+<p>▪ <strong>fn</strong>: <em>function</em></p>
+<p>▸ (<code>item</code>: any): <em>any</em></p>
+<p><strong>Parameters:</strong></p>
+<p>Name | Type |
+------ | ------ |
+<code>item</code> | any |</p>
+<p><strong>Returns:</strong> <em><a href="#classesoperatorbasemd">OperatorBase</a></em></p>
+<h3 id="properties-13">Properties</h3>
+<h4 id="fn-2">fn</h4>
+<p>• <strong>fn</strong>: <em>function</em></p>
+<p>Defined in operators/OperatorBase.ts:8</p>
+<h5 id="typedeclaration-3">Type declaration:</h5>
+<p>▸ (<code>item</code>: any): <em>any</em></p>
+<p><strong>Parameters:</strong></p>
+<p>Name | Type |
+------ | ------ |
+<code>item</code> | any |</p>
+<hr />
+<h4 id="observable-2">observable</h4>
+<p>• <strong>observable</strong>: <em><a href="#interfacesiobservablemd">IObservable</a></em></p>
+<p>Defined in operators/OperatorBase.ts:9</p>
+<hr />
+<h4 id="observers-4">observers</h4>
+<p>• <strong>observers</strong>: <em><a href="#interfacesiobservermd">IObserver</a>[]</em></p>
+<p><em>Inherited from <a href="#classesobservablebasemd">ObservableBase</a>.<a href="#observers">observers</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/b6fab0f/src/ObservableBase.ts#L14">ObservableBase.ts:14</a></em></p>
+<hr />
+<h4 id="optionalpipehead-4"><code>Optional</code> pipeHead</h4>
+<p>• <strong>pipeHead</strong>? : <em><a href="#linkedlist">LinkedList</a>‹<a href="#interfacesiobservablemd">IObservable</a>›</em></p>
+<p><em>Implementation of <a href="#interfacesiobservablemd">IObservable</a>.<a href="#optional-pipehead">pipeHead</a></em></p>
+<p><em>Overrides <a href="#classesobservablebasemd">ObservableBase</a>.<a href="#optional-pipehead">pipeHead</a></em></p>
+<p>Defined in operators/OperatorBase.ts:10</p>
+<h3 id="methods-11">Methods</h3>
+<h4 id="destroy-4">destroy</h4>
+<p>▸ <strong>destroy</strong>(): <em>void</em></p>
+<p><em>Implementation of <a href="#interfacesiobservablemd">IObservable</a></em></p>
+<p><em>Inherited from <a href="#classesobservablebasemd">ObservableBase</a>.<a href="#destroy">destroy</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/b6fab0f/src/ObservableBase.ts#L100">ObservableBase.ts:100</a></em></p>
+<p><strong>Returns:</strong> <em>void</em></p>
+<hr />
+<h4 id="emit-4">emit</h4>
+<p>▸ <strong>emit</strong>(<code>item</code>: any): <em>void</em></p>
+<p><em>Implementation of <a href="#interfacesiobservablemd">IObservable</a></em></p>
+<p><em>Overrides <a href="#classesobservablebasemd">ObservableBase</a>.<a href="#emit">emit</a></em></p>
+<p>Defined in operators/OperatorBase.ts:22</p>
+<p><strong>Parameters:</strong></p>
+<p>Name | Type |
+------ | ------ |
+<code>item</code> | any |</p>
+<p><strong>Returns:</strong> <em>void</em></p>
+<hr />
+<h4 id="multicast-4">multicast</h4>
+<p>▸ <strong>multicast</strong>(…<code>observers</code>: <a href="#interfacesiobservermd">IObserver</a>[]): <em>void</em></p>
+<p><em>Implementation of <a href="#interfacesiobservablemd">IObservable</a></em></p>
+<p><em>Inherited from <a href="#classesobservablebasemd">ObservableBase</a>.<a href="#multicast">multicast</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/b6fab0f/src/ObservableBase.ts#L88">ObservableBase.ts:88</a></em></p>
+<p><strong>Parameters:</strong></p>
+<p>Name | Type |
+------ | ------ |
+<code>...observers</code> | <a href="#interfacesiobservermd">IObserver</a>[] |</p>
+<p><strong>Returns:</strong> <em>void</em></p>
+<hr />
+<h4 id="pipe-4">pipe</h4>
+<p>▸ <strong>pipe</strong>(…<code>observables</code>: <a href="#interfacesiobservablemd">IObservable</a>[]): <em>never</em></p>
+<p><em>Implementation of <a href="#interfacesiobservablemd">IObservable</a></em></p>
+<p><em>Overrides <a href="#classesobservablebasemd">ObservableBase</a>.<a href="#pipe">pipe</a></em></p>
+<p>Defined in operators/OperatorBase.ts:26</p>
+<p><strong>Parameters:</strong></p>
+<p>Name | Type |
+------ | ------ |
+<code>...observables</code> | <a href="#interfacesiobservablemd">IObservable</a>[] |</p>
+<p><strong>Returns:</strong> <em>never</em></p>
+<hr />
+<h4 id="subscribe-4">subscribe</h4>
+<p>▸ <strong>subscribe</strong>(<code>observer</code>: <a href="#interfacesiobservermd">IObserver</a>): <em>void</em></p>
+<p><em>Implementation of <a href="#interfacesiobservablemd">IObservable</a></em></p>
+<p><em>Overrides <a href="#classesobservablebasemd">ObservableBase</a>.<a href="#subscribe">subscribe</a></em></p>
+<p>Defined in operators/OperatorBase.ts:18</p>
+<p><strong>Parameters:</strong></p>
+<p>Name | Type |
+------ | ------ |
+<code>observer</code> | <a href="#interfacesiobservermd">IObserver</a> |</p>
+<p><strong>Returns:</strong> <em>void</em></p>
+<hr />
+<h4 id="unsubscribe-4">unsubscribe</h4>
+<p>▸ <strong>unsubscribe</strong>(<code>observer</code>: <a href="#interfacesiobservermd">IObserver</a>): <em>void</em></p>
+<p><em>Implementation of <a href="#interfacesiobservablemd">IObservable</a></em></p>
+<p><em>Inherited from <a href="#classesobservablebasemd">ObservableBase</a>.<a href="#unsubscribe">unsubscribe</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/b6fab0f/src/ObservableBase.ts#L28">ObservableBase.ts:28</a></em></p>
+<p><strong>Parameters:</strong></p>
+<p>Name | Type |
+------ | ------ |
+<code>observer</code> | <a href="#interfacesiobservermd">IObserver</a> |</p>
+<p><strong>Returns:</strong> <em>void</em></p>
+<p><a name="globalsmd"></a></p>
+<p><a href="#readmemd">@tsaqib/trex</a> › <a href="#globalsmd">Globals</a></p>
+<h1 id="tsaqibtrex-1">@tsaqib/trex</h1>
+<h2 id="index-7">Index</h2>
+<h3 id="classes-1">Classes</h3>
+<ul>
+<li><a href="#classesfilteroperatormd">FilterOperator</a></li>
+<li><a href="#classesmapoperatormd">MapOperator</a></li>
+<li><a href="#classesobservablemd">Observable</a></li>
+<li><a href="#classesobservablebasemd">ObservableBase</a></li>
+<li><a href="#classesobservermd">Observer</a></li>
+<li><a href="#classesobservermapsmd">ObserverMaps</a></li>
+<li><a href="#classesoperatorbasemd">OperatorBase</a></li>
+</ul>
+<h3 id="interfaces">Interfaces</h3>
+<ul>
+<li><a href="#interfacesiobservablemd">IObservable</a></li>
+<li><a href="#interfacesiobservermd">IObserver</a></li>
+</ul>
+<h3 id="typealiases">Type aliases</h3>
+<ul>
+<li><a href="#linkedlist">LinkedList</a></li>
+<li><a href="#observermap">ObserverMap</a></li>
+</ul>
+<h3 id="functions">Functions</h3>
+<ul>
+<li><a href="#const-filter">filter</a></li>
+<li><a href="#const-map">map</a></li>
+<li><a href="#const-pipe">pipe</a></li>
+<li><a href="#const-tap">tap</a></li>
+</ul>
+<h2 id="typealiases-1">Type aliases</h2>
+<h3 id="linkedlist">LinkedList</h3>
+<p>Ƭ <strong>LinkedList</strong>: <em>object</em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/b6fab0f/src/CommonHelpers.ts#L7">CommonHelpers.ts:7</a></em></p>
+<h4 id="typedeclaration-4">Type declaration:</h4>
+<ul>
+<li><p><strong>next</strong>? : <em><a href="#linkedlist">LinkedList</a>‹T›</em></p></li>
+<li><p><strong>value</strong>: <em>T</em></p></li>
+</ul>
+<hr />
+<h3 id="observermap">ObserverMap</h3>
+<p>Ƭ <strong>ObserverMap</strong>: <em>object</em></p>
+<p>Defined in ObvserverMaps.ts:5</p>
+<h4 id="typedeclaration-5">Type declaration:</h4>
+<ul>
+<li><p><strong>chainHead</strong>? : <em><a href="#linkedlist">LinkedList</a>‹<a href="#interfacesiobservablemd">IObservable</a>›</em></p></li>
+<li><p><strong>observable</strong>: <em><a href="#interfacesiobservablemd">IObservable</a></em></p></li>
+<li><p><strong>observer</strong>: <em><a href="#interfacesiobservermd">IObserver</a></em></p></li>
+</ul>
+<h2 id="functions-1">Functions</h2>
+<h3 id="constfilter"><code>Const</code> filter</h3>
+<p>▸ <strong>filter</strong>(<code>fn</code>: function): <em><a href="#classesfilteroperatormd">FilterOperator</a>‹›</em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/b6fab0f/src/CommonHelpers.ts#L23">CommonHelpers.ts:23</a></em></p>
+<p><strong>Parameters:</strong></p>
+<p>▪ <strong>fn</strong>: <em>function</em></p>
+<p>▸ (<code>item</code>: any): <em>any</em></p>
+<p><strong>Parameters:</strong></p>
+<p>Name | Type |
+------ | ------ |
+<code>item</code> | any |</p>
+<p><strong>Returns:</strong> <em><a href="#classesfilteroperatormd">FilterOperator</a>‹›</em></p>
+<hr />
+<h3 id="constmap"><code>Const</code> map</h3>
+<p>▸ <strong>map</strong>(<code>fn</code>: function): <em><a href="#classesmapoperatormd">MapOperator</a>‹›</em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/b6fab0f/src/CommonHelpers.ts#L19">CommonHelpers.ts:19</a></em></p>
+<p><strong>Parameters:</strong></p>
+<p>▪ <strong>fn</strong>: <em>function</em></p>
+<p>▸ (<code>item</code>: any): <em>any</em></p>
+<p><strong>Parameters:</strong></p>
+<p>Name | Type |
+------ | ------ |
+<code>item</code> | any |</p>
+<p><strong>Returns:</strong> <em><a href="#classesmapoperatormd">MapOperator</a>‹›</em></p>
+<hr />
+<h3 id="constpipe"><code>Const</code> pipe</h3>
+<p>▸ <strong>pipe</strong>(…<code>fns</code>: Function[]): <em>(Anonymous function)</em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/b6fab0f/src/CommonHelpers.ts#L28">CommonHelpers.ts:28</a></em></p>
+<p><strong>Parameters:</strong></p>
+<p>Name | Type |
+------ | ------ |
+<code>...fns</code> | Function[] |</p>
+<p><strong>Returns:</strong> <em>(Anonymous function)</em></p>
+<hr />
+<h3 id="consttap"><code>Const</code> tap</h3>
+<p>▸ <strong>tap</strong>(<code>fn</code>: function): <em>(Anonymous function)</em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/b6fab0f/src/CommonHelpers.ts#L12">CommonHelpers.ts:12</a></em></p>
+<p><strong>Parameters:</strong></p>
+<p>▪ <strong>fn</strong>: <em>function</em></p>
+<p>▸ (<code>item</code>: any): <em>any</em></p>
+<p><strong>Parameters:</strong></p>
+<p>Name | Type |
+------ | ------ |
+<code>item</code> | any |</p>
+<p><strong>Returns:</strong> <em>(Anonymous function)</em></p>
+<h1 id="interfaces-1">Interfaces</h1>
+<p><a name="interfacesiobservablemd"></a></p>
+<p><a href="#readmemd">@tsaqib/trex</a> › <a href="#globalsmd">Globals</a> › <a href="#interfacesiobservablemd">IObservable</a></p>
+<h2 id="interfaceiobservable">Interface: IObservable</h2>
+<p>The interface behind the <code>ObservableBase</code>, maintains the contract for all observables.</p>
+<p><strong><code>interface</code></strong> </p>
+<h3 id="hierarchy-7">Hierarchy</h3>
+<ul>
+<li><strong>IObservable</strong></li>
+</ul>
+<h3 id="implementedby">Implemented by</h3>
+<ul>
+<li><a href="#classesfilteroperatormd">FilterOperator</a></li>
+<li><a href="#classesmapoperatormd">MapOperator</a></li>
+<li><a href="#classesobservablemd">Observable</a></li>
+<li><a href="#classesobservablebasemd">ObservableBase</a></li>
+<li><a href="#classesoperatorbasemd">OperatorBase</a></li>
+</ul>
+<h3 id="index-8">Index</h3>
+<h4 id="properties-14">Properties</h4>
+<ul>
+<li><a href="#optional-pipehead">pipeHead</a></li>
+</ul>
+<h4 id="methods-12">Methods</h4>
+<ul>
+<li><a href="#optional-destroy">destroy</a></li>
+<li><a href="#emit">emit</a></li>
+<li><a href="#multicast">multicast</a></li>
+<li><a href="#pipe">pipe</a></li>
+<li><a href="#subscribe">subscribe</a></li>
+<li><a href="#unsubscribe">unsubscribe</a></li>
+</ul>
+<h3 id="properties-15">Properties</h3>
+<h4 id="optionalpipehead-5"><code>Optional</code> pipeHead</h4>
+<p>• <strong>pipeHead</strong>? : <em><a href="#linkedlist">LinkedList</a>‹<a href="#interfacesiobservablemd">IObservable</a>›</em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/b6fab0f/src/IObservable.ts#L43">IObservable.ts:43</a></em></p>
+<p>Do not use this. This is an internal pointer for tracking and cleaning up subscriptions.</p>
+<p><strong><code>memberof</code></strong> IObservable</p>
+<h3 id="methods-13">Methods</h3>
+<h4 id="optionaldestroy"><code>Optional</code> destroy</h4>
+<p>▸ <strong>destroy</strong>(): <em>void</em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/b6fab0f/src/IObservable.ts#L69">IObservable.ts:69</a></em></p>
+<p>Destroyes an <code>Observable</code> along with all its subscribers.</p>
+<p><strong><code>memberof</code></strong> IObservable</p>
+<p><strong>Returns:</strong> <em>void</em></p>
+<p>void</p>
+<hr />
+<h4 id="emit-5">emit</h4>
+<p>▸ <strong>emit</strong>(<code>item</code>: any): <em>void</em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/b6fab0f/src/IObservable.ts#L35">IObservable.ts:35</a></em></p>
+<p>Emits an item to the stream</p>
+<p><strong><code>memberof</code></strong> IObservable</p>
+<p><strong>Parameters:</strong></p>
+<p>Name | Type | Description |
+------ | ------ | ------ |
+<code>item</code> | any | The item to stream |</p>
+<p><strong>Returns:</strong> <em>void</em></p>
+<p>void</p>
+<hr />
+<h4 id="multicast-5">multicast</h4>
+<p>▸ <strong>multicast</strong>(…<code>observers</code>: <a href="#interfacesiobservermd">IObserver</a>[]): <em>void</em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/b6fab0f/src/IObservable.ts#L61">IObservable.ts:61</a></em></p>
+<p>Subscribes an array of observers in one go, typically followed by a pipe.</p>
+<p><strong><code>memberof</code></strong> IObservable</p>
+<p><strong>Parameters:</strong></p>
+<p>Name | Type | Description |
+------ | ------ | ------ |
+<code>...observers</code> | <a href="#interfacesiobservermd">IObserver</a>[] | An array of <code>Observer</code> to update |</p>
+<p><strong>Returns:</strong> <em>void</em></p>
+<p>void</p>
+<hr />
+<h4 id="pipe-5">pipe</h4>
+<p>▸ <strong>pipe</strong>(…<code>observables</code>: <a href="#interfacesiobservablemd">IObservable</a>[]): <em><a href="#interfacesiobservablemd">IObservable</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/b6fab0f/src/IObservable.ts#L52">IObservable.ts:52</a></em></p>
+<p>Pipes a series of operations per item in the stream</p>
+<p><strong><code>memberof</code></strong> IObservable</p>
+<p><strong>Parameters:</strong></p>
+<p>Name | Type | Description |
+------ | ------ | ------ |
+<code>...observables</code> | <a href="#interfacesiobservablemd">IObservable</a>[] | The item to stream |</p>
+<p><strong>Returns:</strong> <em><a href="#interfacesiobservablemd">IObservable</a></em></p>
+<p>IObservable</p>
+<hr />
+<h4 id="subscribe-5">subscribe</h4>
+<p>▸ <strong>subscribe</strong>(<code>observer</code>: <a href="#interfacesiobservermd">IObserver</a>): <em>void</em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/b6fab0f/src/IObservable.ts#L17">IObservable.ts:17</a></em></p>
+<p>Subscribes an <code>Observer</code> instance</p>
+<p><strong><code>memberof</code></strong> IObservable</p>
+<p><strong>Parameters:</strong></p>
+<p>Name | Type | Description |
+------ | ------ | ------ |
+<code>observer</code> | <a href="#interfacesiobservermd">IObserver</a> | The <code>Observer</code> instance to be subscribed for update |</p>
+<p><strong>Returns:</strong> <em>void</em></p>
+<p>void</p>
+<hr />
+<h4 id="unsubscribe-5">unsubscribe</h4>
+<p>▸ <strong>unsubscribe</strong>(<code>observer</code>: <a href="#interfacesiobservermd">IObserver</a>): <em>void</em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/b6fab0f/src/IObservable.ts#L26">IObservable.ts:26</a></em></p>
+<p>Unsubscribes an <code>Observer</code> instance</p>
+<p><strong><code>memberof</code></strong> IObservable</p>
+<p><strong>Parameters:</strong></p>
+<p>Name | Type | Description |
+------ | ------ | ------ |
+<code>observer</code> | <a href="#interfacesiobservermd">IObserver</a> | The <code>Observer</code> instance to be subscribed for update |</p>
+<p><strong>Returns:</strong> <em>void</em></p>
+<p>void</p>
+<p><a name="interfacesiobservermd"></a></p>
+<p><a href="#readmemd">@tsaqib/trex</a> › <a href="#globalsmd">Globals</a> › <a href="#interfacesiobservermd">IObserver</a></p>
+<h2 id="interfaceiobserver">Interface: IObserver</h2>
+<p>The interface behind the <code>Observer</code>, maintains the contract for all observers.</p>
+<p><strong><code>interface</code></strong> </p>
+<h3 id="hierarchy-8">Hierarchy</h3>
+<ul>
+<li><strong>IObserver</strong></li>
+</ul>
+<h3 id="implementedby-1">Implemented by</h3>
+<ul>
+<li><a href="#classesobservermd">Observer</a></li>
+</ul>
+<h3 id="index-9">Index</h3>
+<h4 id="properties-16">Properties</h4>
+<ul>
+<li><a href="#next">next</a></li>
+</ul>
+<h4 id="methods-14">Methods</h4>
+<ul>
+<li><a href="#optional-error">error</a></li>
+</ul>
+<h3 id="properties-17">Properties</h3>
+<h4 id="next-1">next</h4>
+<p>• <strong>next</strong>: <em>function</em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/b6fab0f/src/IObserver.ts#L14">IObserver.ts:14</a></em></p>
+<p>Whenever a new item is available in the stream, the <code>next</code> function is called with that.</p>
+<p><strong><code>param</code></strong> The item newly arrived in the stream.</p>
+<p><strong><code>returns</code></strong> void</p>
+<p><strong><code>memberof</code></strong> IObserver</p>
+<h5 id="typedeclaration-6">Type declaration:</h5>
+<p>▸ (<code>item</code>: any): <em>void</em></p>
+<p><strong>Parameters:</strong></p>
+<p>Name | Type |
+------ | ------ |
+<code>item</code> | any |</p>
+<h3 id="methods-15">Methods</h3>
+<h4 id="optionalerror-1"><code>Optional</code> error</h4>
+<p>▸ <strong>error</strong>(<code>err</code>: any): <em>void</em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/b6fab0f/src/IObserver.ts#L23">IObserver.ts:23</a></em></p>
+<p>The error handler for the potential exception occured inside the <code>next</code> function.</p>
+<p><strong><code>memberof</code></strong> IObserver</p>
+<p><strong>Parameters:</strong></p>
+<p>Name | Type | Description |
+------ | ------ | ------ |
+<code>err</code> | any | The error object. |</p>
+<p><strong>Returns:</strong> <em>void</em></p>
+<p>void</p>

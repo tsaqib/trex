@@ -1,7 +1,15 @@
 import { IObserver } from './IObserver';
 import { LinkedList } from './CommonHelpers';
 import { IObservable } from './IObservable';
+import { ObserverMaps } from './ObvserverMaps';
+import { OperatorBase } from './operators/OperatorBase';
 
+/**
+ * The `ObservableBase` class, implements `IObservable`, but is not for public instantiation.
+ * The first class you must instantiate is the `Observable` which is a placeholder for
+ * `ObservableBase`.
+ * 
+ */
 export class ObservableBase implements IObservable {
 	observers: IObserver[];
 	pipeHead?: LinkedList<IObservable>;
@@ -12,7 +20,31 @@ export class ObservableBase implements IObservable {
 	}
 
 	subscribe(observer: IObserver) {
-		this.observers.push(observer);
+		if (this.observers.indexOf(observer) < 0) {
+			this.observers.push(observer);
+		}
+	}
+
+	unsubscribe(observer: IObserver) {
+		let pipeRefDeleted = false;
+		const maps = ObserverMaps.get(observer);
+		if (maps) {
+			maps.forEach((om) => {
+				let head = om.chainHead;
+				while (head?.next) {
+					head = head.next;
+				}
+
+				const op = head?.value as OperatorBase;
+				ObserverMaps.remove(om);
+				op.observable.unsubscribe(observer);
+				pipeRefDeleted = true;
+			});
+		}
+
+		if (!pipeRefDeleted) {
+			this.observers.splice(this.observers.indexOf(observer), 1);
+		}
 	}
 
 	emit(item: any) {
@@ -54,16 +86,19 @@ export class ObservableBase implements IObservable {
 	}
 
 	multicast(...observers: IObserver[]) {
-		// For now this pipe does nothing
-		// throw new Error('Multicasts are unsupported in operators.');
-
 		// End of pipe: if this.pipeHead is present; attach it with
 		// the observer and store in ObservableContext
 		// There may not be a pipeHead at all
-		observers.forEach((observer) => this.subscribe(observer));
+		observers.forEach((observer) => {
+			this.subscribe(observer);
+			if (this.pipeHead) {
+				ObserverMaps.add(observer, this, this.pipeHead);
+			}
+		});
 	}
 
 	destroy() {
+		// TODO: also clean up using ObserverMaps
 		this.observers.splice(0, this.observers.length);
 	}
 }

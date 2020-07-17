@@ -1,13 +1,14 @@
 {
-	"name": "trex",
-	"version": "1.0.0",
-	"description": "Reactive Extension in TypeScript (TREX)",
+	"name": "@tsaqib/trex",
+	"version": "0.9.0",
+	"description": "Reactive Extension in TypeScript (TRex)",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
 	"directories": {
 		"test": "tests"
 	},
 	"scripts": {
+		"build:docs": "rimraf temp-docs && typedoc --plugin typedoc-plugin-markdown --theme markdown --mode file --excludeNotExported --out temp-docs && concat-md --toc --decrease-title-levels --dir-name-as-title temp-docs > README.md && showdown makehtml -i README.md -o README.html && rimraf temp-docs",
 		"build": "rimraf dist/ && tsc",
 		"test": "jest --config jestconfig.json",
 		"test:watch": "jest --config jestconfig.json --watchAll",
@@ -27,15 +28,16 @@
 	"homepage": "https://github.com/tsaqib/trex#readme",
 	"devDependencies": {
 		"@types/jest": "^26.0.4",
+		"concat-md": "^0.3.5",
 		"jest": "^26.1.0",
 		"prettier": "^2.0.5",
 		"rimraf": "^3.0.2",
+		"showdown": "^1.9.1",
 		"ts-jest": "^26.1.2",
 		"tslint": "^6.1.2",
 		"tslint-config-prettier": "^1.18.0",
+		"typedoc": "^0.17.8",
+		"typedoc-plugin-markdown": "^2.3.1",
 		"typescript": "^3.9.6"
-	},
-	"dependencies": {
-		"nanoid": "^3.1.10"
 	}
 }
