@@ -1,5 +1,4 @@
 import * as TRex from '../src/index';
-import { ObservableContext } from '../src/ObservableContext';
 
 test('Pipe and map operators applied to observable can modify values.', () => {
 	const result: number[] = [];

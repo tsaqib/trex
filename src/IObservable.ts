@@ -1,4 +1,4 @@
-import { IObserver } from './Observer';
+import { IObserver } from './IObserver';
 import { LinkedList } from './CommonHelpers';
 
 export interface IObservable {

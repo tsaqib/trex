@@ -1,6 +1,6 @@
 import { Observable } from './Observable';
 import { IObservable } from './IObservable';
-import { IObserver } from './Observer';
+import { IObserver } from './IObserver';
 import { LinkedList } from './CommonHelpers';
 import { ObservableBase } from './ObservableBase';
 

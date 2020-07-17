@@ -1,7 +1,4 @@
-export interface IObserver {
-	next: (item: any) => void;
-	error?(err: any): void;
-}
+import { IObserver } from './IObserver';
 
 export class Observer implements IObserver {
 	next: (item: any) => void;

@@ -1,5 +1,4 @@
 import * as TRex from '../src/index';
-import { ObservableContext } from '../src/ObservableContext';
 
 test('An observer must recieve an emitted value from the observable.', () => {
 	const result: number[] = [];

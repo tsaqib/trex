@@ -1,7 +1,6 @@
-import { IObserver } from './Observer';
+import { IObserver } from './IObserver';
 import { LinkedList } from './CommonHelpers';
 import { IObservable } from './IObservable';
-import { ObservableContext } from './ObservableContext';
 
 export class ObservableBase implements IObservable {
 	observers: IObserver[];
@@ -56,15 +55,12 @@ export class ObservableBase implements IObservable {
 
 	multicast(...observers: IObserver[]) {
 		// For now this pipe does nothing
-		//throw new Error('Multicasts are unsupported in operators.');
+		// throw new Error('Multicasts are unsupported in operators.');
 
 		// End of pipe: if this.pipeHead is present; attach it with
 		// the observer and store in ObservableContext
 		// There may not be a pipeHead at all
-		observers.forEach((observer) => {
-			this.observers.push(observer);
-			ObservableContext.addMap(observer, this, this.pipeHead);
-		});
+		observers.forEach((observer) => this.subscribe(observer));
 	}
 
 	destroy() {
