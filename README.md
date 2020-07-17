@@ -1,9 +1,9 @@
 ## Reactive Extension in TypeScript (TRex)
 
-This package helps you do functional reactive programming both on server-side and front-end apps. It helps you define and destroy data streams easily which works as an event bus. You can subscribe
-and unsubscribe to the streams. You can perform map, filter and pass on your own functions both at the observables and observers level.
+The computations that each of ours activities cause for free applications such as Facebook and Google are incredibly expensive. Even if you had billions of dollars an optimized and profitable solution squeezing out of those dollars is still very much non-trivial. Such immense scale applications we use everyday are built on top of the reactive programming paradigm to help them process data only when needed. Only responding to a relevant query results in massive cost savings. Thus, allowing internet-scale applications serve us instantly without charging us \$.
 
-The computations that each of ours activities cause for free applications such as Facebook and Google are incredibly expensive. Even if you had billions of dollars an optimized and profitable solution squeezing out of those dollars is still very much non-trivial. Such immense scale applications we use everyday are built on top of the reactive programming paradigm to help them process data only when needed. Only responding to a relevant query results in massive cost savings.
+This package helps you do functional reactive programming both on server-side and front-end apps. It helps you define and destroy data streams easily which works as an event bus. You can subscribe
+and unsubscribe to the streams. You can perform map, filter and pass on your own functions both at the observables and observers-level.
 
 ## Installation
 
@@ -13,6 +13,7 @@ The computations that each of ours activities cause for free applications such a
 
 ```typescript
 import * as TRex from '@tsaqib/trex';
+// In JavaScript: const TRex = require("@tsaqib/trex");
 
 const messageObservable = new TRex.Observable();
 const workflowWorker = new TRex.Observer((message) => {
@@ -25,6 +26,9 @@ const coworkersNotifier = new TRex.Observer((message) => {
 		(message: string) => emailer.send(message)
 	);
 });
+const channelUpdater = new TRex.Observer((message) => {
+  // TODO: update #office channel
+}
 const analyticsTracker = new TRex.Observer((message) => {
 	// TODO: track analytics
 });
@@ -35,9 +39,12 @@ messageObservable
 		TRex.map((json) => validateMessage(json)),
 		TRex.filter((message) => message.urgent)
 	)
-	.multicast(workflowWorker, coworkersNotifier, analyticsTracker);
+  .multicast(workflowWorker,
+    coworkersNotifier,
+    analyticsTracker,
+    channelUpdater);
 
-observable.emit(`{ message: "I'm sick.", to: "Office", urgent: true }`);
+messageObservable.emit(`{ message: "I'm sick.", to: "Office", urgent: true }`);
 ```
 
 ## Tests
