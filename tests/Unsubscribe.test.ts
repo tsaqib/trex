@@ -1,4 +1,5 @@
 import * as TRex from '../src/index';
+import { IObservable } from '../src/IObservable';
 
 test('Unsubscribe cleans up for observable.', () => {
 	const result: number[] = [];

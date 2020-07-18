@@ -11,6 +11,23 @@ test('An observer must recieve an emitted value from the observable.', () => {
 	expect(result).toStrictEqual([10]);
 });
 
+test('An observer with error handler gets triggered on error.', () => {
+	const result: number[] = [100];
+	const observable = new TRex.Observable();
+	const observer = new TRex.Observer(
+		(num) => {
+			throw new Error('Trigger the error handler');
+		},
+		(err) => {
+			// error reported, so remove the item
+			result.splice(0, 1);
+		}
+	);
+	observable.subscribe(observer);
+	observable.emit(10);
+	expect(result).toStrictEqual([]);
+});
+
 test('An observer can be added only once to an observable.', () => {
 	const result: number[] = [];
 	const observable = new TRex.Observable();

@@ -5,6 +5,7 @@
 The computations our online activities cause for free applications such as Facebook and Google are incredibly expensive. Even if you had billions of dollars, an optimized and profitable solution squeezing out of those dollars is still very much non-trivial. They build such immense scale applications we use every day on top of the reactive programming paradigm to help them process data only when needed. Only responding to the relevant query, results in massive cost savings. Thus, allowing internet-scale applications to serve us instantly without charging us as much \$.
 
 This package helps you do functional reactive programming, both on server-side and front-end apps. It helps you define and destroy data streams easily, which works as an event bus. You can subscribe and unsubscribe to the streams. You can perform map, filter and pass on your own functions both at the observables and observers-level.
+
 Note: Angular, Vue, React, etc. frameworks are also built on top of the reactive programming principle.
 
 ## Installation

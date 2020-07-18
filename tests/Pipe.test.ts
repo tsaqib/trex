@@ -1,5 +1,15 @@
 import * as TRex from '../src/index';
 
+test('Disallow empty pip calls on observable.', () => {
+	const observer = new TRex.Observer(console.log);
+	const observable = new TRex.Observable();
+	const t = () => {
+		observable.pipe().subscribe(observer);
+		observable.emit(10);
+	};
+	expect(t).toThrow(Error);
+});
+
 test('Pipe and map operators applied to observable can modify values.', () => {
 	const result: number[] = [];
 	const observable = new TRex.Observable();

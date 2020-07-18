@@ -21,15 +21,15 @@ export class ObserverMaps {
 	private constructor() {}
 	public static maps: ObserverMap[] = [];
 
-	/**
+	/*
 	 * Prints the current ObserverMaps for debugging purposes.
 	 *
 	 * @memberof ObserverMaps
 	 * @static
 	 */
-	public static print(): void {
-		console.log('Maps', this.maps);
-	}
+	// public static print(): void {
+	// 	console.log('Maps', this.maps);
+	// }
 
 	/**
 	 * Adds a tuple of observer, observable and the head of the call's linked list.

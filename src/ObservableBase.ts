@@ -85,13 +85,13 @@ export class ObservableBase implements IObservable {
 			value: this as IObservable
 		};
 		const linkedListHead = linkedListTail;
-		for (const observable of observables) {
+		observables.forEach((observable) => {
 			linkedListTail.value.subscribe({
 				next: (item) => observable.emit(item)
 			});
 			linkedListTail.next = { value: observable };
 			linkedListTail = linkedListTail.next;
-		}
+		});
 
 		linkedListTail.value.pipeHead = linkedListHead;
 		return linkedListTail.value;
@@ -109,6 +109,7 @@ export class ObservableBase implements IObservable {
 		});
 	}
 
+	/* istanbul ignore next */
 	destroy() {
 		// TODO: also clean up using ObserverMaps
 		this.observers.splice(0, this.observers.length);
