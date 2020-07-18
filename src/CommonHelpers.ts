@@ -30,7 +30,6 @@ export type LinkedList<T> = {
  * 40
  *
  * @param {Function} fn The function to apply on the item
- * @returns IObservable
  */
 export const tap: (fn: (item: any) => any) => (item: any) => any = (fn) => (
 	item
@@ -59,7 +58,6 @@ export const tap: (fn: (item: any) => any) => (item: any) => any = (fn) => (
  * 120
  *
  * @param {Function} fn The function to apply on the item
- * @returns IObservable
  */
 export const map: (fn: (item: any) => any) => IObservable = (fn) => {
 	return new MapOperator(fn);
@@ -86,7 +84,6 @@ export const map: (fn: (item: any) => any) => IObservable = (fn) => {
  * 40
  *
  * @param {Function} fn The predcate to check with the item
- * @returns IObservable
  */
 export const filter: (fn: (item: any) => any) => IObservable = (fn) => {
 	return new FilterOperator(fn);

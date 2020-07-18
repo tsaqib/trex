@@ -1,6 +1,6 @@
 ## Reactive Extension in TypeScript (TRex)
 
-The computations that each of ours activities cause for free applications such as Facebook and Google are incredibly expensive. Even if you had billions of dollars an optimized and profitable solution squeezing out of those dollars is still very much non-trivial. Such immense scale applications we use everyday are built on top of the reactive programming paradigm to help them process data only when needed. Only responding to a relevant query results in massive cost savings. Thus, allowing internet-scale applications serve us instantly without charging us \$.
+The computations that each of ours activities cause for free applications such as Facebook and Google are incredibly expensive. Even if you had billions of dollars, an optimized and profitable solution squeezing out of those dollars is still very much non-trivial. Such immense scale applications we use everyday are built on top of the reactive programming paradigm to help them process data only when needed. Only responding to a relevant query, results in massive cost savings. Thus, allowing internet-scale applications serve us instantly without charging us \$.
 
 This package helps you do functional reactive programming both on server-side and front-end apps. It helps you define and destroy data streams easily which works as an event bus. You can subscribe
 and unsubscribe to the streams. You can perform map, filter and pass on your own functions both at the observables and observers-level.
@@ -23,9 +23,8 @@ const workflowWorker = new TRex.Observer((message) => {
 });
 const coworkersNotifier = new TRex.Observer((message) => {
 	TRex.pipe(
-		(message: string) => formatMessage(message),
-		TRex.tap((num) => console.log(`Sending message: ${message}`)),
-		(message: string) => emailer.send(message)
+		TRex.tap((message: Message) => console.log(`Sending message: ${message.message}`)),
+		(message: Message) => emailer.send(message)
 	);
 });
 const channelUpdater = new TRex.Observer((message) => {
@@ -37,9 +36,9 @@ const analyticsTracker = new TRex.Observer((message) => {
 
 messageObservable
 	.pipe(
-		TRex.map((message) => parseJSON(message)),
-		TRex.map((json) => validateMessage(json)),
-		TRex.filter((message) => message.urgent)
+		TRex.map((message: string) => parseJSON(message)),
+		TRex.map((json: any) => validateMessage(json)),
+		TRex.filter((message: Message) => message.urgent)
 	)
   .multicast(workflowWorker,
     coworkersNotifier,
@@ -196,7 +195,7 @@ _Inherited from [OperatorBase](#classesoperatorbasemd).[constructor](#constructo
 
 _Overrides [ObservableBase](#classesobservablebasemd).[constructor](#constructor)_
 
-_Defined in [operators/OperatorBase.ts:27](https://github.com/tsaqib/trex/blob/2bcbda0/src/operators/OperatorBase.ts#L27)_
+_Defined in [operators/OperatorBase.ts:27](https://github.com/tsaqib/trex/blob/938e965/src/operators/OperatorBase.ts#L27)_
 
 **Parameters:**
 
@@ -220,7 +219,7 @@ _Defined in [operators/OperatorBase.ts:27](https://github.com/tsaqib/trex/blob/2
 
 _Inherited from [OperatorBase](#classesoperatorbasemd).[fn](#fn)_
 
-_Defined in [operators/OperatorBase.ts:25](https://github.com/tsaqib/trex/blob/2bcbda0/src/operators/OperatorBase.ts#L25)_
+_Defined in [operators/OperatorBase.ts:25](https://github.com/tsaqib/trex/blob/938e965/src/operators/OperatorBase.ts#L25)_
 
 ##### Type declaration:
 
@@ -240,7 +239,7 @@ _Defined in [operators/OperatorBase.ts:25](https://github.com/tsaqib/trex/blob/2
 
 _Inherited from [OperatorBase](#classesoperatorbasemd).[observable](#observable)_
 
-_Defined in [operators/OperatorBase.ts:26](https://github.com/tsaqib/trex/blob/2bcbda0/src/operators/OperatorBase.ts#L26)_
+_Defined in [operators/OperatorBase.ts:26](https://github.com/tsaqib/trex/blob/938e965/src/operators/OperatorBase.ts#L26)_
 
 ---
 
@@ -254,7 +253,7 @@ _Inherited from [OperatorBase](#classesoperatorbasemd).[pipeHead](#optional-pipe
 
 _Overrides [ObservableBase](#classesobservablebasemd).[pipeHead](#optional-pipehead)_
 
-_Defined in [operators/OperatorBase.ts:27](https://github.com/tsaqib/trex/blob/2bcbda0/src/operators/OperatorBase.ts#L27)_
+_Defined in [operators/OperatorBase.ts:27](https://github.com/tsaqib/trex/blob/938e965/src/operators/OperatorBase.ts#L27)_
 
 ### Methods
 
@@ -266,7 +265,7 @@ _Implementation of [IObservable](#interfacesiobservablemd)_
 
 _Inherited from [ObservableBase](#classesobservablebasemd).[destroy](#destroy)_
 
-_Defined in [ObservableBase.ts:117](https://github.com/tsaqib/trex/blob/2bcbda0/src/ObservableBase.ts#L117)_
+_Defined in [ObservableBase.ts:117](https://github.com/tsaqib/trex/blob/938e965/src/ObservableBase.ts#L117)_
 
 Destroys an `Observable` along with all its subscribers.
 
@@ -297,7 +296,7 @@ _Implementation of [IObservable](#interfacesiobservablemd)_
 
 _Overrides [OperatorBase](#classesoperatorbasemd).[emit](#emit)_
 
-_Defined in [operators/FilterOperator.ts:25](https://github.com/tsaqib/trex/blob/2bcbda0/src/operators/FilterOperator.ts#L25)_
+_Defined in [operators/FilterOperator.ts:25](https://github.com/tsaqib/trex/blob/938e965/src/operators/FilterOperator.ts#L25)_
 
 **Parameters:**
 
@@ -317,7 +316,7 @@ _Implementation of [IObservable](#interfacesiobservablemd)_
 
 _Inherited from [ObservableBase](#classesobservablebasemd).[multicast](#multicast)_
 
-_Defined in [ObservableBase.ts:104](https://github.com/tsaqib/trex/blob/2bcbda0/src/ObservableBase.ts#L104)_
+_Defined in [ObservableBase.ts:104](https://github.com/tsaqib/trex/blob/938e965/src/ObservableBase.ts#L104)_
 
 Subscribes an array of observers in one go, typically followed by a pipe.
 
@@ -360,7 +359,7 @@ _Inherited from [OperatorBase](#classesoperatorbasemd).[pipe](#pipe)_
 
 _Overrides [ObservableBase](#classesobservablebasemd).[pipe](#pipe)_
 
-_Defined in [operators/OperatorBase.ts:46](https://github.com/tsaqib/trex/blob/2bcbda0/src/operators/OperatorBase.ts#L46)_
+_Defined in [operators/OperatorBase.ts:46](https://github.com/tsaqib/trex/blob/938e965/src/operators/OperatorBase.ts#L46)_
 
 Pipes a series of operations per item in the stream
 
@@ -401,7 +400,7 @@ _Inherited from [OperatorBase](#classesoperatorbasemd).[subscribe](#subscribe)_
 
 _Overrides [ObservableBase](#classesobservablebasemd).[subscribe](#subscribe)_
 
-_Defined in [operators/OperatorBase.ts:36](https://github.com/tsaqib/trex/blob/2bcbda0/src/operators/OperatorBase.ts#L36)_
+_Defined in [operators/OperatorBase.ts:36](https://github.com/tsaqib/trex/blob/938e965/src/operators/OperatorBase.ts#L36)_
 
 Subscribes an `Observer` instance
 
@@ -438,7 +437,7 @@ _Implementation of [IObservable](#interfacesiobservablemd)_
 
 _Inherited from [ObservableBase](#classesobservablebasemd).[unsubscribe](#unsubscribe)_
 
-_Defined in [ObservableBase.ts:41](https://github.com/tsaqib/trex/blob/2bcbda0/src/ObservableBase.ts#L41)_
+_Defined in [ObservableBase.ts:41](https://github.com/tsaqib/trex/blob/938e965/src/ObservableBase.ts#L41)_
 
 Unsubscribes an `Observer` instance
 
@@ -532,7 +531,7 @@ _Inherited from [OperatorBase](#classesoperatorbasemd).[constructor](#constructo
 
 _Overrides [ObservableBase](#classesobservablebasemd).[constructor](#constructor)_
 
-_Defined in [operators/OperatorBase.ts:27](https://github.com/tsaqib/trex/blob/2bcbda0/src/operators/OperatorBase.ts#L27)_
+_Defined in [operators/OperatorBase.ts:27](https://github.com/tsaqib/trex/blob/938e965/src/operators/OperatorBase.ts#L27)_
 
 **Parameters:**
 
@@ -556,7 +555,7 @@ _Defined in [operators/OperatorBase.ts:27](https://github.com/tsaqib/trex/blob/2
 
 _Inherited from [OperatorBase](#classesoperatorbasemd).[fn](#fn)_
 
-_Defined in [operators/OperatorBase.ts:25](https://github.com/tsaqib/trex/blob/2bcbda0/src/operators/OperatorBase.ts#L25)_
+_Defined in [operators/OperatorBase.ts:25](https://github.com/tsaqib/trex/blob/938e965/src/operators/OperatorBase.ts#L25)_
 
 ##### Type declaration:
 
@@ -576,7 +575,7 @@ _Defined in [operators/OperatorBase.ts:25](https://github.com/tsaqib/trex/blob/2
 
 _Inherited from [OperatorBase](#classesoperatorbasemd).[observable](#observable)_
 
-_Defined in [operators/OperatorBase.ts:26](https://github.com/tsaqib/trex/blob/2bcbda0/src/operators/OperatorBase.ts#L26)_
+_Defined in [operators/OperatorBase.ts:26](https://github.com/tsaqib/trex/blob/938e965/src/operators/OperatorBase.ts#L26)_
 
 ---
 
@@ -590,7 +589,7 @@ _Inherited from [OperatorBase](#classesoperatorbasemd).[pipeHead](#optional-pipe
 
 _Overrides [ObservableBase](#classesobservablebasemd).[pipeHead](#optional-pipehead)_
 
-_Defined in [operators/OperatorBase.ts:27](https://github.com/tsaqib/trex/blob/2bcbda0/src/operators/OperatorBase.ts#L27)_
+_Defined in [operators/OperatorBase.ts:27](https://github.com/tsaqib/trex/blob/938e965/src/operators/OperatorBase.ts#L27)_
 
 ### Methods
 
@@ -602,7 +601,7 @@ _Implementation of [IObservable](#interfacesiobservablemd)_
 
 _Inherited from [ObservableBase](#classesobservablebasemd).[destroy](#destroy)_
 
-_Defined in [ObservableBase.ts:117](https://github.com/tsaqib/trex/blob/2bcbda0/src/ObservableBase.ts#L117)_
+_Defined in [ObservableBase.ts:117](https://github.com/tsaqib/trex/blob/938e965/src/ObservableBase.ts#L117)_
 
 Destroys an `Observable` along with all its subscribers.
 
@@ -635,7 +634,7 @@ _Inherited from [OperatorBase](#classesoperatorbasemd).[emit](#emit)_
 
 _Overrides [ObservableBase](#classesobservablebasemd).[emit](#emit)_
 
-_Defined in [operators/OperatorBase.ts:41](https://github.com/tsaqib/trex/blob/2bcbda0/src/operators/OperatorBase.ts#L41)_
+_Defined in [operators/OperatorBase.ts:41](https://github.com/tsaqib/trex/blob/938e965/src/operators/OperatorBase.ts#L41)_
 
 Emits an item to the stream
 
@@ -672,7 +671,7 @@ _Implementation of [IObservable](#interfacesiobservablemd)_
 
 _Inherited from [ObservableBase](#classesobservablebasemd).[multicast](#multicast)_
 
-_Defined in [ObservableBase.ts:104](https://github.com/tsaqib/trex/blob/2bcbda0/src/ObservableBase.ts#L104)_
+_Defined in [ObservableBase.ts:104](https://github.com/tsaqib/trex/blob/938e965/src/ObservableBase.ts#L104)_
 
 Subscribes an array of observers in one go, typically followed by a pipe.
 
@@ -715,7 +714,7 @@ _Inherited from [OperatorBase](#classesoperatorbasemd).[pipe](#pipe)_
 
 _Overrides [ObservableBase](#classesobservablebasemd).[pipe](#pipe)_
 
-_Defined in [operators/OperatorBase.ts:46](https://github.com/tsaqib/trex/blob/2bcbda0/src/operators/OperatorBase.ts#L46)_
+_Defined in [operators/OperatorBase.ts:46](https://github.com/tsaqib/trex/blob/938e965/src/operators/OperatorBase.ts#L46)_
 
 Pipes a series of operations per item in the stream
 
@@ -756,7 +755,7 @@ _Inherited from [OperatorBase](#classesoperatorbasemd).[subscribe](#subscribe)_
 
 _Overrides [ObservableBase](#classesobservablebasemd).[subscribe](#subscribe)_
 
-_Defined in [operators/OperatorBase.ts:36](https://github.com/tsaqib/trex/blob/2bcbda0/src/operators/OperatorBase.ts#L36)_
+_Defined in [operators/OperatorBase.ts:36](https://github.com/tsaqib/trex/blob/938e965/src/operators/OperatorBase.ts#L36)_
 
 Subscribes an `Observer` instance
 
@@ -793,7 +792,7 @@ _Implementation of [IObservable](#interfacesiobservablemd)_
 
 _Inherited from [ObservableBase](#classesobservablebasemd).[unsubscribe](#unsubscribe)_
 
-_Defined in [ObservableBase.ts:41](https://github.com/tsaqib/trex/blob/2bcbda0/src/ObservableBase.ts#L41)_
+_Defined in [ObservableBase.ts:41](https://github.com/tsaqib/trex/blob/938e965/src/ObservableBase.ts#L41)_
 
 Unsubscribes an `Observer` instance
 
@@ -877,7 +876,7 @@ const observable = new Observable();
 
 _Inherited from [ObservableBase](#classesobservablebasemd).[constructor](#constructor)_
 
-_Defined in [ObservableBase.ts:19](https://github.com/tsaqib/trex/blob/2bcbda0/src/ObservableBase.ts#L19)_
+_Defined in [ObservableBase.ts:19](https://github.com/tsaqib/trex/blob/938e965/src/ObservableBase.ts#L19)_
 
 Constructs an `ObservableBase`.
 
@@ -895,7 +894,7 @@ _Implementation of [IObservable](#interfacesiobservablemd).[pipeHead](#optional-
 
 _Inherited from [ObservableBase](#classesobservablebasemd).[pipeHead](#optional-pipehead)_
 
-_Defined in [ObservableBase.ts:19](https://github.com/tsaqib/trex/blob/2bcbda0/src/ObservableBase.ts#L19)_
+_Defined in [ObservableBase.ts:19](https://github.com/tsaqib/trex/blob/938e965/src/ObservableBase.ts#L19)_
 
 ### Methods
 
@@ -907,7 +906,7 @@ _Implementation of [IObservable](#interfacesiobservablemd)_
 
 _Inherited from [ObservableBase](#classesobservablebasemd).[destroy](#destroy)_
 
-_Defined in [ObservableBase.ts:117](https://github.com/tsaqib/trex/blob/2bcbda0/src/ObservableBase.ts#L117)_
+_Defined in [ObservableBase.ts:117](https://github.com/tsaqib/trex/blob/938e965/src/ObservableBase.ts#L117)_
 
 Destroys an `Observable` along with all its subscribers.
 
@@ -938,7 +937,7 @@ _Implementation of [IObservable](#interfacesiobservablemd)_
 
 _Inherited from [ObservableBase](#classesobservablebasemd).[emit](#emit)_
 
-_Defined in [ObservableBase.ts:64](https://github.com/tsaqib/trex/blob/2bcbda0/src/ObservableBase.ts#L64)_
+_Defined in [ObservableBase.ts:64](https://github.com/tsaqib/trex/blob/938e965/src/ObservableBase.ts#L64)_
 
 Emits an item to the stream
 
@@ -975,7 +974,7 @@ _Implementation of [IObservable](#interfacesiobservablemd)_
 
 _Inherited from [ObservableBase](#classesobservablebasemd).[multicast](#multicast)_
 
-_Defined in [ObservableBase.ts:104](https://github.com/tsaqib/trex/blob/2bcbda0/src/ObservableBase.ts#L104)_
+_Defined in [ObservableBase.ts:104](https://github.com/tsaqib/trex/blob/938e965/src/ObservableBase.ts#L104)_
 
 Subscribes an array of observers in one go, typically followed by a pipe.
 
@@ -1016,7 +1015,7 @@ _Implementation of [IObservable](#interfacesiobservablemd)_
 
 _Inherited from [ObservableBase](#classesobservablebasemd).[pipe](#pipe)_
 
-_Defined in [ObservableBase.ts:81](https://github.com/tsaqib/trex/blob/2bcbda0/src/ObservableBase.ts#L81)_
+_Defined in [ObservableBase.ts:81](https://github.com/tsaqib/trex/blob/938e965/src/ObservableBase.ts#L81)_
 
 Pipes a series of operations per item in the stream
 
@@ -1055,7 +1054,7 @@ _Implementation of [IObservable](#interfacesiobservablemd)_
 
 _Inherited from [ObservableBase](#classesobservablebasemd).[subscribe](#subscribe)_
 
-_Defined in [ObservableBase.ts:34](https://github.com/tsaqib/trex/blob/2bcbda0/src/ObservableBase.ts#L34)_
+_Defined in [ObservableBase.ts:34](https://github.com/tsaqib/trex/blob/938e965/src/ObservableBase.ts#L34)_
 
 Subscribes an `Observer` instance
 
@@ -1092,7 +1091,7 @@ _Implementation of [IObservable](#interfacesiobservablemd)_
 
 _Inherited from [ObservableBase](#classesobservablebasemd).[unsubscribe](#unsubscribe)_
 
-_Defined in [ObservableBase.ts:41](https://github.com/tsaqib/trex/blob/2bcbda0/src/ObservableBase.ts#L41)_
+_Defined in [ObservableBase.ts:41](https://github.com/tsaqib/trex/blob/938e965/src/ObservableBase.ts#L41)_
 
 Unsubscribes an `Observer` instance
 
@@ -1172,7 +1171,7 @@ The first class you must instantiate is the `Observable` which is a placeholder 
 
 \+ **new ObservableBase**(): _[ObservableBase](#classesobservablebasemd)_
 
-_Defined in [ObservableBase.ts:19](https://github.com/tsaqib/trex/blob/2bcbda0/src/ObservableBase.ts#L19)_
+_Defined in [ObservableBase.ts:19](https://github.com/tsaqib/trex/blob/938e965/src/ObservableBase.ts#L19)_
 
 Constructs an `ObservableBase`.
 
@@ -1186,7 +1185,7 @@ Constructs an `ObservableBase`.
 
 • **observers**: _[IObserver](#interfacesiobservermd)[]_
 
-_Defined in [ObservableBase.ts:18](https://github.com/tsaqib/trex/blob/2bcbda0/src/ObservableBase.ts#L18)_
+_Defined in [ObservableBase.ts:18](https://github.com/tsaqib/trex/blob/938e965/src/ObservableBase.ts#L18)_
 
 ---
 
@@ -1196,7 +1195,7 @@ _Defined in [ObservableBase.ts:18](https://github.com/tsaqib/trex/blob/2bcbda0/s
 
 _Implementation of [IObservable](#interfacesiobservablemd).[pipeHead](#optional-pipehead)_
 
-_Defined in [ObservableBase.ts:19](https://github.com/tsaqib/trex/blob/2bcbda0/src/ObservableBase.ts#L19)_
+_Defined in [ObservableBase.ts:19](https://github.com/tsaqib/trex/blob/938e965/src/ObservableBase.ts#L19)_
 
 ### Methods
 
@@ -1206,7 +1205,7 @@ _Defined in [ObservableBase.ts:19](https://github.com/tsaqib/trex/blob/2bcbda0/s
 
 _Implementation of [IObservable](#interfacesiobservablemd)_
 
-_Defined in [ObservableBase.ts:117](https://github.com/tsaqib/trex/blob/2bcbda0/src/ObservableBase.ts#L117)_
+_Defined in [ObservableBase.ts:117](https://github.com/tsaqib/trex/blob/938e965/src/ObservableBase.ts#L117)_
 
 Destroys an `Observable` along with all its subscribers.
 
@@ -1235,7 +1234,7 @@ void
 
 _Implementation of [IObservable](#interfacesiobservablemd)_
 
-_Defined in [ObservableBase.ts:64](https://github.com/tsaqib/trex/blob/2bcbda0/src/ObservableBase.ts#L64)_
+_Defined in [ObservableBase.ts:64](https://github.com/tsaqib/trex/blob/938e965/src/ObservableBase.ts#L64)_
 
 Emits an item to the stream
 
@@ -1270,7 +1269,7 @@ void
 
 _Implementation of [IObservable](#interfacesiobservablemd)_
 
-_Defined in [ObservableBase.ts:104](https://github.com/tsaqib/trex/blob/2bcbda0/src/ObservableBase.ts#L104)_
+_Defined in [ObservableBase.ts:104](https://github.com/tsaqib/trex/blob/938e965/src/ObservableBase.ts#L104)_
 
 Subscribes an array of observers in one go, typically followed by a pipe.
 
@@ -1309,7 +1308,7 @@ void
 
 _Implementation of [IObservable](#interfacesiobservablemd)_
 
-_Defined in [ObservableBase.ts:81](https://github.com/tsaqib/trex/blob/2bcbda0/src/ObservableBase.ts#L81)_
+_Defined in [ObservableBase.ts:81](https://github.com/tsaqib/trex/blob/938e965/src/ObservableBase.ts#L81)_
 
 Pipes a series of operations per item in the stream
 
@@ -1346,7 +1345,7 @@ IObservable
 
 _Implementation of [IObservable](#interfacesiobservablemd)_
 
-_Defined in [ObservableBase.ts:34](https://github.com/tsaqib/trex/blob/2bcbda0/src/ObservableBase.ts#L34)_
+_Defined in [ObservableBase.ts:34](https://github.com/tsaqib/trex/blob/938e965/src/ObservableBase.ts#L34)_
 
 Subscribes an `Observer` instance
 
@@ -1381,7 +1380,7 @@ void
 
 _Implementation of [IObservable](#interfacesiobservablemd)_
 
-_Defined in [ObservableBase.ts:41](https://github.com/tsaqib/trex/blob/2bcbda0/src/ObservableBase.ts#L41)_
+_Defined in [ObservableBase.ts:41](https://github.com/tsaqib/trex/blob/938e965/src/ObservableBase.ts#L41)_
 
 Unsubscribes an `Observer` instance
 
@@ -1445,7 +1444,7 @@ the constructor or you can subclass the class itself to make your own observer.
 
 \+ **new Observer**(`next`: function, `error?`: undefined | function): _[Observer](#classesobservermd)_
 
-_Defined in [Observer.ts:12](https://github.com/tsaqib/trex/blob/2bcbda0/src/Observer.ts#L12)_
+_Defined in [Observer.ts:12](https://github.com/tsaqib/trex/blob/938e965/src/Observer.ts#L12)_
 
 Constructs an `Observer`.
 
@@ -1486,7 +1485,7 @@ The error handler function
 
 _Implementation of [IObserver](#interfacesiobservermd).[error](#optional-error)_
 
-_Defined in [Observer.ts:12](https://github.com/tsaqib/trex/blob/2bcbda0/src/Observer.ts#L12)_
+_Defined in [Observer.ts:12](https://github.com/tsaqib/trex/blob/938e965/src/Observer.ts#L12)_
 
 ---
 
@@ -1496,7 +1495,7 @@ _Defined in [Observer.ts:12](https://github.com/tsaqib/trex/blob/2bcbda0/src/Obs
 
 _Implementation of [IObserver](#interfacesiobservermd).[next](#next)_
 
-_Defined in [Observer.ts:11](https://github.com/tsaqib/trex/blob/2bcbda0/src/Observer.ts#L11)_
+_Defined in [Observer.ts:11](https://github.com/tsaqib/trex/blob/938e965/src/Observer.ts#L11)_
 
 ##### Type declaration:
 
@@ -1546,7 +1545,7 @@ linked list of observable-observer internal call chains.
 
 \+ **new ObserverMaps**(): _[ObserverMaps](#classesobservermapsmd)_
 
-_Defined in [ObvserverMaps.ts:19](https://github.com/tsaqib/trex/blob/2bcbda0/src/ObvserverMaps.ts#L19)_
+_Defined in [ObvserverMaps.ts:19](https://github.com/tsaqib/trex/blob/938e965/src/ObvserverMaps.ts#L19)_
 
 **Returns:** _[ObserverMaps](#classesobservermapsmd)_
 
@@ -1556,7 +1555,7 @@ _Defined in [ObvserverMaps.ts:19](https://github.com/tsaqib/trex/blob/2bcbda0/sr
 
 ▪ **maps**: _[ObserverMap](#observermap)[]_ = []
 
-_Defined in [ObvserverMaps.ts:21](https://github.com/tsaqib/trex/blob/2bcbda0/src/ObvserverMaps.ts#L21)_
+_Defined in [ObvserverMaps.ts:21](https://github.com/tsaqib/trex/blob/938e965/src/ObvserverMaps.ts#L21)_
 
 ### Methods
 
@@ -1564,7 +1563,7 @@ _Defined in [ObvserverMaps.ts:21](https://github.com/tsaqib/trex/blob/2bcbda0/sr
 
 ▸ **add**(`observer`: [IObserver](#interfacesiobservermd), `observable`: [IObservable](#interfacesiobservablemd), `chainHead?`: [LinkedList](#linkedlist)‹[IObservable](#interfacesiobservablemd)›): _void_
 
-_Defined in [ObvserverMaps.ts:44](https://github.com/tsaqib/trex/blob/2bcbda0/src/ObvserverMaps.ts#L44)_
+_Defined in [ObvserverMaps.ts:44](https://github.com/tsaqib/trex/blob/938e965/src/ObvserverMaps.ts#L44)_
 
 Adds a tuple of observer, observable and the head of the call's linked list.
 
@@ -1590,7 +1589,7 @@ void
 
 ▸ **get**(`observer`: [IObserver](#interfacesiobservermd)): _[ObserverMap](#observermap)[] | undefined_
 
-_Defined in [ObvserverMaps.ts:61](https://github.com/tsaqib/trex/blob/2bcbda0/src/ObvserverMaps.ts#L61)_
+_Defined in [ObvserverMaps.ts:61](https://github.com/tsaqib/trex/blob/938e965/src/ObvserverMaps.ts#L61)_
 
 Gets a tuple list of observer, observable and the head of the call's linked list for a given
 `IObserver`
@@ -1615,7 +1614,7 @@ ObserverMap[] | undefined
 
 ▸ **print**(): _void_
 
-_Defined in [ObvserverMaps.ts:30](https://github.com/tsaqib/trex/blob/2bcbda0/src/ObvserverMaps.ts#L30)_
+_Defined in [ObvserverMaps.ts:30](https://github.com/tsaqib/trex/blob/938e965/src/ObvserverMaps.ts#L30)_
 
 Prints the current ObserverMaps for debugging purposes.
 
@@ -1633,7 +1632,7 @@ void
 
 ▸ **remove**(`map`: [ObserverMap](#observermap)): _void_
 
-_Defined in [ObvserverMaps.ts:73](https://github.com/tsaqib/trex/blob/2bcbda0/src/ObvserverMaps.ts#L73)_
+_Defined in [ObvserverMaps.ts:73](https://github.com/tsaqib/trex/blob/938e965/src/ObvserverMaps.ts#L73)_
 
 Removes a tuple for a given `ObserverMap` instance
 
@@ -1714,7 +1713,7 @@ class Squarer : OperatorBase {
 
 _Overrides [ObservableBase](#classesobservablebasemd).[constructor](#constructor)_
 
-_Defined in [operators/OperatorBase.ts:27](https://github.com/tsaqib/trex/blob/2bcbda0/src/operators/OperatorBase.ts#L27)_
+_Defined in [operators/OperatorBase.ts:27](https://github.com/tsaqib/trex/blob/938e965/src/operators/OperatorBase.ts#L27)_
 
 **Parameters:**
 
@@ -1736,7 +1735,7 @@ _Defined in [operators/OperatorBase.ts:27](https://github.com/tsaqib/trex/blob/2
 
 • **fn**: _function_
 
-_Defined in [operators/OperatorBase.ts:25](https://github.com/tsaqib/trex/blob/2bcbda0/src/operators/OperatorBase.ts#L25)_
+_Defined in [operators/OperatorBase.ts:25](https://github.com/tsaqib/trex/blob/938e965/src/operators/OperatorBase.ts#L25)_
 
 ##### Type declaration:
 
@@ -1754,7 +1753,7 @@ _Defined in [operators/OperatorBase.ts:25](https://github.com/tsaqib/trex/blob/2
 
 • **observable**: _[IObservable](#interfacesiobservablemd)_
 
-_Defined in [operators/OperatorBase.ts:26](https://github.com/tsaqib/trex/blob/2bcbda0/src/operators/OperatorBase.ts#L26)_
+_Defined in [operators/OperatorBase.ts:26](https://github.com/tsaqib/trex/blob/938e965/src/operators/OperatorBase.ts#L26)_
 
 ---
 
@@ -1766,7 +1765,7 @@ _Implementation of [IObservable](#interfacesiobservablemd).[pipeHead](#optional-
 
 _Overrides [ObservableBase](#classesobservablebasemd).[pipeHead](#optional-pipehead)_
 
-_Defined in [operators/OperatorBase.ts:27](https://github.com/tsaqib/trex/blob/2bcbda0/src/operators/OperatorBase.ts#L27)_
+_Defined in [operators/OperatorBase.ts:27](https://github.com/tsaqib/trex/blob/938e965/src/operators/OperatorBase.ts#L27)_
 
 ### Methods
 
@@ -1778,7 +1777,7 @@ _Implementation of [IObservable](#interfacesiobservablemd)_
 
 _Inherited from [ObservableBase](#classesobservablebasemd).[destroy](#destroy)_
 
-_Defined in [ObservableBase.ts:117](https://github.com/tsaqib/trex/blob/2bcbda0/src/ObservableBase.ts#L117)_
+_Defined in [ObservableBase.ts:117](https://github.com/tsaqib/trex/blob/938e965/src/ObservableBase.ts#L117)_
 
 Destroys an `Observable` along with all its subscribers.
 
@@ -1809,7 +1808,7 @@ _Implementation of [IObservable](#interfacesiobservablemd)_
 
 _Overrides [ObservableBase](#classesobservablebasemd).[emit](#emit)_
 
-_Defined in [operators/OperatorBase.ts:41](https://github.com/tsaqib/trex/blob/2bcbda0/src/operators/OperatorBase.ts#L41)_
+_Defined in [operators/OperatorBase.ts:41](https://github.com/tsaqib/trex/blob/938e965/src/operators/OperatorBase.ts#L41)_
 
 Emits an item to the stream
 
@@ -1846,7 +1845,7 @@ _Implementation of [IObservable](#interfacesiobservablemd)_
 
 _Inherited from [ObservableBase](#classesobservablebasemd).[multicast](#multicast)_
 
-_Defined in [ObservableBase.ts:104](https://github.com/tsaqib/trex/blob/2bcbda0/src/ObservableBase.ts#L104)_
+_Defined in [ObservableBase.ts:104](https://github.com/tsaqib/trex/blob/938e965/src/ObservableBase.ts#L104)_
 
 Subscribes an array of observers in one go, typically followed by a pipe.
 
@@ -1887,7 +1886,7 @@ _Implementation of [IObservable](#interfacesiobservablemd)_
 
 _Overrides [ObservableBase](#classesobservablebasemd).[pipe](#pipe)_
 
-_Defined in [operators/OperatorBase.ts:46](https://github.com/tsaqib/trex/blob/2bcbda0/src/operators/OperatorBase.ts#L46)_
+_Defined in [operators/OperatorBase.ts:46](https://github.com/tsaqib/trex/blob/938e965/src/operators/OperatorBase.ts#L46)_
 
 Pipes a series of operations per item in the stream
 
@@ -1926,7 +1925,7 @@ _Implementation of [IObservable](#interfacesiobservablemd)_
 
 _Overrides [ObservableBase](#classesobservablebasemd).[subscribe](#subscribe)_
 
-_Defined in [operators/OperatorBase.ts:36](https://github.com/tsaqib/trex/blob/2bcbda0/src/operators/OperatorBase.ts#L36)_
+_Defined in [operators/OperatorBase.ts:36](https://github.com/tsaqib/trex/blob/938e965/src/operators/OperatorBase.ts#L36)_
 
 Subscribes an `Observer` instance
 
@@ -1963,7 +1962,7 @@ _Implementation of [IObservable](#interfacesiobservablemd)_
 
 _Inherited from [ObservableBase](#classesobservablebasemd).[unsubscribe](#unsubscribe)_
 
-_Defined in [ObservableBase.ts:41](https://github.com/tsaqib/trex/blob/2bcbda0/src/ObservableBase.ts#L41)_
+_Defined in [ObservableBase.ts:41](https://github.com/tsaqib/trex/blob/938e965/src/ObservableBase.ts#L41)_
 
 Unsubscribes an `Observer` instance
 
@@ -2032,7 +2031,7 @@ void
 
 Ƭ **LinkedList**: _object_
 
-_Defined in [CommonHelpers.ts:7](https://github.com/tsaqib/trex/blob/2bcbda0/src/CommonHelpers.ts#L7)_
+_Defined in [CommonHelpers.ts:7](https://github.com/tsaqib/trex/blob/938e965/src/CommonHelpers.ts#L7)_
 
 #### Type declaration:
 
@@ -2046,7 +2045,7 @@ _Defined in [CommonHelpers.ts:7](https://github.com/tsaqib/trex/blob/2bcbda0/src
 
 Ƭ **ObserverMap**: _object_
 
-_Defined in [ObvserverMaps.ts:5](https://github.com/tsaqib/trex/blob/2bcbda0/src/ObvserverMaps.ts#L5)_
+_Defined in [ObvserverMaps.ts:5](https://github.com/tsaqib/trex/blob/938e965/src/ObvserverMaps.ts#L5)_
 
 #### Type declaration:
 
@@ -2062,7 +2061,7 @@ _Defined in [ObvserverMaps.ts:5](https://github.com/tsaqib/trex/blob/2bcbda0/src
 
 ▸ **filter**(`fn`: function): _[FilterOperator](#classesfilteroperatormd)‹›_
 
-_Defined in [CommonHelpers.ts:91](https://github.com/tsaqib/trex/blob/2bcbda0/src/CommonHelpers.ts#L91)_
+_Defined in [CommonHelpers.ts:88](https://github.com/tsaqib/trex/blob/938e965/src/CommonHelpers.ts#L88)_
 
 Returns an item only when the specified predicate is true.
 
@@ -2100,15 +2099,13 @@ The predcate to check with the item
 
 **Returns:** _[FilterOperator](#classesfilteroperatormd)‹›_
 
-IObservable
-
 ---
 
 ### `Const` map
 
 ▸ **map**(`fn`: function): _[MapOperator](#classesmapoperatormd)‹›_
 
-_Defined in [CommonHelpers.ts:64](https://github.com/tsaqib/trex/blob/2bcbda0/src/CommonHelpers.ts#L64)_
+_Defined in [CommonHelpers.ts:62](https://github.com/tsaqib/trex/blob/938e965/src/CommonHelpers.ts#L62)_
 
 Executes standard 1:1 map function on an incoming item and returns the computed item back.
 
@@ -2145,15 +2142,13 @@ The function to apply on the item
 
 **Returns:** _[MapOperator](#classesmapoperatormd)‹›_
 
-IObservable
-
 ---
 
 ### `Const` pipe
 
 ▸ **pipe**(...`fns`: Function[]): _(Anonymous function)_
 
-_Defined in [CommonHelpers.ts:118](https://github.com/tsaqib/trex/blob/2bcbda0/src/CommonHelpers.ts#L118)_
+_Defined in [CommonHelpers.ts:115](https://github.com/tsaqib/trex/blob/938e965/src/CommonHelpers.ts#L115)_
 
 Pipes multiple observer operations together.
 
@@ -2189,7 +2184,7 @@ Output:
 
 ▸ **tap**(`fn`: function): _(Anonymous function)_
 
-_Defined in [CommonHelpers.ts:35](https://github.com/tsaqib/trex/blob/2bcbda0/src/CommonHelpers.ts#L35)_
+_Defined in [CommonHelpers.ts:34](https://github.com/tsaqib/trex/blob/938e965/src/CommonHelpers.ts#L34)_
 
 Execute the specified function on an incoming item and also returns the same item back.
 
@@ -2226,8 +2221,6 @@ The function to apply on the item
 | `item` | any  |
 
 **Returns:** _(Anonymous function)_
-
-IObservable
 
 # Interfaces
 
@@ -2274,7 +2267,7 @@ The interface behind the `ObservableBase`, maintains the contract for all observ
 
 • **pipeHead**? : _[LinkedList](#linkedlist)‹[IObservable](#interfacesiobservablemd)›_
 
-_Defined in [IObservable.ts:77](https://github.com/tsaqib/trex/blob/2bcbda0/src/IObservable.ts#L77)_
+_Defined in [IObservable.ts:77](https://github.com/tsaqib/trex/blob/938e965/src/IObservable.ts#L77)_
 
 \*\* Warning: Do not use this. This is an internal pointer for tracking and cleaning up subscriptions.
 
@@ -2286,7 +2279,7 @@ _Defined in [IObservable.ts:77](https://github.com/tsaqib/trex/blob/2bcbda0/src/
 
 ▸ **destroy**(): _void_
 
-_Defined in [IObservable.ts:143](https://github.com/tsaqib/trex/blob/2bcbda0/src/IObservable.ts#L143)_
+_Defined in [IObservable.ts:143](https://github.com/tsaqib/trex/blob/938e965/src/IObservable.ts#L143)_
 
 Destroys an `Observable` along with all its subscribers.
 
@@ -2313,7 +2306,7 @@ void
 
 ▸ **emit**(`item`: any): _void_
 
-_Defined in [IObservable.ts:69](https://github.com/tsaqib/trex/blob/2bcbda0/src/IObservable.ts#L69)_
+_Defined in [IObservable.ts:69](https://github.com/tsaqib/trex/blob/938e965/src/IObservable.ts#L69)_
 
 Emits an item to the stream
 
@@ -2346,7 +2339,7 @@ void
 
 ▸ **multicast**(...`observers`: [IObserver](#interfacesiobservermd)[]): _void_
 
-_Defined in [IObservable.ts:123](https://github.com/tsaqib/trex/blob/2bcbda0/src/IObservable.ts#L123)_
+_Defined in [IObservable.ts:123](https://github.com/tsaqib/trex/blob/938e965/src/IObservable.ts#L123)_
 
 Subscribes an array of observers in one go, typically followed by a pipe.
 
@@ -2383,7 +2376,7 @@ void
 
 ▸ **pipe**(...`observables`: [IObservable](#interfacesiobservablemd)[]): _[IObservable](#interfacesiobservablemd)_
 
-_Defined in [IObservable.ts:99](https://github.com/tsaqib/trex/blob/2bcbda0/src/IObservable.ts#L99)_
+_Defined in [IObservable.ts:99](https://github.com/tsaqib/trex/blob/938e965/src/IObservable.ts#L99)_
 
 Pipes a series of operations per item in the stream
 
@@ -2418,7 +2411,7 @@ IObservable
 
 ▸ **subscribe**(`observer`: [IObserver](#interfacesiobservermd)): _void_
 
-_Defined in [IObservable.ts:28](https://github.com/tsaqib/trex/blob/2bcbda0/src/IObservable.ts#L28)_
+_Defined in [IObservable.ts:28](https://github.com/tsaqib/trex/blob/938e965/src/IObservable.ts#L28)_
 
 Subscribes an `Observer` instance
 
@@ -2451,7 +2444,7 @@ void
 
 ▸ **unsubscribe**(`observer`: [IObserver](#interfacesiobservermd)): _void_
 
-_Defined in [IObservable.ts:49](https://github.com/tsaqib/trex/blob/2bcbda0/src/IObservable.ts#L49)_
+_Defined in [IObservable.ts:49](https://github.com/tsaqib/trex/blob/938e965/src/IObservable.ts#L49)_
 
 Unsubscribes an `Observer` instance
 
@@ -2513,7 +2506,7 @@ The interface behind the `Observer`, maintains the contract for all observers.
 
 • **next**: _function_
 
-_Defined in [IObserver.ts:14](https://github.com/tsaqib/trex/blob/2bcbda0/src/IObserver.ts#L14)_
+_Defined in [IObserver.ts:14](https://github.com/tsaqib/trex/blob/938e965/src/IObserver.ts#L14)_
 
 Whenever a new item is available in the stream, the `next` function is called with that.
 
@@ -2539,7 +2532,7 @@ Whenever a new item is available in the stream, the `next` function is called wi
 
 ▸ **error**(`err`: any): _void_
 
-_Defined in [IObserver.ts:23](https://github.com/tsaqib/trex/blob/2bcbda0/src/IObserver.ts#L23)_
+_Defined in [IObserver.ts:23](https://github.com/tsaqib/trex/blob/938e965/src/IObserver.ts#L23)_
 
 The error handler for the potential exception occured inside the `next` function.
 
