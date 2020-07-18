@@ -29,8 +29,8 @@ export type LinkedList<T> = {
  * 30
  * 40
  *
- * @param T item The item
- * @return T The item
+ * @param {Function} fn The function to apply on the item
+ * @returns IObservable
  */
 export const tap: (fn: (item: any) => any) => (item: any) => any = (fn) => (
 	item
@@ -58,8 +58,8 @@ export const tap: (fn: (item: any) => any) => (item: any) => any = (fn) => (
  * Output:
  * 120
  *
- * @param T item The item
- * @return T The item
+ * @param {Function} fn The function to apply on the item
+ * @returns IObservable
  */
 export const map: (fn: (item: any) => any) => IObservable = (fn) => {
 	return new MapOperator(fn);
@@ -85,8 +85,8 @@ export const map: (fn: (item: any) => any) => IObservable = (fn) => {
  * Output:
  * 40
  *
- * @param T item The item
- * @return T The item
+ * @param {Function} fn The predcate to check with the item
+ * @returns IObservable
  */
 export const filter: (fn: (item: any) => any) => IObservable = (fn) => {
 	return new FilterOperator(fn);
@@ -112,8 +112,7 @@ export const filter: (fn: (item: any) => any) => IObservable = (fn) => {
  * Output:
  * 40
  *
- * @param T item The item
- * @return T The item
+ * @param {Function[]} fns The list of actions to form a chain of
  */
 // tslint:disable-next-line:ban-types
 export const pipe: (...fns: Function[]) => (item: any) => any = (...fns) => (

@@ -9,7 +9,7 @@ import { OperatorBase } from './operators/OperatorBase';
  * The first class you must instantiate is the `Observable` which is a placeholder for
  * `ObservableBase`.
  *
- * **Warning: You should only subclass this class.
+ * ** Warning: You should only subclass this class.
  *
  * @class
  * @implements {IObservable}

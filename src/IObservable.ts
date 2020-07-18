@@ -29,7 +29,7 @@ export interface IObservable {
 
 	/**
 	 * Unsubscribes an `Observer` instance
-	 * 
+	 *
 	 * Basic usage example:
 	 *
 	 * ```ts
@@ -92,7 +92,7 @@ export interface IObservable {
 	 * observable.emit(50);
 	 * ```
 	 *
-	 * @param {IObservable[]} observables The item to stream
+	 * @param {IObservable[]} observables The observables that form a chain of actions.
 	 * @returns IObservable
 	 * @memberof IObservable
 	 */
@@ -136,7 +136,7 @@ export interface IObservable {
 	 * observable.emit(10);
 	 * observable.destroy();
 	 * ```
-	 * 
+	 *
 	 * @returns void
 	 * @memberof IObservable
 	 */

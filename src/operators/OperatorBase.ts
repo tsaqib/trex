@@ -6,12 +6,13 @@ import { ObservableBase } from '../ObservableBase';
 
 /**
  * This class provides you the basis for your own operators and operators that are included in
- * this package already.
+ * this package already. Operators inherit from `ObservableBase`, so they have same methods and
+ * properties.
  *
  * Basic usage example:
  *
  * ```ts
- * class CustomOperator : OperatorBase {
+ * class Squarer : OperatorBase {
  * 	emit (item: number) {
  * 		this.observable.emit(item * item);
  * 	}

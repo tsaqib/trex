@@ -12,7 +12,7 @@ type ObserverMap = {
  * This is an internal class and not meant for public use. This class maintains a list of
  * linked list of observable-observer internal call chains.
  *
- * **Warning: You should never use this class.
+ * ** Warning: You should never use this class.
  *
  * @class
  */
