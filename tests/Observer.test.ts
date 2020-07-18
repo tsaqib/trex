@@ -11,6 +11,17 @@ test('An observer must recieve an emitted value from the observable.', () => {
 	expect(result).toStrictEqual([10]);
 });
 
+test('Disallow observers without next function.', () => {
+	const observer = new TRex.Observer(console.log);
+	delete observer.next;
+	const observable = new TRex.Observable();
+	const t = () => {
+		observable.subscribe(observer);
+		observable.emit(10);
+	};
+	expect(t).toThrow(Error);
+});
+
 test('An observer with error handler gets triggered on error.', () => {
 	const result: number[] = [100];
 	const observable = new TRex.Observable();

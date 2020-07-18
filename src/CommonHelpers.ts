@@ -2,6 +2,7 @@
 
 import { MapOperator } from './operators/MapOperator';
 import { FilterOperator } from './operators/FilterOperator';
+import { TakeOperator } from './operators/TakeOperator';
 import { IObservable } from './IObservable';
 
 export type LinkedList<T> = {
@@ -87,6 +88,34 @@ export const map: (fn: (item: any) => any) => IObservable = (fn) => {
  */
 export const filter: (fn: (item: any) => any) => IObservable = (fn) => {
 	return new FilterOperator(fn);
+};
+
+/**
+ * Returns an item only when the specified predicate is true.
+ *
+ * Basic usage example:
+ *
+ * ```ts
+ * const observer = new TRex.Observer((num) => {
+ * 	console.log(num);
+ * });
+ * observable
+ * 	.pipe(
+ * 		TRex.take(3)
+ * 	)
+ * .subscribe(observer);
+ * observable.emit([10, 20, 30, 40, 50, 60]);
+ * ```
+ *
+ * Output:
+ * 10
+ * 20
+ * 30
+ *
+ * @param {number} count The total number of items will be allowed to pass through further
+ */
+export const take: (count: number) => IObservable = (count) => {
+	return new TakeOperator(count);
 };
 
 /**

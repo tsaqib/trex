@@ -40,6 +40,8 @@ export class ObservableBase implements IObservable {
 	unsubscribe(observer: IObserver) {
 		let pipeRefDeleted = false;
 		const maps = ObserverMaps.get(observer);
+
+		/* istanbul ignore next */
 		if (maps) {
 			maps.forEach((om) => {
 				let head = om.chainHead;
@@ -59,20 +61,32 @@ export class ObservableBase implements IObservable {
 		}
 	}
 
-	emit(item: any) {
-		this.observers.forEach((observer) => {
-			if (observer.next && typeof observer.next === 'function') {
-				if (observer.error) {
-					try {
+	emit(items: any | any[]) {
+		const emit = (item: any) => {
+			this.observers.forEach((observer) => {
+				if (observer.next && typeof observer.next === 'function') {
+					if (observer.error) {
+						try {
+							observer.next(item);
+						} catch (err) {
+							observer.error(err);
+						}
+					} else {
 						observer.next(item);
-					} catch (err) {
-						observer.error(err);
 					}
 				} else {
-					observer.next(item);
+					throw new Error(
+						'One of the observers did not have a next function defined.'
+					);
 				}
-			}
-		});
+			});
+		};
+
+		if (Array.isArray(items)) {
+			items.forEach((item) => emit(item));
+		} else {
+			emit(items);
+		}
 	}
 
 	pipe(...observables: IObservable[]) {

@@ -18,6 +18,7 @@ type ObserverMap = {
  * @noInheritDoc
  */
 export class ObserverMaps {
+	/* istanbul ignore next */
 	private constructor() {}
 	public static maps: ObserverMap[] = [];
 
@@ -27,9 +28,10 @@ export class ObserverMaps {
 	 * @memberof ObserverMaps
 	 * @static
 	 */
-	// public static print(): void {
-	// 	console.log('Maps', this.maps);
-	// }
+	/* istanbul ignore next */
+	public static print(): void {
+		console.log('Maps', this.maps);
+	}
 
 	/**
 	 * Adds a tuple of observer, observable and the head of the call's linked list.

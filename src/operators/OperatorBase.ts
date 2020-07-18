@@ -45,7 +45,7 @@ export class OperatorBase extends ObservableBase {
 		this.observable.subscribe(observer);
 	}
 
-	emit(item: any) {
+	emit(item: any | any[]) {
 		this.observable.emit(this.fn(item));
 	}
 

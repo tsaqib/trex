@@ -63,7 +63,7 @@ export interface IObservable {
 	 * @param {any} item The item to stream
 	 * @memberof IObservable
 	 */
-	emit(item: any): void;
+	emit(item: any | any[]): void;
 
 	/**
 	 * ** Warning: Do not use this. This is an internal pointer for tracking and cleaning up subscriptions.
