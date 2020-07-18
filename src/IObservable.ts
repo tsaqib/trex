@@ -22,7 +22,6 @@ export interface IObservable {
 	 * ```
 	 *
 	 * @param {IObserver} observer The `Observer` instance to be subscribed for update
-	 * @returns void
 	 * @memberof IObservable
 	 */
 	subscribe(observer: IObserver): void;
@@ -43,7 +42,6 @@ export interface IObservable {
 	 * ```
 	 *
 	 * @param {IObserver} observer The `Observer` instance to be subscribed for update
-	 * @returns void
 	 * @memberof IObservable
 	 */
 	unsubscribe(observer: IObserver): void;
@@ -63,7 +61,6 @@ export interface IObservable {
 	 * ```
 	 *
 	 * @param {any} item The item to stream
-	 * @returns void
 	 * @memberof IObservable
 	 */
 	emit(item: any): void;
@@ -93,7 +90,6 @@ export interface IObservable {
 	 * ```
 	 *
 	 * @param {IObservable[]} observables The observables that form a chain of actions.
-	 * @returns IObservable
 	 * @memberof IObservable
 	 */
 	pipe(...observables: IObservable[]): IObservable;
@@ -117,7 +113,6 @@ export interface IObservable {
 	 * ```
 	 *
 	 * @param {IObserver[]} observers An array of `Observer` to update
-	 * @returns void
 	 * @memberof IObservable
 	 */
 	multicast(...observers: IObserver[]): void;
@@ -137,7 +132,6 @@ export interface IObservable {
 	 * observable.destroy();
 	 * ```
 	 *
-	 * @returns void
 	 * @memberof IObservable
 	 */
 	destroy?(): void;

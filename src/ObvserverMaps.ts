@@ -24,7 +24,6 @@ export class ObserverMaps {
 	/**
 	 * Prints the current ObserverMaps for debugging purposes.
 	 *
-	 * @returns void
 	 * @memberof ObserverMaps
 	 * @static
 	 */
@@ -38,7 +37,6 @@ export class ObserverMaps {
 	 * @param {IObserver} observer The observer
 	 * @param {IObservable} observer The observable
 	 * @param {LinkedList<IObservable>} observer The linked list
-	 * @returns void
 	 * @memberof ObserverMaps
 	 * @static
 	 */
@@ -55,7 +53,6 @@ export class ObserverMaps {
 	 * `IObserver`
 	 *
 	 * @param {IObserver} observer The observer to lookup
-	 * @returns ObserverMap[] | undefined
 	 * @memberof ObserverMaps
 	 * @static
 	 */
@@ -67,7 +64,6 @@ export class ObserverMaps {
 	 * Removes a tuple for a given `ObserverMap` instance
 	 *
 	 * @param {ObserverMap} observerMap The ObserverMap to remove
-	 * @returns void
 	 * @memberof ObserverMaps
 	 * @static
 	 */

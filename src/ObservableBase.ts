@@ -99,7 +99,7 @@ export class ObservableBase implements IObservable {
 
 	multicast(...observers: IObserver[]) {
 		// End of pipe: if this.pipeHead is present; attach it with
-		// the observer and store in ObservableContext
+		// the observer and store in ObserverMaps
 		// There may not be a pipeHead at all
 		observers.forEach((observer) => {
 			this.subscribe(observer);
