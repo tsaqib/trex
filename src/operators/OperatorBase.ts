@@ -4,6 +4,11 @@ import { IObserver } from '../IObserver';
 import { LinkedList } from '../CommonHelpers';
 import { ObservableBase } from '../ObservableBase';
 
+/**
+ * This class provides you the basis for your own operators and operators that are included in 
+ * this package already. 
+ * @class
+ */
 export class OperatorBase extends ObservableBase {
 	fn: (item: any) => any;
 	observable: IObservable;
@@ -15,14 +20,17 @@ export class OperatorBase extends ObservableBase {
 		this.observable = new Observable();
 	}
 
+	/** @inheritdoc */
 	subscribe(observer: IObserver) {
 		this.observable.subscribe(observer);
 	}
 
+	/** @inheritdoc */
 	emit(item: any) {
 		this.observable.emit(this.fn(item));
 	}
 
+	/** @inheritdoc */
 	pipe(...observables: IObservable[]): never {
 		// For now this pipe does nothing
 		throw new Error('Nested pipes are unsupported.');

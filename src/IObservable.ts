@@ -10,6 +10,17 @@ export interface IObservable {
 	/**
 	 * Subscribes an `Observer` instance
 	 *
+	 * Basic usage example:
+	 *
+	 * ```ts
+	 * const observable = new TRex.Observable();
+	 * const observer = new TRex.Observer((num) => {
+	 * 	console.log(num);
+	 * });
+	 * observable.subscribe(observer);
+	 * observable.emit(10);
+	 * ```
+	 *
 	 * @param {IObserver} observer The `Observer` instance to be subscribed for update
 	 * @returns void
 	 * @memberof IObservable
@@ -27,6 +38,17 @@ export interface IObservable {
 
 	/**
 	 * Emits an item to the stream
+	 *
+	 * Basic usage example:
+	 *
+	 * ```ts
+	 * const observable = new TRex.Observable();
+	 * const observer = new TRex.Observer((num) => {
+	 * 	console.log(num);
+	 * });
+	 * observable.subscribe(observer);
+	 * observable.emit(10);
+	 * ```
 	 *
 	 * @param {any} item The item to stream
 	 * @returns void
