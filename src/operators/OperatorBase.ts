@@ -20,29 +20,35 @@ import { ObservableBase } from '../ObservableBase';
  * ```
  *
  * @class
+ * @noInheritDoc
  */
 export class OperatorBase extends ObservableBase {
 	fn: (item: any) => any;
 	observable: IObservable;
 	pipeHead?: LinkedList<IObservable>;
 
+	/**
+	 * Constructs an `OperatorBase`.
+	 *
+	 * ** Warning: You should use this only by subclassing.
+	 *
+	 * @constructor
+	 * @param {function} fn The function to apply to the item
+	 */
 	constructor(fn: (item: any) => any) {
 		super();
 		this.fn = fn;
 		this.observable = new Observable();
 	}
 
-	/** @inheritdoc */
 	subscribe(observer: IObserver) {
 		this.observable.subscribe(observer);
 	}
 
-	/** @inheritdoc */
 	emit(item: any) {
 		this.observable.emit(this.fn(item));
 	}
 
-	/** @inheritdoc */
 	pipe(...observables: IObservable[]): never {
 		// For now this pipe does nothing
 		throw new Error('Nested pipes are unsupported.');

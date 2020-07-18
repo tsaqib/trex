@@ -15,5 +15,6 @@ import { ObservableBase } from './ObservableBase';
  * ```
  * 
  * @class
+ * @noInheritDoc
  */
 export class Observable extends ObservableBase {}

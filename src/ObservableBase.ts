@@ -12,6 +12,7 @@ import { OperatorBase } from './operators/OperatorBase';
  * ** Warning: You should only subclass this class.
  *
  * @class
+ * @inheritdoc
  * @implements {IObservable}
  */
 export class ObservableBase implements IObservable {
@@ -30,14 +31,12 @@ export class ObservableBase implements IObservable {
 		this.pipeHead = undefined;
 	}
 
-	/** @inheritdoc */
 	subscribe(observer: IObserver) {
 		if (this.observers.indexOf(observer) < 0) {
 			this.observers.push(observer);
 		}
 	}
 
-	/** @inheritdoc */
 	unsubscribe(observer: IObserver) {
 		let pipeRefDeleted = false;
 		const maps = ObserverMaps.get(observer);
@@ -60,7 +59,6 @@ export class ObservableBase implements IObservable {
 		}
 	}
 
-	/** @inheritdoc */
 	emit(item: any) {
 		this.observers.forEach((observer) => {
 			if (observer.next && typeof observer.next === 'function') {
@@ -77,7 +75,6 @@ export class ObservableBase implements IObservable {
 		});
 	}
 
-	/** @inheritdoc */
 	pipe(...observables: IObservable[]) {
 		if (observables.length === 0) {
 			throw new Error('Empty pipes are unsupported.');
@@ -100,7 +97,6 @@ export class ObservableBase implements IObservable {
 		return linkedListTail.value;
 	}
 
-	/** @inheritdoc */
 	multicast(...observers: IObserver[]) {
 		// End of pipe: if this.pipeHead is present; attach it with
 		// the observer and store in ObservableContext
@@ -113,7 +109,6 @@ export class ObservableBase implements IObservable {
 		});
 	}
 
-	/** @inheritdoc */
 	destroy() {
 		// TODO: also clean up using ObserverMaps
 		this.observers.splice(0, this.observers.length);

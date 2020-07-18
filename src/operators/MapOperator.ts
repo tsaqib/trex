@@ -21,5 +21,6 @@ import { OperatorBase } from './OperatorBase';
  * ```
  *
  * @class
+ * @noInheritDoc
  */
 export class MapOperator extends OperatorBase {}

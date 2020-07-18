@@ -15,6 +15,7 @@ type ObserverMap = {
  * ** Warning: You should never use this class.
  *
  * @class
+ * @noInheritDoc
  */
 export class ObserverMaps {
 	private constructor() {}

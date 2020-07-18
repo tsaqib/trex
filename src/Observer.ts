@@ -5,6 +5,7 @@ import { IObserver } from './IObserver';
  * the constructor or you can subclass the class itself to make your own observer.
  *
  * @class
+ * @inheritdoc
  * @implements {IObservable}
  */
 export class Observer implements IObserver {
