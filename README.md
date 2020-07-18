@@ -17,7 +17,7 @@ import * as TRex from '@tsaqib/trex';
 
 const messageObservable = new TRex.Observable();
 const workflowWorker = new TRex.Observer((message) => {
-	// TODO: start a workflow
+  // TODO: start a workflow
 });
 const coworkersNotifier = new TRex.Observer((message) => {
 	TRex.pipe(
@@ -30,7 +30,7 @@ const channelUpdater = new TRex.Observer((message) => {
   // TODO: update #office channel
 }
 const analyticsTracker = new TRex.Observer((message) => {
-	// TODO: track analytics
+  // TODO: track analytics
 });
 
 messageObservable
