@@ -15,9 +15,16 @@ import { OperatorBase } from './operators/OperatorBase';
  * @implements {IObservable}
  */
 export class ObservableBase implements IObservable {
-	observers: IObserver[];
+	private observers: IObserver[];
 	pipeHead?: LinkedList<IObservable>;
 
+	/**
+	 * Constructs an `ObservableBase`.
+	 *
+	 * ** Warning: You should use this only by subclassing.
+	 *
+	 * @constructor
+	 */
 	constructor() {
 		this.observers = [];
 		this.pipeHead = undefined;

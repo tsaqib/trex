@@ -13,9 +13,9 @@ export interface IObservable {
 	 * Basic usage example:
 	 *
 	 * ```ts
-	 * const observable = new TRex.Observable();
-	 * const observer = new TRex.Observer((num) => {
-	 * 	console.log(num);
+	 * const observable = new Observable();
+	 * const observer = new Observer((num) => {
+	 * 	console.log(num / 2);
 	 * });
 	 * observable.subscribe(observer);
 	 * observable.emit(10);
@@ -29,6 +29,18 @@ export interface IObservable {
 
 	/**
 	 * Unsubscribes an `Observer` instance
+	 * 
+	 * Basic usage example:
+	 *
+	 * ```ts
+	 * const observable = new Observable();
+	 * const observer = new Observer((num) => {
+	 * 	console.log(num / 2);
+	 * });
+	 * observable.subscribe(observer);
+	 * observable.emit(10);
+	 * observable.unsubscribe(observer);
+	 * ```
 	 *
 	 * @param {IObserver} observer The `Observer` instance to be subscribed for update
 	 * @returns void
@@ -42,8 +54,8 @@ export interface IObservable {
 	 * Basic usage example:
 	 *
 	 * ```ts
-	 * const observable = new TRex.Observable();
-	 * const observer = new TRex.Observer((num) => {
+	 * const observable = new Observable();
+	 * const observer = new Observer((num) => {
 	 * 	console.log(num);
 	 * });
 	 * observable.subscribe(observer);
@@ -57,7 +69,7 @@ export interface IObservable {
 	emit(item: any): void;
 
 	/**
-	 * Do not use this. This is an internal pointer for tracking and cleaning up subscriptions.
+	 * ** Warning: Do not use this. This is an internal pointer for tracking and cleaning up subscriptions.
 	 *
 	 * @type {LinkedList<IObservable>} The head of the linked list
 	 * @memberof IObservable
@@ -66,6 +78,19 @@ export interface IObservable {
 
 	/**
 	 * Pipes a series of operations per item in the stream
+	 *
+	 * Basic usage example:
+	 *
+	 * ```ts
+	 * const observable = new Observable();
+	 * observable
+	 * 	.pipe(
+	 * 		map(x => x * 2),
+	 * 		filter(x => x > 5)
+	 * 	)
+	 * 	.subscribe(new Observer((x) => console.log(x)));
+	 * observable.emit(50);
+	 * ```
 	 *
 	 * @param {IObservable[]} observables The item to stream
 	 * @returns IObservable
@@ -76,6 +101,21 @@ export interface IObservable {
 	/**
 	 * Subscribes an array of observers in one go, typically followed by a pipe.
 	 *
+	 * Basic usage example:
+	 *
+	 * ```ts
+	 * const observable1 = new Observer((x) => console.log(x));
+	 * const observable2 = new Observer((x) => console.log(x * x));
+	 * const observable = new Observable();
+	 * observable
+	 * 	.pipe(
+	 * 		map(x => x * 2),
+	 * 		filter(x => x > 5)
+	 * 	)
+	 * 	.multicast(observer1, observer2);
+	 * observable.emit(50);
+	 * ```
+	 *
 	 * @param {IObserver[]} observers An array of `Observer` to update
 	 * @returns void
 	 * @memberof IObservable
@@ -83,8 +123,20 @@ export interface IObservable {
 	multicast(...observers: IObserver[]): void;
 
 	/**
-	 * Destroyes an `Observable` along with all its subscribers.
+	 * Destroys an `Observable` along with all its subscribers.
 	 *
+	 * Basic usage example:
+	 *
+	 * ```ts
+	 * const observable = new Observable();
+	 * const observer = new Observer((num) => {
+	 * 	console.log(num / 2);
+	 * })
+	 * .subscribe(new Observer((x) => console.log(x)));
+	 * observable.emit(10);
+	 * observable.destroy();
+	 * ```
+	 * 
 	 * @returns void
 	 * @memberof IObservable
 	 */

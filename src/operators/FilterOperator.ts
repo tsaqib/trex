@@ -1,10 +1,25 @@
 import { OperatorBase } from './OperatorBase';
 
 /**
- * The default behaviour of the `OperatorBase` is `MapOperator`. Therefore, this class is just a
- * placeholder.
+ * This operator runs the data items through the predicate you pass on to it and if it satisfies
+ * the predicate, it returns back the item. As a result, the subscribers get the item on emit.
  * @class
- * @inheritdoc
+ *
+ * Basic usage example:
+ *
+ * ```ts
+ * const observer = new TRex.Observer((num) => {
+ * 	console.log(num / 2);
+ * });
+ * observable
+ * 	.pipe(
+ * 		TRex.map((num) => num * 2),
+ * 		TRex.map((num) => num * 3),
+ * 		TRex.filter((num) => num > 50)
+ * 	)
+ * .subscribe(observer);
+ * observable.emit(10);
+ * ```
  */
 export class FilterOperator extends OperatorBase {
 	emit(item: any) {

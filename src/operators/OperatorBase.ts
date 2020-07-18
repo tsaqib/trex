@@ -5,8 +5,19 @@ import { LinkedList } from '../CommonHelpers';
 import { ObservableBase } from '../ObservableBase';
 
 /**
- * This class provides you the basis for your own operators and operators that are included in 
- * this package already. 
+ * This class provides you the basis for your own operators and operators that are included in
+ * this package already.
+ *
+ * Basic usage example:
+ *
+ * ```ts
+ * class CustomOperator : OperatorBase {
+ * 	emit (item: number) {
+ * 		this.observable.emit(item * item);
+ * 	}
+ * }
+ * ```
+ *
  * @class
  */
 export class OperatorBase extends ObservableBase {

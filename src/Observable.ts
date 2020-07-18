@@ -7,6 +7,13 @@ import { ObservableBase } from './ObservableBase';
  *
  * `Observer` is essentially a placeholder for `ObservableBase`. Most of the logic is inside the
  * latter.
+ * 
+ * Basic usage example:
+ * 
+ * ```ts
+ * const observable = new Observable();
+ * ```
+ * 
  * @class
  */
 export class Observable extends ObservableBase {}

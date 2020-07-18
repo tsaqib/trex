@@ -86,9 +86,8 @@
 <p><a name="classesfilteroperatormd"></a></p>
 <p><a href="#globalsmd">@tsaqib/trex</a> › <a href="#classesfilteroperatormd">FilterOperator</a></p>
 <h2 id="classfilteroperator">Class: FilterOperator</h2>
-<p>The default behaviour of the <code>OperatorBase</code> is <code>MapOperator</code>. Therefore, this class is just a
-placeholder.</p>
-<p><strong><code>inheritdoc</code></strong> </p>
+<p>This operator runs the data items through the predicate you pass on to it and if it satisfies
+the predicate, it returns back the item. As a result, the subscribers get the item on emit.</p>
 <h3 id="hierarchy">Hierarchy</h3>
 <p>↳ <a href="#classesoperatorbasemd">OperatorBase</a></p>
 <p>↳ <strong>FilterOperator</strong></p>
@@ -105,7 +104,6 @@ placeholder.</p>
 <ul>
 <li><a href="#fn">fn</a></li>
 <li><a href="#observable">observable</a></li>
-<li><a href="#observers">observers</a></li>
 <li><a href="#optional-pipehead">pipeHead</a></li>
 </ul>
 <h4 id="methods">Methods</h4>
@@ -122,7 +120,7 @@ placeholder.</p>
 <p>+ <strong>new FilterOperator</strong>(<code>fn</code>: function): <em><a href="#classesfilteroperatormd">FilterOperator</a></em></p>
 <p><em>Inherited from <a href="#classesoperatorbasemd">OperatorBase</a>.<a href="#constructor">constructor</a></em></p>
 <p><em>Overrides <a href="#classesobservablebasemd">ObservableBase</a>.<a href="#constructor">constructor</a></em></p>
-<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/362b223/src/operators/OperatorBase.ts#L15">operators/OperatorBase.ts:15</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/f82aed2/src/operators/OperatorBase.ts#L26">operators/OperatorBase.ts:26</a></em></p>
 <p><strong>Parameters:</strong></p>
 <p>▪ <strong>fn</strong>: <em>function</em></p>
 <p>▸ (<code>item</code>: any): <em>any</em></p>
@@ -135,7 +133,7 @@ placeholder.</p>
 <h4 id="fn">fn</h4>
 <p>• <strong>fn</strong>: <em>function</em></p>
 <p><em>Inherited from <a href="#classesoperatorbasemd">OperatorBase</a>.<a href="#fn">fn</a></em></p>
-<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/362b223/src/operators/OperatorBase.ts#L13">operators/OperatorBase.ts:13</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/f82aed2/src/operators/OperatorBase.ts#L24">operators/OperatorBase.ts:24</a></em></p>
 <h5 id="typedeclaration">Type declaration:</h5>
 <p>▸ (<code>item</code>: any): <em>any</em></p>
 <p><strong>Parameters:</strong></p>
@@ -146,26 +144,30 @@ placeholder.</p>
 <h4 id="observable">observable</h4>
 <p>• <strong>observable</strong>: <em><a href="#interfacesiobservablemd">IObservable</a></em></p>
 <p><em>Inherited from <a href="#classesoperatorbasemd">OperatorBase</a>.<a href="#observable">observable</a></em></p>
-<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/362b223/src/operators/OperatorBase.ts#L14">operators/OperatorBase.ts:14</a></em></p>
-<hr />
-<h4 id="observers">observers</h4>
-<p>• <strong>observers</strong>: <em><a href="#interfacesiobservermd">IObserver</a>[]</em></p>
-<p><em>Inherited from <a href="#classesobservablebasemd">ObservableBase</a>.<a href="#observers">observers</a></em></p>
-<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/362b223/src/ObservableBase.ts#L18">ObservableBase.ts:18</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/f82aed2/src/operators/OperatorBase.ts#L25">operators/OperatorBase.ts:25</a></em></p>
 <hr />
 <h4 id="optionalpipehead"><code>Optional</code> pipeHead</h4>
 <p>• <strong>pipeHead</strong>? : <em><a href="#linkedlist">LinkedList</a>‹<a href="#interfacesiobservablemd">IObservable</a>›</em></p>
 <p><em>Implementation of <a href="#interfacesiobservablemd">IObservable</a>.<a href="#optional-pipehead">pipeHead</a></em></p>
 <p><em>Inherited from <a href="#classesoperatorbasemd">OperatorBase</a>.<a href="#optional-pipehead">pipeHead</a></em></p>
 <p><em>Overrides <a href="#classesobservablebasemd">ObservableBase</a>.<a href="#optional-pipehead">pipeHead</a></em></p>
-<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/362b223/src/operators/OperatorBase.ts#L15">operators/OperatorBase.ts:15</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/f82aed2/src/operators/OperatorBase.ts#L26">operators/OperatorBase.ts:26</a></em></p>
 <h3 id="methods-1">Methods</h3>
 <h4 id="destroy">destroy</h4>
 <p>▸ <strong>destroy</strong>(): <em>void</em></p>
 <p><em>Implementation of <a href="#interfacesiobservablemd">IObservable</a></em></p>
 <p><em>Inherited from <a href="#classesobservablebasemd">ObservableBase</a>.<a href="#destroy">destroy</a></em></p>
-<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/362b223/src/ObservableBase.ts#L110">ObservableBase.ts:110</a></em></p>
-<p>Destroyes an <code>Observable</code> along with all its subscribers.</p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/f82aed2/src/ObservableBase.ts#L117">ObservableBase.ts:117</a></em></p>
+<p>Destroys an <code>Observable</code> along with all its subscribers.</p>
+<p>Basic usage example:</p>
+<pre><code class="ts language-ts">const observable = new Observable();
+const observer = new Observer((num) =&gt; {
+    console.log(num / 2);
+})
+.subscribe(new Observer((x) =&gt; console.log(x)));
+observable.emit(10);
+observable.destroy();
+</code></pre>
 <p><strong><code>memberof</code></strong> IObservable</p>
 <p><strong>Returns:</strong> <em>void</em></p>
 <p>void</p>
@@ -174,7 +176,7 @@ placeholder.</p>
 <p>▸ <strong>emit</strong>(<code>item</code>: any): <em>void</em></p>
 <p><em>Implementation of <a href="#interfacesiobservablemd">IObservable</a></em></p>
 <p><em>Overrides <a href="#classesoperatorbasemd">OperatorBase</a>.<a href="#emit">emit</a></em></p>
-<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/362b223/src/operators/FilterOperator.ts#L10">operators/FilterOperator.ts:10</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/f82aed2/src/operators/FilterOperator.ts#L25">operators/FilterOperator.ts:25</a></em></p>
 <p><strong>Parameters:</strong></p>
 <p>Name | Type |
 ------ | ------ |
@@ -185,8 +187,20 @@ placeholder.</p>
 <p>▸ <strong>multicast</strong>(…<code>observers</code>: <a href="#interfacesiobservermd">IObserver</a>[]): <em>void</em></p>
 <p><em>Implementation of <a href="#interfacesiobservablemd">IObservable</a></em></p>
 <p><em>Inherited from <a href="#classesobservablebasemd">ObservableBase</a>.<a href="#multicast">multicast</a></em></p>
-<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/362b223/src/ObservableBase.ts#L97">ObservableBase.ts:97</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/f82aed2/src/ObservableBase.ts#L104">ObservableBase.ts:104</a></em></p>
 <p>Subscribes an array of observers in one go, typically followed by a pipe.</p>
+<p>Basic usage example:</p>
+<pre><code class="ts language-ts">const observable1 = new Observer((x) =&gt; console.log(x));
+const observable2 = new Observer((x) =&gt; console.log(x * x));
+const observable = new Observable();
+observable
+    .pipe(
+        map(x =&gt; x * 2),
+        filter(x =&gt; x &gt; 5)
+    )
+    .multicast(observer1, observer2);
+observable.emit(50);
+</code></pre>
 <p><strong><code>memberof</code></strong> IObservable</p>
 <p><strong>Parameters:</strong></p>
 <p>Name | Type | Description |
@@ -200,8 +214,18 @@ placeholder.</p>
 <p><em>Implementation of <a href="#interfacesiobservablemd">IObservable</a></em></p>
 <p><em>Inherited from <a href="#classesoperatorbasemd">OperatorBase</a>.<a href="#pipe">pipe</a></em></p>
 <p><em>Overrides <a href="#classesobservablebasemd">ObservableBase</a>.<a href="#pipe">pipe</a></em></p>
-<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/362b223/src/operators/OperatorBase.ts#L34">operators/OperatorBase.ts:34</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/f82aed2/src/operators/OperatorBase.ts#L45">operators/OperatorBase.ts:45</a></em></p>
 <p>Pipes a series of operations per item in the stream</p>
+<p>Basic usage example:</p>
+<pre><code class="ts language-ts">const observable = new Observable();
+observable
+    .pipe(
+        map(x =&gt; x * 2),
+        filter(x =&gt; x &gt; 5)
+    )
+    .subscribe(new Observer((x) =&gt; console.log(x)));
+observable.emit(50);
+</code></pre>
 <p><strong><code>memberof</code></strong> IObservable</p>
 <p><strong>Parameters:</strong></p>
 <p>Name | Type | Description |
@@ -215,12 +239,12 @@ placeholder.</p>
 <p><em>Implementation of <a href="#interfacesiobservablemd">IObservable</a></em></p>
 <p><em>Inherited from <a href="#classesoperatorbasemd">OperatorBase</a>.<a href="#subscribe">subscribe</a></em></p>
 <p><em>Overrides <a href="#classesobservablebasemd">ObservableBase</a>.<a href="#subscribe">subscribe</a></em></p>
-<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/362b223/src/operators/OperatorBase.ts#L24">operators/OperatorBase.ts:24</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/f82aed2/src/operators/OperatorBase.ts#L35">operators/OperatorBase.ts:35</a></em></p>
 <p>Subscribes an <code>Observer</code> instance</p>
 <p>Basic usage example:</p>
-<pre><code class="ts language-ts">const observable = new TRex.Observable();
-const observer = new TRex.Observer((num) =&gt; {
-    console.log(num);
+<pre><code class="ts language-ts">const observable = new Observable();
+const observer = new Observer((num) =&gt; {
+    console.log(num / 2);
 });
 observable.subscribe(observer);
 observable.emit(10);
@@ -237,8 +261,17 @@ observable.emit(10);
 <p>▸ <strong>unsubscribe</strong>(<code>observer</code>: <a href="#interfacesiobservermd">IObserver</a>): <em>void</em></p>
 <p><em>Implementation of <a href="#interfacesiobservablemd">IObservable</a></em></p>
 <p><em>Inherited from <a href="#classesobservablebasemd">ObservableBase</a>.<a href="#unsubscribe">unsubscribe</a></em></p>
-<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/362b223/src/ObservableBase.ts#L34">ObservableBase.ts:34</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/f82aed2/src/ObservableBase.ts#L41">ObservableBase.ts:41</a></em></p>
 <p>Unsubscribes an <code>Observer</code> instance</p>
+<p>Basic usage example:</p>
+<pre><code class="ts language-ts">const observable = new Observable();
+const observer = new Observer((num) =&gt; {
+    console.log(num / 2);
+});
+observable.subscribe(observer);
+observable.emit(10);
+observable.unsubscribe(observer);
+</code></pre>
 <p><strong><code>memberof</code></strong> IObservable</p>
 <p><strong>Parameters:</strong></p>
 <p>Name | Type | Description |
@@ -251,6 +284,19 @@ observable.emit(10);
 <h2 id="classmapoperator">Class: MapOperator</h2>
 <p>The default behaviour of the <code>OperatorBase</code> is <code>MapOperator</code>. Therefore, this class is just a
 placeholder.</p>
+<p>Basic usage example:</p>
+<pre><code class="ts language-ts">const observer = new TRex.Observer((num) =&gt; {
+    console.log(num / 2);
+});
+observable
+    .pipe(
+        TRex.map((num) =&gt; num * 2),
+        TRex.map((num) =&gt; num * 3),
+        TRex.filter((num) =&gt; num &gt; 50)
+    )
+.subscribe(observer);
+observable.emit(10);
+</code></pre>
 <h3 id="hierarchy-1">Hierarchy</h3>
 <p>↳ <a href="#classesoperatorbasemd">OperatorBase</a></p>
 <p>↳ <strong>MapOperator</strong></p>
@@ -267,7 +313,6 @@ placeholder.</p>
 <ul>
 <li><a href="#fn">fn</a></li>
 <li><a href="#observable">observable</a></li>
-<li><a href="#observers">observers</a></li>
 <li><a href="#optional-pipehead">pipeHead</a></li>
 </ul>
 <h4 id="methods-2">Methods</h4>
@@ -284,7 +329,7 @@ placeholder.</p>
 <p>+ <strong>new MapOperator</strong>(<code>fn</code>: function): <em><a href="#classesmapoperatormd">MapOperator</a></em></p>
 <p><em>Inherited from <a href="#classesoperatorbasemd">OperatorBase</a>.<a href="#constructor">constructor</a></em></p>
 <p><em>Overrides <a href="#classesobservablebasemd">ObservableBase</a>.<a href="#constructor">constructor</a></em></p>
-<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/362b223/src/operators/OperatorBase.ts#L15">operators/OperatorBase.ts:15</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/f82aed2/src/operators/OperatorBase.ts#L26">operators/OperatorBase.ts:26</a></em></p>
 <p><strong>Parameters:</strong></p>
 <p>▪ <strong>fn</strong>: <em>function</em></p>
 <p>▸ (<code>item</code>: any): <em>any</em></p>
@@ -297,7 +342,7 @@ placeholder.</p>
 <h4 id="fn-1">fn</h4>
 <p>• <strong>fn</strong>: <em>function</em></p>
 <p><em>Inherited from <a href="#classesoperatorbasemd">OperatorBase</a>.<a href="#fn">fn</a></em></p>
-<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/362b223/src/operators/OperatorBase.ts#L13">operators/OperatorBase.ts:13</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/f82aed2/src/operators/OperatorBase.ts#L24">operators/OperatorBase.ts:24</a></em></p>
 <h5 id="typedeclaration-1">Type declaration:</h5>
 <p>▸ (<code>item</code>: any): <em>any</em></p>
 <p><strong>Parameters:</strong></p>
@@ -308,26 +353,30 @@ placeholder.</p>
 <h4 id="observable-1">observable</h4>
 <p>• <strong>observable</strong>: <em><a href="#interfacesiobservablemd">IObservable</a></em></p>
 <p><em>Inherited from <a href="#classesoperatorbasemd">OperatorBase</a>.<a href="#observable">observable</a></em></p>
-<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/362b223/src/operators/OperatorBase.ts#L14">operators/OperatorBase.ts:14</a></em></p>
-<hr />
-<h4 id="observers-1">observers</h4>
-<p>• <strong>observers</strong>: <em><a href="#interfacesiobservermd">IObserver</a>[]</em></p>
-<p><em>Inherited from <a href="#classesobservablebasemd">ObservableBase</a>.<a href="#observers">observers</a></em></p>
-<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/362b223/src/ObservableBase.ts#L18">ObservableBase.ts:18</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/f82aed2/src/operators/OperatorBase.ts#L25">operators/OperatorBase.ts:25</a></em></p>
 <hr />
 <h4 id="optionalpipehead-1"><code>Optional</code> pipeHead</h4>
 <p>• <strong>pipeHead</strong>? : <em><a href="#linkedlist">LinkedList</a>‹<a href="#interfacesiobservablemd">IObservable</a>›</em></p>
 <p><em>Implementation of <a href="#interfacesiobservablemd">IObservable</a>.<a href="#optional-pipehead">pipeHead</a></em></p>
 <p><em>Inherited from <a href="#classesoperatorbasemd">OperatorBase</a>.<a href="#optional-pipehead">pipeHead</a></em></p>
 <p><em>Overrides <a href="#classesobservablebasemd">ObservableBase</a>.<a href="#optional-pipehead">pipeHead</a></em></p>
-<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/362b223/src/operators/OperatorBase.ts#L15">operators/OperatorBase.ts:15</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/f82aed2/src/operators/OperatorBase.ts#L26">operators/OperatorBase.ts:26</a></em></p>
 <h3 id="methods-3">Methods</h3>
 <h4 id="destroy-1">destroy</h4>
 <p>▸ <strong>destroy</strong>(): <em>void</em></p>
 <p><em>Implementation of <a href="#interfacesiobservablemd">IObservable</a></em></p>
 <p><em>Inherited from <a href="#classesobservablebasemd">ObservableBase</a>.<a href="#destroy">destroy</a></em></p>
-<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/362b223/src/ObservableBase.ts#L110">ObservableBase.ts:110</a></em></p>
-<p>Destroyes an <code>Observable</code> along with all its subscribers.</p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/f82aed2/src/ObservableBase.ts#L117">ObservableBase.ts:117</a></em></p>
+<p>Destroys an <code>Observable</code> along with all its subscribers.</p>
+<p>Basic usage example:</p>
+<pre><code class="ts language-ts">const observable = new Observable();
+const observer = new Observer((num) =&gt; {
+    console.log(num / 2);
+})
+.subscribe(new Observer((x) =&gt; console.log(x)));
+observable.emit(10);
+observable.destroy();
+</code></pre>
 <p><strong><code>memberof</code></strong> IObservable</p>
 <p><strong>Returns:</strong> <em>void</em></p>
 <p>void</p>
@@ -337,11 +386,11 @@ placeholder.</p>
 <p><em>Implementation of <a href="#interfacesiobservablemd">IObservable</a></em></p>
 <p><em>Inherited from <a href="#classesoperatorbasemd">OperatorBase</a>.<a href="#emit">emit</a></em></p>
 <p><em>Overrides <a href="#classesobservablebasemd">ObservableBase</a>.<a href="#emit">emit</a></em></p>
-<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/362b223/src/operators/OperatorBase.ts#L29">operators/OperatorBase.ts:29</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/f82aed2/src/operators/OperatorBase.ts#L40">operators/OperatorBase.ts:40</a></em></p>
 <p>Emits an item to the stream</p>
 <p>Basic usage example:</p>
-<pre><code class="ts language-ts">const observable = new TRex.Observable();
-const observer = new TRex.Observer((num) =&gt; {
+<pre><code class="ts language-ts">const observable = new Observable();
+const observer = new Observer((num) =&gt; {
     console.log(num);
 });
 observable.subscribe(observer);
@@ -359,8 +408,20 @@ observable.emit(10);
 <p>▸ <strong>multicast</strong>(…<code>observers</code>: <a href="#interfacesiobservermd">IObserver</a>[]): <em>void</em></p>
 <p><em>Implementation of <a href="#interfacesiobservablemd">IObservable</a></em></p>
 <p><em>Inherited from <a href="#classesobservablebasemd">ObservableBase</a>.<a href="#multicast">multicast</a></em></p>
-<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/362b223/src/ObservableBase.ts#L97">ObservableBase.ts:97</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/f82aed2/src/ObservableBase.ts#L104">ObservableBase.ts:104</a></em></p>
 <p>Subscribes an array of observers in one go, typically followed by a pipe.</p>
+<p>Basic usage example:</p>
+<pre><code class="ts language-ts">const observable1 = new Observer((x) =&gt; console.log(x));
+const observable2 = new Observer((x) =&gt; console.log(x * x));
+const observable = new Observable();
+observable
+    .pipe(
+        map(x =&gt; x * 2),
+        filter(x =&gt; x &gt; 5)
+    )
+    .multicast(observer1, observer2);
+observable.emit(50);
+</code></pre>
 <p><strong><code>memberof</code></strong> IObservable</p>
 <p><strong>Parameters:</strong></p>
 <p>Name | Type | Description |
@@ -374,8 +435,18 @@ observable.emit(10);
 <p><em>Implementation of <a href="#interfacesiobservablemd">IObservable</a></em></p>
 <p><em>Inherited from <a href="#classesoperatorbasemd">OperatorBase</a>.<a href="#pipe">pipe</a></em></p>
 <p><em>Overrides <a href="#classesobservablebasemd">ObservableBase</a>.<a href="#pipe">pipe</a></em></p>
-<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/362b223/src/operators/OperatorBase.ts#L34">operators/OperatorBase.ts:34</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/f82aed2/src/operators/OperatorBase.ts#L45">operators/OperatorBase.ts:45</a></em></p>
 <p>Pipes a series of operations per item in the stream</p>
+<p>Basic usage example:</p>
+<pre><code class="ts language-ts">const observable = new Observable();
+observable
+    .pipe(
+        map(x =&gt; x * 2),
+        filter(x =&gt; x &gt; 5)
+    )
+    .subscribe(new Observer((x) =&gt; console.log(x)));
+observable.emit(50);
+</code></pre>
 <p><strong><code>memberof</code></strong> IObservable</p>
 <p><strong>Parameters:</strong></p>
 <p>Name | Type | Description |
@@ -389,12 +460,12 @@ observable.emit(10);
 <p><em>Implementation of <a href="#interfacesiobservablemd">IObservable</a></em></p>
 <p><em>Inherited from <a href="#classesoperatorbasemd">OperatorBase</a>.<a href="#subscribe">subscribe</a></em></p>
 <p><em>Overrides <a href="#classesobservablebasemd">ObservableBase</a>.<a href="#subscribe">subscribe</a></em></p>
-<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/362b223/src/operators/OperatorBase.ts#L24">operators/OperatorBase.ts:24</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/f82aed2/src/operators/OperatorBase.ts#L35">operators/OperatorBase.ts:35</a></em></p>
 <p>Subscribes an <code>Observer</code> instance</p>
 <p>Basic usage example:</p>
-<pre><code class="ts language-ts">const observable = new TRex.Observable();
-const observer = new TRex.Observer((num) =&gt; {
-    console.log(num);
+<pre><code class="ts language-ts">const observable = new Observable();
+const observer = new Observer((num) =&gt; {
+    console.log(num / 2);
 });
 observable.subscribe(observer);
 observable.emit(10);
@@ -411,8 +482,17 @@ observable.emit(10);
 <p>▸ <strong>unsubscribe</strong>(<code>observer</code>: <a href="#interfacesiobservermd">IObserver</a>): <em>void</em></p>
 <p><em>Implementation of <a href="#interfacesiobservablemd">IObservable</a></em></p>
 <p><em>Inherited from <a href="#classesobservablebasemd">ObservableBase</a>.<a href="#unsubscribe">unsubscribe</a></em></p>
-<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/362b223/src/ObservableBase.ts#L34">ObservableBase.ts:34</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/f82aed2/src/ObservableBase.ts#L41">ObservableBase.ts:41</a></em></p>
 <p>Unsubscribes an <code>Observer</code> instance</p>
+<p>Basic usage example:</p>
+<pre><code class="ts language-ts">const observable = new Observable();
+const observer = new Observer((num) =&gt; {
+    console.log(num / 2);
+});
+observable.subscribe(observer);
+observable.emit(10);
+observable.unsubscribe(observer);
+</code></pre>
 <p><strong><code>memberof</code></strong> IObservable</p>
 <p><strong>Parameters:</strong></p>
 <p>Name | Type | Description |
@@ -428,6 +508,9 @@ streams of data and passes on to its observers. You use the <code>subscribe</cod
 and <code>emit</code> function to add a new data to the stream.</p>
 <p><code>Observer</code> is essentially a placeholder for <code>ObservableBase</code>. Most of the logic is inside the
 latter.</p>
+<p>Basic usage example:</p>
+<pre><code class="ts language-ts">const observable = new Observable();
+</code></pre>
 <h3 id="hierarchy-2">Hierarchy</h3>
 <ul>
 <li><p><a href="#classesobservablebasemd">ObservableBase</a></p>
@@ -444,7 +527,6 @@ latter.</p>
 </ul>
 <h4 id="properties-4">Properties</h4>
 <ul>
-<li><a href="#observers">observers</a></li>
 <li><a href="#optional-pipehead">pipeHead</a></li>
 </ul>
 <h4 id="methods-4">Methods</h4>
@@ -460,26 +542,32 @@ latter.</p>
 <h4 id="constructor-1">constructor</h4>
 <p>+ <strong>new Observable</strong>(): <em><a href="#classesobservablemd">Observable</a></em></p>
 <p><em>Inherited from <a href="#classesobservablebasemd">ObservableBase</a>.<a href="#constructor">constructor</a></em></p>
-<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/362b223/src/ObservableBase.ts#L19">ObservableBase.ts:19</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/f82aed2/src/ObservableBase.ts#L19">ObservableBase.ts:19</a></em></p>
+<p>Constructs an <code>ObservableBase</code>.</p>
+<p>** Warning: You should use this only by subclassing.</p>
 <p><strong>Returns:</strong> <em><a href="#classesobservablemd">Observable</a></em></p>
 <h3 id="properties-5">Properties</h3>
-<h4 id="observers-2">observers</h4>
-<p>• <strong>observers</strong>: <em><a href="#interfacesiobservermd">IObserver</a>[]</em></p>
-<p><em>Inherited from <a href="#classesobservablebasemd">ObservableBase</a>.<a href="#observers">observers</a></em></p>
-<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/362b223/src/ObservableBase.ts#L18">ObservableBase.ts:18</a></em></p>
-<hr />
 <h4 id="optionalpipehead-2"><code>Optional</code> pipeHead</h4>
 <p>• <strong>pipeHead</strong>? : <em><a href="#linkedlist">LinkedList</a>‹<a href="#interfacesiobservablemd">IObservable</a>›</em></p>
 <p><em>Implementation of <a href="#interfacesiobservablemd">IObservable</a>.<a href="#optional-pipehead">pipeHead</a></em></p>
 <p><em>Inherited from <a href="#classesobservablebasemd">ObservableBase</a>.<a href="#optional-pipehead">pipeHead</a></em></p>
-<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/362b223/src/ObservableBase.ts#L19">ObservableBase.ts:19</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/f82aed2/src/ObservableBase.ts#L19">ObservableBase.ts:19</a></em></p>
 <h3 id="methods-5">Methods</h3>
 <h4 id="destroy-2">destroy</h4>
 <p>▸ <strong>destroy</strong>(): <em>void</em></p>
 <p><em>Implementation of <a href="#interfacesiobservablemd">IObservable</a></em></p>
 <p><em>Inherited from <a href="#classesobservablebasemd">ObservableBase</a>.<a href="#destroy">destroy</a></em></p>
-<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/362b223/src/ObservableBase.ts#L110">ObservableBase.ts:110</a></em></p>
-<p>Destroyes an <code>Observable</code> along with all its subscribers.</p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/f82aed2/src/ObservableBase.ts#L117">ObservableBase.ts:117</a></em></p>
+<p>Destroys an <code>Observable</code> along with all its subscribers.</p>
+<p>Basic usage example:</p>
+<pre><code class="ts language-ts">const observable = new Observable();
+const observer = new Observer((num) =&gt; {
+    console.log(num / 2);
+})
+.subscribe(new Observer((x) =&gt; console.log(x)));
+observable.emit(10);
+observable.destroy();
+</code></pre>
 <p><strong><code>memberof</code></strong> IObservable</p>
 <p><strong>Returns:</strong> <em>void</em></p>
 <p>void</p>
@@ -488,11 +576,11 @@ latter.</p>
 <p>▸ <strong>emit</strong>(<code>item</code>: any): <em>void</em></p>
 <p><em>Implementation of <a href="#interfacesiobservablemd">IObservable</a></em></p>
 <p><em>Inherited from <a href="#classesobservablebasemd">ObservableBase</a>.<a href="#emit">emit</a></em></p>
-<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/362b223/src/ObservableBase.ts#L57">ObservableBase.ts:57</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/f82aed2/src/ObservableBase.ts#L64">ObservableBase.ts:64</a></em></p>
 <p>Emits an item to the stream</p>
 <p>Basic usage example:</p>
-<pre><code class="ts language-ts">const observable = new TRex.Observable();
-const observer = new TRex.Observer((num) =&gt; {
+<pre><code class="ts language-ts">const observable = new Observable();
+const observer = new Observer((num) =&gt; {
     console.log(num);
 });
 observable.subscribe(observer);
@@ -510,8 +598,20 @@ observable.emit(10);
 <p>▸ <strong>multicast</strong>(…<code>observers</code>: <a href="#interfacesiobservermd">IObserver</a>[]): <em>void</em></p>
 <p><em>Implementation of <a href="#interfacesiobservablemd">IObservable</a></em></p>
 <p><em>Inherited from <a href="#classesobservablebasemd">ObservableBase</a>.<a href="#multicast">multicast</a></em></p>
-<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/362b223/src/ObservableBase.ts#L97">ObservableBase.ts:97</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/f82aed2/src/ObservableBase.ts#L104">ObservableBase.ts:104</a></em></p>
 <p>Subscribes an array of observers in one go, typically followed by a pipe.</p>
+<p>Basic usage example:</p>
+<pre><code class="ts language-ts">const observable1 = new Observer((x) =&gt; console.log(x));
+const observable2 = new Observer((x) =&gt; console.log(x * x));
+const observable = new Observable();
+observable
+    .pipe(
+        map(x =&gt; x * 2),
+        filter(x =&gt; x &gt; 5)
+    )
+    .multicast(observer1, observer2);
+observable.emit(50);
+</code></pre>
 <p><strong><code>memberof</code></strong> IObservable</p>
 <p><strong>Parameters:</strong></p>
 <p>Name | Type | Description |
@@ -524,8 +624,18 @@ observable.emit(10);
 <p>▸ <strong>pipe</strong>(…<code>observables</code>: <a href="#interfacesiobservablemd">IObservable</a>[]): <em><a href="#interfacesiobservablemd">IObservable</a></em></p>
 <p><em>Implementation of <a href="#interfacesiobservablemd">IObservable</a></em></p>
 <p><em>Inherited from <a href="#classesobservablebasemd">ObservableBase</a>.<a href="#pipe">pipe</a></em></p>
-<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/362b223/src/ObservableBase.ts#L74">ObservableBase.ts:74</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/f82aed2/src/ObservableBase.ts#L81">ObservableBase.ts:81</a></em></p>
 <p>Pipes a series of operations per item in the stream</p>
+<p>Basic usage example:</p>
+<pre><code class="ts language-ts">const observable = new Observable();
+observable
+    .pipe(
+        map(x =&gt; x * 2),
+        filter(x =&gt; x &gt; 5)
+    )
+    .subscribe(new Observer((x) =&gt; console.log(x)));
+observable.emit(50);
+</code></pre>
 <p><strong><code>memberof</code></strong> IObservable</p>
 <p><strong>Parameters:</strong></p>
 <p>Name | Type | Description |
@@ -538,12 +648,12 @@ observable.emit(10);
 <p>▸ <strong>subscribe</strong>(<code>observer</code>: <a href="#interfacesiobservermd">IObserver</a>): <em>void</em></p>
 <p><em>Implementation of <a href="#interfacesiobservablemd">IObservable</a></em></p>
 <p><em>Inherited from <a href="#classesobservablebasemd">ObservableBase</a>.<a href="#subscribe">subscribe</a></em></p>
-<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/362b223/src/ObservableBase.ts#L27">ObservableBase.ts:27</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/f82aed2/src/ObservableBase.ts#L34">ObservableBase.ts:34</a></em></p>
 <p>Subscribes an <code>Observer</code> instance</p>
 <p>Basic usage example:</p>
-<pre><code class="ts language-ts">const observable = new TRex.Observable();
-const observer = new TRex.Observer((num) =&gt; {
-    console.log(num);
+<pre><code class="ts language-ts">const observable = new Observable();
+const observer = new Observer((num) =&gt; {
+    console.log(num / 2);
 });
 observable.subscribe(observer);
 observable.emit(10);
@@ -560,8 +670,17 @@ observable.emit(10);
 <p>▸ <strong>unsubscribe</strong>(<code>observer</code>: <a href="#interfacesiobservermd">IObserver</a>): <em>void</em></p>
 <p><em>Implementation of <a href="#interfacesiobservablemd">IObservable</a></em></p>
 <p><em>Inherited from <a href="#classesobservablebasemd">ObservableBase</a>.<a href="#unsubscribe">unsubscribe</a></em></p>
-<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/362b223/src/ObservableBase.ts#L34">ObservableBase.ts:34</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/f82aed2/src/ObservableBase.ts#L41">ObservableBase.ts:41</a></em></p>
 <p>Unsubscribes an <code>Observer</code> instance</p>
+<p>Basic usage example:</p>
+<pre><code class="ts language-ts">const observable = new Observable();
+const observer = new Observer((num) =&gt; {
+    console.log(num / 2);
+});
+observable.subscribe(observer);
+observable.emit(10);
+observable.unsubscribe(observer);
+</code></pre>
 <p><strong><code>memberof</code></strong> IObservable</p>
 <p><strong>Parameters:</strong></p>
 <p>Name | Type | Description |
@@ -594,7 +713,7 @@ The first class you must instantiate is the <code>Observable</code> which is a p
 </ul>
 <h4 id="properties-6">Properties</h4>
 <ul>
-<li><a href="#observers">observers</a></li>
+<li><a href="#private-observers">observers</a></li>
 <li><a href="#optional-pipehead">pipeHead</a></li>
 </ul>
 <h4 id="methods-6">Methods</h4>
@@ -609,23 +728,34 @@ The first class you must instantiate is the <code>Observable</code> which is a p
 <h3 id="constructors-7">Constructors</h3>
 <h4 id="constructor-2">constructor</h4>
 <p>+ <strong>new ObservableBase</strong>(): <em><a href="#classesobservablebasemd">ObservableBase</a></em></p>
-<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/362b223/src/ObservableBase.ts#L19">ObservableBase.ts:19</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/f82aed2/src/ObservableBase.ts#L19">ObservableBase.ts:19</a></em></p>
+<p>Constructs an <code>ObservableBase</code>.</p>
+<p>** Warning: You should use this only by subclassing.</p>
 <p><strong>Returns:</strong> <em><a href="#classesobservablebasemd">ObservableBase</a></em></p>
 <h3 id="properties-7">Properties</h3>
-<h4 id="observers-3">observers</h4>
+<h4 id="privateobservers"><code>Private</code> observers</h4>
 <p>• <strong>observers</strong>: <em><a href="#interfacesiobservermd">IObserver</a>[]</em></p>
-<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/362b223/src/ObservableBase.ts#L18">ObservableBase.ts:18</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/f82aed2/src/ObservableBase.ts#L18">ObservableBase.ts:18</a></em></p>
 <hr />
 <h4 id="optionalpipehead-3"><code>Optional</code> pipeHead</h4>
 <p>• <strong>pipeHead</strong>? : <em><a href="#linkedlist">LinkedList</a>‹<a href="#interfacesiobservablemd">IObservable</a>›</em></p>
 <p><em>Implementation of <a href="#interfacesiobservablemd">IObservable</a>.<a href="#optional-pipehead">pipeHead</a></em></p>
-<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/362b223/src/ObservableBase.ts#L19">ObservableBase.ts:19</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/f82aed2/src/ObservableBase.ts#L19">ObservableBase.ts:19</a></em></p>
 <h3 id="methods-7">Methods</h3>
 <h4 id="destroy-3">destroy</h4>
 <p>▸ <strong>destroy</strong>(): <em>void</em></p>
 <p><em>Implementation of <a href="#interfacesiobservablemd">IObservable</a></em></p>
-<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/362b223/src/ObservableBase.ts#L110">ObservableBase.ts:110</a></em></p>
-<p>Destroyes an <code>Observable</code> along with all its subscribers.</p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/f82aed2/src/ObservableBase.ts#L117">ObservableBase.ts:117</a></em></p>
+<p>Destroys an <code>Observable</code> along with all its subscribers.</p>
+<p>Basic usage example:</p>
+<pre><code class="ts language-ts">const observable = new Observable();
+const observer = new Observer((num) =&gt; {
+    console.log(num / 2);
+})
+.subscribe(new Observer((x) =&gt; console.log(x)));
+observable.emit(10);
+observable.destroy();
+</code></pre>
 <p><strong><code>memberof</code></strong> IObservable</p>
 <p><strong>Returns:</strong> <em>void</em></p>
 <p>void</p>
@@ -633,11 +763,11 @@ The first class you must instantiate is the <code>Observable</code> which is a p
 <h4 id="emit-3">emit</h4>
 <p>▸ <strong>emit</strong>(<code>item</code>: any): <em>void</em></p>
 <p><em>Implementation of <a href="#interfacesiobservablemd">IObservable</a></em></p>
-<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/362b223/src/ObservableBase.ts#L57">ObservableBase.ts:57</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/f82aed2/src/ObservableBase.ts#L64">ObservableBase.ts:64</a></em></p>
 <p>Emits an item to the stream</p>
 <p>Basic usage example:</p>
-<pre><code class="ts language-ts">const observable = new TRex.Observable();
-const observer = new TRex.Observer((num) =&gt; {
+<pre><code class="ts language-ts">const observable = new Observable();
+const observer = new Observer((num) =&gt; {
     console.log(num);
 });
 observable.subscribe(observer);
@@ -654,8 +784,20 @@ observable.emit(10);
 <h4 id="multicast-3">multicast</h4>
 <p>▸ <strong>multicast</strong>(…<code>observers</code>: <a href="#interfacesiobservermd">IObserver</a>[]): <em>void</em></p>
 <p><em>Implementation of <a href="#interfacesiobservablemd">IObservable</a></em></p>
-<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/362b223/src/ObservableBase.ts#L97">ObservableBase.ts:97</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/f82aed2/src/ObservableBase.ts#L104">ObservableBase.ts:104</a></em></p>
 <p>Subscribes an array of observers in one go, typically followed by a pipe.</p>
+<p>Basic usage example:</p>
+<pre><code class="ts language-ts">const observable1 = new Observer((x) =&gt; console.log(x));
+const observable2 = new Observer((x) =&gt; console.log(x * x));
+const observable = new Observable();
+observable
+    .pipe(
+        map(x =&gt; x * 2),
+        filter(x =&gt; x &gt; 5)
+    )
+    .multicast(observer1, observer2);
+observable.emit(50);
+</code></pre>
 <p><strong><code>memberof</code></strong> IObservable</p>
 <p><strong>Parameters:</strong></p>
 <p>Name | Type | Description |
@@ -667,8 +809,18 @@ observable.emit(10);
 <h4 id="pipe-3">pipe</h4>
 <p>▸ <strong>pipe</strong>(…<code>observables</code>: <a href="#interfacesiobservablemd">IObservable</a>[]): <em><a href="#interfacesiobservablemd">IObservable</a></em></p>
 <p><em>Implementation of <a href="#interfacesiobservablemd">IObservable</a></em></p>
-<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/362b223/src/ObservableBase.ts#L74">ObservableBase.ts:74</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/f82aed2/src/ObservableBase.ts#L81">ObservableBase.ts:81</a></em></p>
 <p>Pipes a series of operations per item in the stream</p>
+<p>Basic usage example:</p>
+<pre><code class="ts language-ts">const observable = new Observable();
+observable
+    .pipe(
+        map(x =&gt; x * 2),
+        filter(x =&gt; x &gt; 5)
+    )
+    .subscribe(new Observer((x) =&gt; console.log(x)));
+observable.emit(50);
+</code></pre>
 <p><strong><code>memberof</code></strong> IObservable</p>
 <p><strong>Parameters:</strong></p>
 <p>Name | Type | Description |
@@ -680,12 +832,12 @@ observable.emit(10);
 <h4 id="subscribe-3">subscribe</h4>
 <p>▸ <strong>subscribe</strong>(<code>observer</code>: <a href="#interfacesiobservermd">IObserver</a>): <em>void</em></p>
 <p><em>Implementation of <a href="#interfacesiobservablemd">IObservable</a></em></p>
-<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/362b223/src/ObservableBase.ts#L27">ObservableBase.ts:27</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/f82aed2/src/ObservableBase.ts#L34">ObservableBase.ts:34</a></em></p>
 <p>Subscribes an <code>Observer</code> instance</p>
 <p>Basic usage example:</p>
-<pre><code class="ts language-ts">const observable = new TRex.Observable();
-const observer = new TRex.Observer((num) =&gt; {
-    console.log(num);
+<pre><code class="ts language-ts">const observable = new Observable();
+const observer = new Observer((num) =&gt; {
+    console.log(num / 2);
 });
 observable.subscribe(observer);
 observable.emit(10);
@@ -701,8 +853,17 @@ observable.emit(10);
 <h4 id="unsubscribe-3">unsubscribe</h4>
 <p>▸ <strong>unsubscribe</strong>(<code>observer</code>: <a href="#interfacesiobservermd">IObserver</a>): <em>void</em></p>
 <p><em>Implementation of <a href="#interfacesiobservablemd">IObservable</a></em></p>
-<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/362b223/src/ObservableBase.ts#L34">ObservableBase.ts:34</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/f82aed2/src/ObservableBase.ts#L41">ObservableBase.ts:41</a></em></p>
 <p>Unsubscribes an <code>Observer</code> instance</p>
+<p>Basic usage example:</p>
+<pre><code class="ts language-ts">const observable = new Observable();
+const observer = new Observer((num) =&gt; {
+    console.log(num / 2);
+});
+observable.subscribe(observer);
+observable.emit(10);
+observable.unsubscribe(observer);
+</code></pre>
 <p><strong><code>memberof</code></strong> IObservable</p>
 <p><strong>Parameters:</strong></p>
 <p>Name | Type | Description |
@@ -737,10 +898,10 @@ the constructor or you can subclass the class itself to make your own observer.<
 <h3 id="constructors-9">Constructors</h3>
 <h4 id="constructor-3">constructor</h4>
 <p>+ <strong>new Observer</strong>(<code>next</code>: function, <code>error?</code>: undefined | function): <em><a href="#classesobservermd">Observer</a></em></p>
-<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/362b223/src/Observer.ts#L12">Observer.ts:12</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/f82aed2/src/Observer.ts#L12">Observer.ts:12</a></em></p>
 <p>Constructs an <code>Observer</code>.</p>
 <p>Basic usage example:</p>
-<pre><code class="ts language-ts">    new Observer(
+<pre><code class="ts language-ts">    const observer = new Observer(
         (item: string) =&gt; console.log(item),
         (err: any) =&gt; console.error(err);
     )
@@ -760,12 +921,12 @@ the constructor or you can subclass the class itself to make your own observer.<
 <h4 id="optionalerror"><code>Optional</code> error</h4>
 <p>• <strong>error</strong>? : <em>undefined | function</em></p>
 <p><em>Implementation of <a href="#interfacesiobservermd">IObserver</a>.<a href="#optional-error">error</a></em></p>
-<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/362b223/src/Observer.ts#L12">Observer.ts:12</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/f82aed2/src/Observer.ts#L12">Observer.ts:12</a></em></p>
 <hr />
 <h4 id="next">next</h4>
 <p>• <strong>next</strong>: <em>function</em></p>
 <p><em>Implementation of <a href="#interfacesiobservermd">IObserver</a>.<a href="#next">next</a></em></p>
-<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/362b223/src/Observer.ts#L11">Observer.ts:11</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/f82aed2/src/Observer.ts#L11">Observer.ts:11</a></em></p>
 <h5 id="typedeclaration-2">Type declaration:</h5>
 <p>▸ (<code>item</code>: any): <em>void</em></p>
 <p><strong>Parameters:</strong></p>
@@ -801,16 +962,16 @@ linked list of observable-observer internal call chains.</p>
 <h3 id="constructors-11">Constructors</h3>
 <h4 id="privateconstructor"><code>Private</code> constructor</h4>
 <p>+ <strong>new ObserverMaps</strong>(): <em><a href="#classesobservermapsmd">ObserverMaps</a></em></p>
-<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/362b223/src/ObvserverMaps.ts#L19">ObvserverMaps.ts:19</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/f82aed2/src/ObvserverMaps.ts#L19">ObvserverMaps.ts:19</a></em></p>
 <p><strong>Returns:</strong> <em><a href="#classesobservermapsmd">ObserverMaps</a></em></p>
 <h3 id="properties-11">Properties</h3>
 <h4 id="staticmaps"><code>Static</code> maps</h4>
 <p>▪ <strong>maps</strong>: <em><a href="#observermap">ObserverMap</a>[]</em> = []</p>
-<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/362b223/src/ObvserverMaps.ts#L21">ObvserverMaps.ts:21</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/f82aed2/src/ObvserverMaps.ts#L21">ObvserverMaps.ts:21</a></em></p>
 <h3 id="methods-9">Methods</h3>
 <h4 id="staticadd"><code>Static</code> add</h4>
 <p>▸ <strong>add</strong>(<code>observer</code>: <a href="#interfacesiobservermd">IObserver</a>, <code>observable</code>: <a href="#interfacesiobservablemd">IObservable</a>, <code>chainHead?</code>: <a href="#linkedlist">LinkedList</a>‹<a href="#interfacesiobservablemd">IObservable</a>›): <em>void</em></p>
-<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/362b223/src/ObvserverMaps.ts#L44">ObvserverMaps.ts:44</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/f82aed2/src/ObvserverMaps.ts#L44">ObvserverMaps.ts:44</a></em></p>
 <p>Adds a tuple of observer, observable and the head of the call's linked list.</p>
 <p><strong><code>memberof</code></strong> ObserverMaps</p>
 <p><strong><code>static</code></strong> </p>
@@ -825,7 +986,7 @@ linked list of observable-observer internal call chains.</p>
 <hr />
 <h4 id="staticget"><code>Static</code> get</h4>
 <p>▸ <strong>get</strong>(<code>observer</code>: <a href="#interfacesiobservermd">IObserver</a>): <em><a href="#observermap">ObserverMap</a>[] | undefined</em></p>
-<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/362b223/src/ObvserverMaps.ts#L61">ObvserverMaps.ts:61</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/f82aed2/src/ObvserverMaps.ts#L61">ObvserverMaps.ts:61</a></em></p>
 <p>Gets a tuple list of observer, observable and the head of the call's linked list for a given
 <code>IObserver</code></p>
 <p><strong><code>memberof</code></strong> ObserverMaps</p>
@@ -839,7 +1000,7 @@ linked list of observable-observer internal call chains.</p>
 <hr />
 <h4 id="staticprint"><code>Static</code> print</h4>
 <p>▸ <strong>print</strong>(): <em>void</em></p>
-<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/362b223/src/ObvserverMaps.ts#L30">ObvserverMaps.ts:30</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/f82aed2/src/ObvserverMaps.ts#L30">ObvserverMaps.ts:30</a></em></p>
 <p>Prints the current ObserverMaps for debugging purposes.</p>
 <p><strong><code>memberof</code></strong> ObserverMaps</p>
 <p><strong><code>static</code></strong> </p>
@@ -848,7 +1009,7 @@ linked list of observable-observer internal call chains.</p>
 <hr />
 <h4 id="staticremove"><code>Static</code> remove</h4>
 <p>▸ <strong>remove</strong>(<code>map</code>: <a href="#observermap">ObserverMap</a>): <em>void</em></p>
-<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/362b223/src/ObvserverMaps.ts#L73">ObvserverMaps.ts:73</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/f82aed2/src/ObvserverMaps.ts#L73">ObvserverMaps.ts:73</a></em></p>
 <p>Removes a tuple for a given <code>ObserverMap</code> instance</p>
 <p><strong><code>memberof</code></strong> ObserverMaps</p>
 <p><strong><code>static</code></strong> </p>
@@ -863,6 +1024,13 @@ linked list of observable-observer internal call chains.</p>
 <h2 id="classoperatorbase">Class: OperatorBase</h2>
 <p>This class provides you the basis for your own operators and operators that are included in
 this package already.</p>
+<p>Basic usage example:</p>
+<pre><code class="ts language-ts">class CustomOperator : OperatorBase {
+    emit (item: number) {
+        this.observable.emit(item * item);
+    }
+}
+</code></pre>
 <h3 id="hierarchy-6">Hierarchy</h3>
 <ul>
 <li><p><a href="#classesobservablebasemd">ObservableBase</a></p>
@@ -883,7 +1051,6 @@ this package already.</p>
 <ul>
 <li><a href="#fn">fn</a></li>
 <li><a href="#observable">observable</a></li>
-<li><a href="#observers">observers</a></li>
 <li><a href="#optional-pipehead">pipeHead</a></li>
 </ul>
 <h4 id="methods-10">Methods</h4>
@@ -899,7 +1066,7 @@ this package already.</p>
 <h4 id="constructor-4">constructor</h4>
 <p>+ <strong>new OperatorBase</strong>(<code>fn</code>: function): <em><a href="#classesoperatorbasemd">OperatorBase</a></em></p>
 <p><em>Overrides <a href="#classesobservablebasemd">ObservableBase</a>.<a href="#constructor">constructor</a></em></p>
-<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/362b223/src/operators/OperatorBase.ts#L15">operators/OperatorBase.ts:15</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/f82aed2/src/operators/OperatorBase.ts#L26">operators/OperatorBase.ts:26</a></em></p>
 <p><strong>Parameters:</strong></p>
 <p>▪ <strong>fn</strong>: <em>function</em></p>
 <p>▸ (<code>item</code>: any): <em>any</em></p>
@@ -911,7 +1078,7 @@ this package already.</p>
 <h3 id="properties-13">Properties</h3>
 <h4 id="fn-2">fn</h4>
 <p>• <strong>fn</strong>: <em>function</em></p>
-<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/362b223/src/operators/OperatorBase.ts#L13">operators/OperatorBase.ts:13</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/f82aed2/src/operators/OperatorBase.ts#L24">operators/OperatorBase.ts:24</a></em></p>
 <h5 id="typedeclaration-3">Type declaration:</h5>
 <p>▸ (<code>item</code>: any): <em>any</em></p>
 <p><strong>Parameters:</strong></p>
@@ -921,25 +1088,29 @@ this package already.</p>
 <hr />
 <h4 id="observable-2">observable</h4>
 <p>• <strong>observable</strong>: <em><a href="#interfacesiobservablemd">IObservable</a></em></p>
-<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/362b223/src/operators/OperatorBase.ts#L14">operators/OperatorBase.ts:14</a></em></p>
-<hr />
-<h4 id="observers-4">observers</h4>
-<p>• <strong>observers</strong>: <em><a href="#interfacesiobservermd">IObserver</a>[]</em></p>
-<p><em>Inherited from <a href="#classesobservablebasemd">ObservableBase</a>.<a href="#observers">observers</a></em></p>
-<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/362b223/src/ObservableBase.ts#L18">ObservableBase.ts:18</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/f82aed2/src/operators/OperatorBase.ts#L25">operators/OperatorBase.ts:25</a></em></p>
 <hr />
 <h4 id="optionalpipehead-4"><code>Optional</code> pipeHead</h4>
 <p>• <strong>pipeHead</strong>? : <em><a href="#linkedlist">LinkedList</a>‹<a href="#interfacesiobservablemd">IObservable</a>›</em></p>
 <p><em>Implementation of <a href="#interfacesiobservablemd">IObservable</a>.<a href="#optional-pipehead">pipeHead</a></em></p>
 <p><em>Overrides <a href="#classesobservablebasemd">ObservableBase</a>.<a href="#optional-pipehead">pipeHead</a></em></p>
-<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/362b223/src/operators/OperatorBase.ts#L15">operators/OperatorBase.ts:15</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/f82aed2/src/operators/OperatorBase.ts#L26">operators/OperatorBase.ts:26</a></em></p>
 <h3 id="methods-11">Methods</h3>
 <h4 id="destroy-4">destroy</h4>
 <p>▸ <strong>destroy</strong>(): <em>void</em></p>
 <p><em>Implementation of <a href="#interfacesiobservablemd">IObservable</a></em></p>
 <p><em>Inherited from <a href="#classesobservablebasemd">ObservableBase</a>.<a href="#destroy">destroy</a></em></p>
-<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/362b223/src/ObservableBase.ts#L110">ObservableBase.ts:110</a></em></p>
-<p>Destroyes an <code>Observable</code> along with all its subscribers.</p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/f82aed2/src/ObservableBase.ts#L117">ObservableBase.ts:117</a></em></p>
+<p>Destroys an <code>Observable</code> along with all its subscribers.</p>
+<p>Basic usage example:</p>
+<pre><code class="ts language-ts">const observable = new Observable();
+const observer = new Observer((num) =&gt; {
+    console.log(num / 2);
+})
+.subscribe(new Observer((x) =&gt; console.log(x)));
+observable.emit(10);
+observable.destroy();
+</code></pre>
 <p><strong><code>memberof</code></strong> IObservable</p>
 <p><strong>Returns:</strong> <em>void</em></p>
 <p>void</p>
@@ -948,11 +1119,11 @@ this package already.</p>
 <p>▸ <strong>emit</strong>(<code>item</code>: any): <em>void</em></p>
 <p><em>Implementation of <a href="#interfacesiobservablemd">IObservable</a></em></p>
 <p><em>Overrides <a href="#classesobservablebasemd">ObservableBase</a>.<a href="#emit">emit</a></em></p>
-<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/362b223/src/operators/OperatorBase.ts#L29">operators/OperatorBase.ts:29</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/f82aed2/src/operators/OperatorBase.ts#L40">operators/OperatorBase.ts:40</a></em></p>
 <p>Emits an item to the stream</p>
 <p>Basic usage example:</p>
-<pre><code class="ts language-ts">const observable = new TRex.Observable();
-const observer = new TRex.Observer((num) =&gt; {
+<pre><code class="ts language-ts">const observable = new Observable();
+const observer = new Observer((num) =&gt; {
     console.log(num);
 });
 observable.subscribe(observer);
@@ -970,8 +1141,20 @@ observable.emit(10);
 <p>▸ <strong>multicast</strong>(…<code>observers</code>: <a href="#interfacesiobservermd">IObserver</a>[]): <em>void</em></p>
 <p><em>Implementation of <a href="#interfacesiobservablemd">IObservable</a></em></p>
 <p><em>Inherited from <a href="#classesobservablebasemd">ObservableBase</a>.<a href="#multicast">multicast</a></em></p>
-<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/362b223/src/ObservableBase.ts#L97">ObservableBase.ts:97</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/f82aed2/src/ObservableBase.ts#L104">ObservableBase.ts:104</a></em></p>
 <p>Subscribes an array of observers in one go, typically followed by a pipe.</p>
+<p>Basic usage example:</p>
+<pre><code class="ts language-ts">const observable1 = new Observer((x) =&gt; console.log(x));
+const observable2 = new Observer((x) =&gt; console.log(x * x));
+const observable = new Observable();
+observable
+    .pipe(
+        map(x =&gt; x * 2),
+        filter(x =&gt; x &gt; 5)
+    )
+    .multicast(observer1, observer2);
+observable.emit(50);
+</code></pre>
 <p><strong><code>memberof</code></strong> IObservable</p>
 <p><strong>Parameters:</strong></p>
 <p>Name | Type | Description |
@@ -984,8 +1167,18 @@ observable.emit(10);
 <p>▸ <strong>pipe</strong>(…<code>observables</code>: <a href="#interfacesiobservablemd">IObservable</a>[]): <em>never</em></p>
 <p><em>Implementation of <a href="#interfacesiobservablemd">IObservable</a></em></p>
 <p><em>Overrides <a href="#classesobservablebasemd">ObservableBase</a>.<a href="#pipe">pipe</a></em></p>
-<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/362b223/src/operators/OperatorBase.ts#L34">operators/OperatorBase.ts:34</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/f82aed2/src/operators/OperatorBase.ts#L45">operators/OperatorBase.ts:45</a></em></p>
 <p>Pipes a series of operations per item in the stream</p>
+<p>Basic usage example:</p>
+<pre><code class="ts language-ts">const observable = new Observable();
+observable
+    .pipe(
+        map(x =&gt; x * 2),
+        filter(x =&gt; x &gt; 5)
+    )
+    .subscribe(new Observer((x) =&gt; console.log(x)));
+observable.emit(50);
+</code></pre>
 <p><strong><code>memberof</code></strong> IObservable</p>
 <p><strong>Parameters:</strong></p>
 <p>Name | Type | Description |
@@ -998,12 +1191,12 @@ observable.emit(10);
 <p>▸ <strong>subscribe</strong>(<code>observer</code>: <a href="#interfacesiobservermd">IObserver</a>): <em>void</em></p>
 <p><em>Implementation of <a href="#interfacesiobservablemd">IObservable</a></em></p>
 <p><em>Overrides <a href="#classesobservablebasemd">ObservableBase</a>.<a href="#subscribe">subscribe</a></em></p>
-<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/362b223/src/operators/OperatorBase.ts#L24">operators/OperatorBase.ts:24</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/f82aed2/src/operators/OperatorBase.ts#L35">operators/OperatorBase.ts:35</a></em></p>
 <p>Subscribes an <code>Observer</code> instance</p>
 <p>Basic usage example:</p>
-<pre><code class="ts language-ts">const observable = new TRex.Observable();
-const observer = new TRex.Observer((num) =&gt; {
-    console.log(num);
+<pre><code class="ts language-ts">const observable = new Observable();
+const observer = new Observer((num) =&gt; {
+    console.log(num / 2);
 });
 observable.subscribe(observer);
 observable.emit(10);
@@ -1020,8 +1213,17 @@ observable.emit(10);
 <p>▸ <strong>unsubscribe</strong>(<code>observer</code>: <a href="#interfacesiobservermd">IObserver</a>): <em>void</em></p>
 <p><em>Implementation of <a href="#interfacesiobservablemd">IObservable</a></em></p>
 <p><em>Inherited from <a href="#classesobservablebasemd">ObservableBase</a>.<a href="#unsubscribe">unsubscribe</a></em></p>
-<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/362b223/src/ObservableBase.ts#L34">ObservableBase.ts:34</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/f82aed2/src/ObservableBase.ts#L41">ObservableBase.ts:41</a></em></p>
 <p>Unsubscribes an <code>Observer</code> instance</p>
+<p>Basic usage example:</p>
+<pre><code class="ts language-ts">const observable = new Observable();
+const observer = new Observer((num) =&gt; {
+    console.log(num / 2);
+});
+observable.subscribe(observer);
+observable.emit(10);
+observable.unsubscribe(observer);
+</code></pre>
 <p><strong><code>memberof</code></strong> IObservable</p>
 <p><strong>Parameters:</strong></p>
 <p>Name | Type | Description |
@@ -1063,7 +1265,7 @@ observable.emit(10);
 <h2 id="typealiases-1">Type aliases</h2>
 <h3 id="linkedlist">LinkedList</h3>
 <p>Ƭ <strong>LinkedList</strong>: <em>object</em></p>
-<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/362b223/src/CommonHelpers.ts#L7">CommonHelpers.ts:7</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/f82aed2/src/CommonHelpers.ts#L7">CommonHelpers.ts:7</a></em></p>
 <h4 id="typedeclaration-4">Type declaration:</h4>
 <ul>
 <li><p><strong>next</strong>? : <em><a href="#linkedlist">LinkedList</a>‹T›</em></p></li>
@@ -1072,7 +1274,7 @@ observable.emit(10);
 <hr />
 <h3 id="observermap">ObserverMap</h3>
 <p>Ƭ <strong>ObserverMap</strong>: <em>object</em></p>
-<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/362b223/src/ObvserverMaps.ts#L5">ObvserverMaps.ts:5</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/f82aed2/src/ObvserverMaps.ts#L5">ObvserverMaps.ts:5</a></em></p>
 <h4 id="typedeclaration-5">Type declaration:</h4>
 <ul>
 <li><p><strong>chainHead</strong>? : <em><a href="#linkedlist">LinkedList</a>‹<a href="#interfacesiobservablemd">IObservable</a>›</em></p></li>
@@ -1082,7 +1284,21 @@ observable.emit(10);
 <h2 id="functions-1">Functions</h2>
 <h3 id="constfilter"><code>Const</code> filter</h3>
 <p>▸ <strong>filter</strong>(<code>fn</code>: function): <em><a href="#classesfilteroperatormd">FilterOperator</a>‹›</em></p>
-<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/362b223/src/CommonHelpers.ts#L23">CommonHelpers.ts:23</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/f82aed2/src/CommonHelpers.ts#L91">CommonHelpers.ts:91</a></em></p>
+<p>Returns an item only when the specified predicate is true.</p>
+<p>Basic usage example:</p>
+<pre><code class="ts language-ts">const observable = new Observable();
+const observer = new Observer(
+pipe(
+    filter((num) =&gt; num &lt; 15),
+    (num) =&gt; console.log(num * 4)
+));
+observable.subscribe(observer);
+observable.emit(10);
+observable.emit(20);
+</code></pre>
+<p>Output:
+40</p>
 <p><strong>Parameters:</strong></p>
 <p>▪ <strong>fn</strong>: <em>function</em></p>
 <p>▸ (<code>item</code>: any): <em>any</em></p>
@@ -1091,10 +1307,24 @@ observable.emit(10);
 ------ | ------ |
 <code>item</code> | any |</p>
 <p><strong>Returns:</strong> <em><a href="#classesfilteroperatormd">FilterOperator</a>‹›</em></p>
+<p>T The item</p>
 <hr />
 <h3 id="constmap"><code>Const</code> map</h3>
 <p>▸ <strong>map</strong>(<code>fn</code>: function): <em><a href="#classesmapoperatormd">MapOperator</a>‹›</em></p>
-<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/362b223/src/CommonHelpers.ts#L19">CommonHelpers.ts:19</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/f82aed2/src/CommonHelpers.ts#L64">CommonHelpers.ts:64</a></em></p>
+<p>Executes standard 1:1 map function on an incoming item and returns the computed item back.</p>
+<p>Basic usage example:</p>
+<pre><code class="ts language-ts">const observable = new Observable();
+const observer = new Observer(
+pipe(
+    map((num) =&gt; num * 3),
+    (num) =&gt; console.log(num * 4)
+));
+observable.subscribe(observer);
+observable.emit(10);
+</code></pre>
+<p>Output:
+120</p>
 <p><strong>Parameters:</strong></p>
 <p>▪ <strong>fn</strong>: <em>function</em></p>
 <p>▸ (<code>item</code>: any): <em>any</em></p>
@@ -1103,19 +1333,49 @@ observable.emit(10);
 ------ | ------ |
 <code>item</code> | any |</p>
 <p><strong>Returns:</strong> <em><a href="#classesmapoperatormd">MapOperator</a>‹›</em></p>
+<p>T The item</p>
 <hr />
 <h3 id="constpipe"><code>Const</code> pipe</h3>
 <p>▸ <strong>pipe</strong>(…<code>fns</code>: Function[]): <em>(Anonymous function)</em></p>
-<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/362b223/src/CommonHelpers.ts#L28">CommonHelpers.ts:28</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/f82aed2/src/CommonHelpers.ts#L119">CommonHelpers.ts:119</a></em></p>
+<p>Pipes multiple observer operations together.</p>
+<p>Basic usage example:</p>
+<pre><code class="ts language-ts">const observable = new Observable();
+const observer = new Observer(
+pipe(
+    filter((num) =&gt; num &lt; 15),
+    (num) =&gt; console.log(num * 4)
+));
+observable.subscribe(observer);
+observable.emit(10);
+observable.emit(20);
+</code></pre>
+<p>Output:
+40</p>
 <p><strong>Parameters:</strong></p>
 <p>Name | Type |
 ------ | ------ |
 <code>...fns</code> | Function[] |</p>
 <p><strong>Returns:</strong> <em>(Anonymous function)</em></p>
+<p>T The item</p>
 <hr />
 <h3 id="consttap"><code>Const</code> tap</h3>
 <p>▸ <strong>tap</strong>(<code>fn</code>: function): <em>(Anonymous function)</em></p>
-<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/362b223/src/CommonHelpers.ts#L12">CommonHelpers.ts:12</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/f82aed2/src/CommonHelpers.ts#L35">CommonHelpers.ts:35</a></em></p>
+<p>Execute the specified function on an incoming item and also returns the same item back.</p>
+<p>Basic usage example:</p>
+<pre><code class="ts language-ts">const observable = new Observable();
+const observer = new Observer(
+pipe(
+    tap((num) =&gt; console.log(num * 3)),
+    tap((num) =&gt; console.log(num * 4))
+));
+observable.subscribe(observer);
+observable.emit(10);
+</code></pre>
+<p>Output:
+30
+40</p>
 <p><strong>Parameters:</strong></p>
 <p>▪ <strong>fn</strong>: <em>function</em></p>
 <p>▸ (<code>item</code>: any): <em>any</em></p>
@@ -1124,6 +1384,7 @@ observable.emit(10);
 ------ | ------ |
 <code>item</code> | any |</p>
 <p><strong>Returns:</strong> <em>(Anonymous function)</em></p>
+<p>T The item</p>
 <h1 id="interfaces-1">Interfaces</h1>
 <p><a name="interfacesiobservablemd"></a></p>
 <p><a href="#globalsmd">@tsaqib/trex</a> › <a href="#interfacesiobservablemd">IObservable</a></p>
@@ -1159,25 +1420,34 @@ observable.emit(10);
 <h3 id="properties-15">Properties</h3>
 <h4 id="optionalpipehead-5"><code>Optional</code> pipeHead</h4>
 <p>• <strong>pipeHead</strong>? : <em><a href="#linkedlist">LinkedList</a>‹<a href="#interfacesiobservablemd">IObservable</a>›</em></p>
-<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/362b223/src/IObservable.ts#L65">IObservable.ts:65</a></em></p>
-<p>Do not use this. This is an internal pointer for tracking and cleaning up subscriptions.</p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/f82aed2/src/IObservable.ts#L77">IObservable.ts:77</a></em></p>
+<p>** Warning: Do not use this. This is an internal pointer for tracking and cleaning up subscriptions.</p>
 <p><strong><code>memberof</code></strong> IObservable</p>
 <h3 id="methods-13">Methods</h3>
 <h4 id="optionaldestroy"><code>Optional</code> destroy</h4>
 <p>▸ <strong>destroy</strong>(): <em>void</em></p>
-<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/362b223/src/IObservable.ts#L91">IObservable.ts:91</a></em></p>
-<p>Destroyes an <code>Observable</code> along with all its subscribers.</p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/f82aed2/src/IObservable.ts#L143">IObservable.ts:143</a></em></p>
+<p>Destroys an <code>Observable</code> along with all its subscribers.</p>
+<p>Basic usage example:</p>
+<pre><code class="ts language-ts">const observable = new Observable();
+const observer = new Observer((num) =&gt; {
+    console.log(num / 2);
+})
+.subscribe(new Observer((x) =&gt; console.log(x)));
+observable.emit(10);
+observable.destroy();
+</code></pre>
 <p><strong><code>memberof</code></strong> IObservable</p>
 <p><strong>Returns:</strong> <em>void</em></p>
 <p>void</p>
 <hr />
 <h4 id="emit-5">emit</h4>
 <p>▸ <strong>emit</strong>(<code>item</code>: any): <em>void</em></p>
-<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/362b223/src/IObservable.ts#L57">IObservable.ts:57</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/f82aed2/src/IObservable.ts#L69">IObservable.ts:69</a></em></p>
 <p>Emits an item to the stream</p>
 <p>Basic usage example:</p>
-<pre><code class="ts language-ts">const observable = new TRex.Observable();
-const observer = new TRex.Observer((num) =&gt; {
+<pre><code class="ts language-ts">const observable = new Observable();
+const observer = new Observer((num) =&gt; {
     console.log(num);
 });
 observable.subscribe(observer);
@@ -1193,8 +1463,20 @@ observable.emit(10);
 <hr />
 <h4 id="multicast-5">multicast</h4>
 <p>▸ <strong>multicast</strong>(…<code>observers</code>: <a href="#interfacesiobservermd">IObserver</a>[]): <em>void</em></p>
-<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/362b223/src/IObservable.ts#L83">IObservable.ts:83</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/f82aed2/src/IObservable.ts#L123">IObservable.ts:123</a></em></p>
 <p>Subscribes an array of observers in one go, typically followed by a pipe.</p>
+<p>Basic usage example:</p>
+<pre><code class="ts language-ts">const observable1 = new Observer((x) =&gt; console.log(x));
+const observable2 = new Observer((x) =&gt; console.log(x * x));
+const observable = new Observable();
+observable
+    .pipe(
+        map(x =&gt; x * 2),
+        filter(x =&gt; x &gt; 5)
+    )
+    .multicast(observer1, observer2);
+observable.emit(50);
+</code></pre>
 <p><strong><code>memberof</code></strong> IObservable</p>
 <p><strong>Parameters:</strong></p>
 <p>Name | Type | Description |
@@ -1205,8 +1487,18 @@ observable.emit(10);
 <hr />
 <h4 id="pipe-5">pipe</h4>
 <p>▸ <strong>pipe</strong>(…<code>observables</code>: <a href="#interfacesiobservablemd">IObservable</a>[]): <em><a href="#interfacesiobservablemd">IObservable</a></em></p>
-<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/362b223/src/IObservable.ts#L74">IObservable.ts:74</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/f82aed2/src/IObservable.ts#L99">IObservable.ts:99</a></em></p>
 <p>Pipes a series of operations per item in the stream</p>
+<p>Basic usage example:</p>
+<pre><code class="ts language-ts">const observable = new Observable();
+observable
+    .pipe(
+        map(x =&gt; x * 2),
+        filter(x =&gt; x &gt; 5)
+    )
+    .subscribe(new Observer((x) =&gt; console.log(x)));
+observable.emit(50);
+</code></pre>
 <p><strong><code>memberof</code></strong> IObservable</p>
 <p><strong>Parameters:</strong></p>
 <p>Name | Type | Description |
@@ -1217,12 +1509,12 @@ observable.emit(10);
 <hr />
 <h4 id="subscribe-5">subscribe</h4>
 <p>▸ <strong>subscribe</strong>(<code>observer</code>: <a href="#interfacesiobservermd">IObserver</a>): <em>void</em></p>
-<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/362b223/src/IObservable.ts#L28">IObservable.ts:28</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/f82aed2/src/IObservable.ts#L28">IObservable.ts:28</a></em></p>
 <p>Subscribes an <code>Observer</code> instance</p>
 <p>Basic usage example:</p>
-<pre><code class="ts language-ts">const observable = new TRex.Observable();
-const observer = new TRex.Observer((num) =&gt; {
-    console.log(num);
+<pre><code class="ts language-ts">const observable = new Observable();
+const observer = new Observer((num) =&gt; {
+    console.log(num / 2);
 });
 observable.subscribe(observer);
 observable.emit(10);
@@ -1237,8 +1529,17 @@ observable.emit(10);
 <hr />
 <h4 id="unsubscribe-5">unsubscribe</h4>
 <p>▸ <strong>unsubscribe</strong>(<code>observer</code>: <a href="#interfacesiobservermd">IObserver</a>): <em>void</em></p>
-<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/362b223/src/IObservable.ts#L37">IObservable.ts:37</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/f82aed2/src/IObservable.ts#L49">IObservable.ts:49</a></em></p>
 <p>Unsubscribes an <code>Observer</code> instance</p>
+<p>Basic usage example:</p>
+<pre><code class="ts language-ts">const observable = new Observable();
+const observer = new Observer((num) =&gt; {
+    console.log(num / 2);
+});
+observable.subscribe(observer);
+observable.emit(10);
+observable.unsubscribe(observer);
+</code></pre>
 <p><strong><code>memberof</code></strong> IObservable</p>
 <p><strong>Parameters:</strong></p>
 <p>Name | Type | Description |
@@ -1271,7 +1572,7 @@ observable.emit(10);
 <h3 id="properties-17">Properties</h3>
 <h4 id="next-1">next</h4>
 <p>• <strong>next</strong>: <em>function</em></p>
-<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/362b223/src/IObserver.ts#L14">IObserver.ts:14</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/f82aed2/src/IObserver.ts#L14">IObserver.ts:14</a></em></p>
 <p>Whenever a new item is available in the stream, the <code>next</code> function is called with that.</p>
 <p><strong><code>param</code></strong> The item newly arrived in the stream.</p>
 <p><strong><code>returns</code></strong> void</p>
@@ -1285,7 +1586,7 @@ observable.emit(10);
 <h3 id="methods-15">Methods</h3>
 <h4 id="optionalerror-1"><code>Optional</code> error</h4>
 <p>▸ <strong>error</strong>(<code>err</code>: any): <em>void</em></p>
-<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/362b223/src/IObserver.ts#L23">IObserver.ts:23</a></em></p>
+<p><em>Defined in <a href="https://github.com/tsaqib/trex/blob/f82aed2/src/IObserver.ts#L23">IObserver.ts:23</a></em></p>
 <p>The error handler for the potential exception occured inside the <code>next</code> function.</p>
 <p><strong><code>memberof</code></strong> IObserver</p>
 <p><strong>Parameters:</strong></p>

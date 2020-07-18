@@ -17,7 +17,7 @@ export class Observer implements IObserver {
 	 * Basic usage example:
 	 *
 	 * ```ts
-	 * 	new Observer(
+	 * 	const observer = new Observer(
 	 * 		(item: string) => console.log(item),
 	 * 		(err: any) => console.error(err);
 	 * 	)
