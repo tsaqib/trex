@@ -7,7 +7,7 @@ and unsubscribe to the streams. You can perform map, filter and pass on your own
 
 Note: Angular, Vue, React, etc. frameworks are also built on top of reactive programming principle.
 
-[![@tsaqib/trex](https://circleci.com/gh/tsaqib/trex.svg?style=shield)](https://www.npmjs.com/package/@tsaqib/trex) [![@tsaqib/trex](https://api.travis-ci.org/tsaqib/trex.svg?branch=master)](https://www.npmjs.com/package/@tsaqib/trex) ![](https://img.shields.io/codecov/c/github/tsaqib/trex?token=b37a8fb3-09a9-424f-aecb-99241141ca63)
+[![@tsaqib/trex](https://api.travis-ci.org/tsaqib/trex.svg?branch=master)](https://travis-ci.com/github/tsaqib/trex) [![@tsaqib/trex](https://codecov.io/gh/tsaqib/trex/branch/master/graph/badge.svg)](https://codecov.io/gh/tsaqib/trex) 
 
 ## Installation
 
