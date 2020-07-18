@@ -1,7 +1,6 @@
 language: node_js
 
 node_js:
-  - node
   - 'lts/*'
 
 install:
@@ -10,5 +9,6 @@ install:
 
 script:
   - npm test
+  - codecov
 
 cache: npm
