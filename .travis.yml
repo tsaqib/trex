@@ -1,14 +1,17 @@
+os: linux
 language: node_js
 
 node_js:
   - 'lts/*'
 
-install:
-  - npm install -g codecov
-  - npm ci
+jobs:
+  include:
+    - stage: release
+      script:
+        - npm test
+      after_success:
+        - bash <(curl -s https://codecov.io/bash)
 
-script:
-  - npm test
-  - codecov
-
-cache: npm
+cache:
+  directories:
+    - node_modules
