@@ -1,8 +1,7 @@
 import { OperatorBase } from './OperatorBase';
 
 /**
- * This operator keeps the count of the items it has encountered and only allow them to pass
- * through as long as it does not exceed a specified total count.
+ * This operator returns the specified property of a value.
  *
  * Basic usage example:
  *
