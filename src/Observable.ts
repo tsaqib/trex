@@ -15,7 +15,7 @@ import { OperatorBase } from './operators/OperatorBase';
  * import * as tx from '@tsaqib/trex';
  * // or CommonJS: const tx = require("@tsaqib/trex");
  *
- * const observable = new Observable();
+ * const observable = new tx.Observable();
  * ```
  *
  * @class

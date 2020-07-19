@@ -19,7 +19,7 @@ export type LinkedList<T> = {
  * // or CommonJS: const tx = require("@tsaqib/trex");
  *
  * const observer = new tx.Observer(console.log);
- * const observable = new Observable();
+ * const observable = new tx.Observable();
  * observable
  * 	.pipe(
  * 		tx.map((num: number) => num * 2),
@@ -47,8 +47,8 @@ export const map: (fn: (item: any) => any) => IObservable = (fn) => {
  * import * as tx from '@tsaqib/trex';
  * // or CommonJS: const tx = require("@tsaqib/trex");
  *
- * const observable = new Observable();
- * const observer = new Observer(
+ * const observable = new tx.Observable();
+ * const observer = new tx.Observer(
  * pipe(
  * 	filter((num) => num < 15),
  * 	(num) => console.log(num * 4)
