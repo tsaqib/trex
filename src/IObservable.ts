@@ -1,5 +1,5 @@
 import { IObserver } from './IObserver';
-import { LinkedList } from './CommonHelpers';
+import { LinkedList } from './Shorthands';
 
 /**
  * The interface behind the `ObservableBase`, maintains the contract for all observables.
@@ -13,10 +13,12 @@ export interface IObservable {
 	 * Basic usage example:
 	 *
 	 * ```ts
-	 * const observable = new Observable();
-	 * const observer = new Observer((num) => {
-	 * 	console.log(num / 2);
-	 * });
+	 * import * as tx from '@tsaqib/trex';
+	 * // or CommonJS: const tx = require("@tsaqib/trex");
+	 *
+	 * // Observer is an implementation of IObservable
+	 * const observable = new tx.Observable();
+	 * const observer = new tx.Observer(console.log);
 	 * observable.subscribe(observer);
 	 * observable.emit(10);
 	 * ```
@@ -32,10 +34,12 @@ export interface IObservable {
 	 * Basic usage example:
 	 *
 	 * ```ts
-	 * const observable = new Observable();
-	 * const observer = new Observer((num) => {
-	 * 	console.log(num / 2);
-	 * });
+	 * import * as tx from '@tsaqib/trex';
+	 * // or CommonJS: const tx = require("@tsaqib/trex");
+	 *
+	 * // Observer is an implementation of IObservable
+	 * const observable = new tx.Observable();
+	 * const observer = new tx.Observer(console.log);
 	 * observable.subscribe(observer);
 	 * observable.emit(10);
 	 * observable.unsubscribe(observer);
@@ -52,15 +56,17 @@ export interface IObservable {
 	 * Basic usage example:
 	 *
 	 * ```ts
-	 * const observable = new Observable();
-	 * const observer = new Observer((num) => {
-	 * 	console.log(num);
-	 * });
+	 * import * as tx from '@tsaqib/trex';
+	 * // or CommonJS: const tx = require("@tsaqib/trex");
+	 *
+	 * // Observer is an implementation of IObservable
+	 * const observable = new tx.Observable();
+	 * const observer = new tx.Observer(console.log);
 	 * observable.subscribe(observer);
 	 * observable.emit(10);
 	 * ```
 	 *
-	 * @param {any} item The item to stream
+	 * @param {any | any[]} item The item(s) to stream; can be an array, too
 	 * @memberof IObservable
 	 */
 	emit(item: any | any[]): void;
@@ -74,18 +80,22 @@ export interface IObservable {
 	pipeHead?: LinkedList<IObservable>;
 
 	/**
-	 * Pipes a series of operations per item in the stream
+	 * Pipes a series of operations per item in the stream. All operators must be inside a pipe.
 	 *
 	 * Basic usage example:
 	 *
 	 * ```ts
-	 * const observable = new Observable();
+	 * import * as tx from '@tsaqib/trex';
+	 * // or CommonJS: const tx = require("@tsaqib/trex");
+	 *
+	 * // Observer is an implementation of IObservable
+	 * const observable = new tx.Observable();
 	 * observable
 	 * 	.pipe(
 	 * 		map(x => x * 2),
 	 * 		filter(x => x > 5)
 	 * 	)
-	 * 	.subscribe(new Observer((x) => console.log(x)));
+	 * 	.subscribe(new tx.Observer(console.log));
 	 * observable.emit(50);
 	 * ```
 	 *
@@ -100,9 +110,14 @@ export interface IObservable {
 	 * Basic usage example:
 	 *
 	 * ```ts
-	 * const observable1 = new Observer((x) => console.log(x));
-	 * const observable2 = new Observer((x) => console.log(x * x));
-	 * const observable = new Observable();
+	 * import * as tx from '@tsaqib/trex';
+	 * // or CommonJS: const tx = require("@tsaqib/trex");
+	 *
+	 * const observable1 = new tx.Observer(console.log);
+	 * const observable2 = new tx.Observer((x) => console.log(x * x));
+	 *
+	 * // Observer is an implementation of IObservable
+	 * const observable = new tx.Observable();
 	 * observable
 	 * 	.pipe(
 	 * 		map(x => x * 2),
@@ -123,11 +138,15 @@ export interface IObservable {
 	 * Basic usage example:
 	 *
 	 * ```ts
-	 * const observable = new Observable();
-	 * const observer = new Observer((num) => {
+	 * import * as tx from '@tsaqib/trex';
+	 * // or CommonJS: const tx = require("@tsaqib/trex");
+	 *
+	 * // Observer is an implementation of IObservable
+	 * const observable = new tx.Observable();
+	 * const observer = new tx.Observer((num) => {
 	 * 	console.log(num / 2);
 	 * })
-	 * .subscribe(new Observer((x) => console.log(x)));
+	 * .subscribe(new tx.Observer((x) => console.log(x)));
 	 * observable.emit(10);
 	 * observable.destroy();
 	 * ```

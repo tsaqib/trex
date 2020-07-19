@@ -1,8 +1,7 @@
-import { Observable } from '../Observable';
-import { IObservable } from '../IObservable';
 import { IObserver } from '../IObserver';
-import { LinkedList } from '../CommonHelpers';
-import { ObservableBase } from '../ObservableBase';
+import { IObservable } from '../IObservable';
+import { Observable } from '../Observable';
+import { LinkedList } from '../Shorthands';
 
 /**
  * This class provides you the basis for your own operators and operators that are included in
@@ -12,6 +11,9 @@ import { ObservableBase } from '../ObservableBase';
  * Basic usage example:
  *
  * ```ts
+ * import * as tx from '@tsaqib/trex';
+ * // or CommonJS: const tx = require("@tsaqib/trex");
+ *
  * class Squarer : OperatorBase {
  * 	emit (item: number) {
  * 		this.observable.emit(item * item);
@@ -22,7 +24,7 @@ import { ObservableBase } from '../ObservableBase';
  * @class
  * @noInheritDoc
  */
-export class OperatorBase extends ObservableBase {
+export class OperatorBase extends Observable {
 	fn: (item: any) => any;
 	observable: IObservable;
 	pipeHead?: LinkedList<IObservable>;

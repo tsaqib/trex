@@ -1,12 +1,12 @@
-import * as TRex from '../src/index';
+import * as tx from '../src/index';
 
 test('Multicasts to multiple observers.', () => {
 	const result: number[] = [];
-	const observable = new TRex.Observable();
-	const observer1 = new TRex.Observer((num) => {
+	const observable = new tx.Observable();
+	const observer1 = new tx.Observer((num) => {
 		result.push(num * 5);
 	});
-	const observer2 = new TRex.Observer((num) => {
+	const observer2 = new tx.Observer((num) => {
 		result.push(num / 5);
 	});
 	observable.multicast(observer1, observer2);
@@ -16,17 +16,17 @@ test('Multicasts to multiple observers.', () => {
 
 test('Multicasts to multiple observers after a pipe and map.', () => {
 	const result: number[] = [];
-	const observable = new TRex.Observable();
-	const observer1 = new TRex.Observer((num) => {
+	const observable = new tx.Observable();
+	const observer1 = new tx.Observer((num) => {
 		result.push(num);
 	});
-	const observer2 = new TRex.Observer((num) => {
+	const observer2 = new tx.Observer((num) => {
 		result.push(num * 5);
 	});
 	observable
 		.pipe(
-			TRex.map((num) => num * 2),
-			TRex.map((num) => num * 3)
+			tx.map((num) => num * 2),
+			tx.map((num) => num * 3)
 		)
 		.multicast(observer1, observer2);
 	observable.emit(10);
@@ -35,18 +35,18 @@ test('Multicasts to multiple observers after a pipe and map.', () => {
 
 test('Multicasts to multiple observers after a pipe, map and filter.', () => {
 	const result: number[] = [];
-	const observable = new TRex.Observable();
-	const observer1 = new TRex.Observer((num) => {
+	const observable = new tx.Observable();
+	const observer1 = new tx.Observer((num) => {
 		result.push(num);
 	});
-	const observer2 = new TRex.Observer((num) => {
+	const observer2 = new tx.Observer((num) => {
 		result.push(num / 5);
 	});
 	observable
 		.pipe(
-			TRex.map((num) => num * 2),
-			TRex.map((num) => num * 3),
-			TRex.filter((num) => num > 500)
+			tx.map((num) => num * 2),
+			tx.map((num) => num * 3),
+			tx.filter((num) => num > 500)
 		)
 		.multicast(observer1, observer2);
 	observable.emit(10);

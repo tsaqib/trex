@@ -1,28 +1,25 @@
 import { OperatorBase } from './OperatorBase';
 
 /**
- * This operator runs the data items through the predicate you pass on to it and if it satisfies
- * the predicate, it returns back the item. As a result, the subscribers get the item on emit.
+ * This operator keeps the count of the items it has encountered and only allow them to pass
+ * through as long as it does not exceed a specified total count.
  *
  * Basic usage example:
  *
  * ```ts
- * const observer = new TRex.Observer((num) => {
- * 	console.log(num);
- * });
- * observable
- * 	.pipe(
- * 		TRex.take(3)
- * 	)
- * .subscribe(observer);
+ * import * as tx from '@tsaqib/trex';
+ * // or CommonJS: const tx = require("@tsaqib/trex");
+ * 
+ * const observer = new tx.Observer(console.log);
+ * observable.pipe(tx.take(3)).subscribe(observer);
  * observable.emit([10, 20, 30, 40, 50, 60]);
  * ```
- * 
+ *
  * Output:
  * 10
  * 20
  * 30
- * 
+ *
  * @class
  * @noInheritDoc
  */
@@ -38,7 +35,8 @@ export class TakeOperator extends OperatorBase {
 
 	/**
 	 *
-	 * Emits the item as long as the current count of items doesn't exceed the total allocated by `count`.
+	 * Emits the item as long as the current count of items doesn't exceed the total allocated 
+	 * by `count`.
 	 *
 	 * @param {any} item The item
 	 */

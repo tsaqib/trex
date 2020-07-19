@@ -2,19 +2,19 @@ import { OperatorBase } from './OperatorBase';
 
 /**
  * This operator runs the data items through the predicate you pass on to it and if it satisfies
- * the predicate, it returns back the item. As a result, the subscribers get the item on emit.
+ * the predicate, it returns back the item. As a result, the observers get the item on emit.
  * 
  * Basic usage example:
  *
  * ```ts
- * const observer = new TRex.Observer((num) => {
- * 	console.log(num / 2);
- * });
+ * import * as tx from '@tsaqib/trex';
+ * // or CommonJS: const tx = require("@tsaqib/trex");
+ * 
+ * const observer = new tx.Observer(console.log);
  * observable
  * 	.pipe(
- * 		TRex.map((num) => num * 2),
- * 		TRex.map((num) => num * 3),
- * 		TRex.filter((num) => num > 50)
+ * 		tx.map((num) => num * 3),
+ * 		tx.filter((num) => num > 10)
  * 	)
  * .subscribe(observer);
  * observable.emit(10);

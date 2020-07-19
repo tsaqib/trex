@@ -1,4 +1,4 @@
-import { LinkedList } from './CommonHelpers';
+import { LinkedList } from './Shorthands';
 import { IObservable } from './IObservable';
 import { IObserver } from './IObserver';
 
@@ -9,23 +9,22 @@ type ObserverMap = {
 };
 
 /**
- * This is an internal class and not meant for public use. This class maintains a list of
- * linked list of observable-observer internal call chains.
+ * This is an internal class and not meant for public use, maintains internal states
  *
  * ** Warning: You should never use this class.
  *
  * @class
  * @noInheritDoc
  */
-export class ObserverMaps {
+export class TxContext {
 	/* istanbul ignore next */
 	private constructor() {}
 	public static maps: ObserverMap[] = [];
 
 	/*
-	 * Prints the current ObserverMaps for debugging purposes.
+	 * Prints the current TxContext for debugging purposes.
 	 *
-	 * @memberof ObserverMaps
+	 * @memberof TxContext
 	 * @static
 	 */
 	/* istanbul ignore next */
@@ -39,10 +38,10 @@ export class ObserverMaps {
 	 * @param {IObserver} observer The observer
 	 * @param {IObservable} observer The observable
 	 * @param {LinkedList<IObservable>} observer The linked list
-	 * @memberof ObserverMaps
+	 * @memberof TxContext
 	 * @static
 	 */
-	public static add(
+	public static addMap(
 		observer: IObserver,
 		observable: IObservable,
 		chainHead?: LinkedList<IObservable>
@@ -55,10 +54,10 @@ export class ObserverMaps {
 	 * `IObserver`
 	 *
 	 * @param {IObserver} observer The observer to lookup
-	 * @memberof ObserverMaps
+	 * @memberof TxContext
 	 * @static
 	 */
-	public static get(observer: IObserver): ObserverMap[] | undefined {
+	public static getMap(observer: IObserver): ObserverMap[] | undefined {
 		return this.maps.filter((m) => m.observer === observer);
 	}
 
@@ -66,10 +65,10 @@ export class ObserverMaps {
 	 * Removes a tuple for a given `ObserverMap` instance
 	 *
 	 * @param {ObserverMap} observerMap The ObserverMap to remove
-	 * @memberof ObserverMaps
+	 * @memberof TxContext
 	 * @static
 	 */
-	public static remove(map: ObserverMap): void {
+	public static removeMap(map: ObserverMap): void {
 		this.maps.splice(this.maps.indexOf(map), 1);
 	}
 }

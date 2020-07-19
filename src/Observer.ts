@@ -18,10 +18,15 @@ export class Observer implements IObserver {
 	 * Basic usage example:
 	 *
 	 * ```ts
-	 * 	const observer = new Observer(
-	 * 		(item: string) => console.log(item),
-	 * 		(err: any) => console.error(err);
-	 * 	)
+	 * import * as tx from '@tsaqib/trex';
+	 * // or CommonJS: const tx = require("@tsaqib/trex");
+	 * 
+	 * // The Observer is the implementation of IObserver
+	 * const observer1 = new tx.Observer(
+	 * 	(item: string) => console.log(item),
+	 * 	(err: any) => console.error(err);
+	 * )
+	 * const observer2 = new tx.Observer(console.log);
 	 * ```
 	 *
 	 * @constructor

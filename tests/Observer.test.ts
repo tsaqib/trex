@@ -1,9 +1,9 @@
-import * as TRex from '../src/index';
+import * as tx from '../src/index';
 
 test('An observer must recieve an emitted value from the observable.', () => {
 	const result: number[] = [];
-	const observable = new TRex.Observable();
-	const observer = new TRex.Observer((num) => {
+	const observable = new tx.Observable();
+	const observer = new tx.Observer((num) => {
 		result.push(num);
 	});
 	observable.subscribe(observer);
@@ -12,9 +12,9 @@ test('An observer must recieve an emitted value from the observable.', () => {
 });
 
 test('Disallow observers without next function.', () => {
-	const observer = new TRex.Observer(console.log);
+	const observer = new tx.Observer(console.log);
 	delete observer.next;
-	const observable = new TRex.Observable();
+	const observable = new tx.Observable();
 	const t = () => {
 		observable.subscribe(observer);
 		observable.emit(10);
@@ -24,8 +24,8 @@ test('Disallow observers without next function.', () => {
 
 test('An observer with error handler gets triggered on error.', () => {
 	const result: number[] = [100];
-	const observable = new TRex.Observable();
-	const observer = new TRex.Observer(
+	const observable = new tx.Observable();
+	const observer = new tx.Observer(
 		(num) => {
 			throw new Error('Trigger the error handler');
 		},
@@ -41,8 +41,8 @@ test('An observer with error handler gets triggered on error.', () => {
 
 test('An observer can be added only once to an observable.', () => {
 	const result: number[] = [];
-	const observable = new TRex.Observable();
-	const observer = new TRex.Observer((num) => {
+	const observable = new tx.Observable();
+	const observer = new tx.Observer((num) => {
 		result.push(num);
 	});
 	observable.subscribe(observer);
@@ -56,51 +56,20 @@ test('An observer can be added only once to an observable.', () => {
 
 test('Observer pipe can operate on recieved values.', () => {
 	const result: number[] = [];
-	const observable = new TRex.Observable();
-	const observer = new TRex.Observer(
-		TRex.pipe(
-			(num: number) => num * 4,
-			TRex.tap((num) => result.push(num)),
-			TRex.tap((num) => result.push(num * 2))
-		)
-	);
+	const observable = new tx.Observable();
+	const observer = new tx.Observer((num: number) => result.push(num * 4));
 	observable.subscribe(observer);
 	observable.emit(10);
-	expect(result).toStrictEqual([40, 80]);
+	expect(result).toStrictEqual([40]);
 });
 
 test('Multiple observers recieve values.', () => {
 	const result: number[] = [];
-	const observable = new TRex.Observable();
-	const observer1 = new TRex.Observer((num) => {
-		result.push(num);
-	});
-	const observer2 = new TRex.Observer((num) => {
-		result.push(num * 2);
-	});
+	const observable = new tx.Observable();
+	const observer1 = new tx.Observer((num) => result.push(num));
+	const observer2 = new tx.Observer((num) => result.push(num * 2));
 	observable.subscribe(observer1);
 	observable.subscribe(observer2);
 	observable.emit(10);
 	expect(result).toStrictEqual([10, 20]);
-});
-
-test('Multiple observers use pipe to operate on recieved values.', () => {
-	const result: number[] = [];
-	const observable = new TRex.Observable();
-	const observer1 = new TRex.Observer(
-		TRex.pipe(
-			TRex.tap((num) => result.push(num)),
-			TRex.tap((num) => result.push(num * 2))
-		)
-	);
-	observable.subscribe(observer1);
-	let observer2 = new TRex.Observer(
-		TRex.pipe(
-			TRex.tap((num) => result.push(num * 3)),
-			TRex.tap((num) => result.push(num * 4))
-		)
-	);
-	observable.subscribe(observer2);
-	observable.emit(10);
-	expect(result).toStrictEqual([10, 20, 30, 40]);
 });

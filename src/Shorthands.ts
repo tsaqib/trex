@@ -1,8 +1,7 @@
-// const pipe = (...fns) => (item) => fns.reduce((acc, fn) => fn(acc), item);
-
 import { MapOperator } from './operators/MapOperator';
 import { FilterOperator } from './operators/FilterOperator';
 import { TakeOperator } from './operators/TakeOperator';
+import { PluckOperator } from './operators/PluckOperator';
 import { IObservable } from './IObservable';
 
 export type LinkedList<T> = {
@@ -11,52 +10,27 @@ export type LinkedList<T> = {
 };
 
 /**
- * Execute the specified function on an incoming item and also returns the same item back.
- *
- * Basic usage example:
- *
- * ```ts
- * const observable = new Observable();
- * const observer = new Observer(
- * pipe(
- * 	tap((num) => console.log(num * 3)),
- * 	tap((num) => console.log(num * 4))
- * ));
- * observable.subscribe(observer);
- * observable.emit(10);
- * ```
- *
- * Output:
- * 30
- * 40
- *
- * @param {Function} fn The function to apply on the item
- */
-export const tap: (fn: (item: any) => any) => (item: any) => any = (fn) => (
-	item
-) => {
-	fn(item);
-	return item;
-};
-
-/**
  * Executes standard 1:1 map function on an incoming item and returns the computed item back.
  *
  * Basic usage example:
  *
  * ```ts
+ * import * as tx from '@tsaqib/trex';
+ * // or CommonJS: const tx = require("@tsaqib/trex");
+ *
+ * const observer = new tx.Observer(console.log);
  * const observable = new Observable();
- * const observer = new Observer(
- * pipe(
- * 	map((num) => num * 3),
- * 	(num) => console.log(num * 4)
- * ));
- * observable.subscribe(observer);
+ * observable
+ * 	.pipe(
+ * 		tx.map((num: number) => num * 2),
+ * 		tx.map((num: number) => num * 3)
+ * 	)
+ * .subscribe(observer);
  * observable.emit(10);
  * ```
  *
  * Output:
- * 120
+ * 60
  *
  * @param {Function} fn The function to apply on the item
  */
@@ -70,6 +44,9 @@ export const map: (fn: (item: any) => any) => IObservable = (fn) => {
  * Basic usage example:
  *
  * ```ts
+ * import * as tx from '@tsaqib/trex';
+ * // or CommonJS: const tx = require("@tsaqib/trex");
+ *
  * const observable = new Observable();
  * const observer = new Observer(
  * pipe(
@@ -91,19 +68,16 @@ export const filter: (fn: (item: any) => any) => IObservable = (fn) => {
 };
 
 /**
- * Returns an item only when the specified predicate is true.
+ * Returns up to a specified number of items.
  *
  * Basic usage example:
  *
  * ```ts
- * const observer = new TRex.Observer((num) => {
- * 	console.log(num);
- * });
- * observable
- * 	.pipe(
- * 		TRex.take(3)
- * 	)
- * .subscribe(observer);
+ * import * as tx from '@tsaqib/trex';
+ * // or CommonJS: const tx = require("@tsaqib/trex");
+ *
+ * const observer = new tx.Observer(console.log);
+ * observable.pipe(tx.take(3)).subscribe(observer);
  * observable.emit([10, 20, 30, 40, 50, 60]);
  * ```
  *
@@ -119,31 +93,27 @@ export const take: (count: number) => IObservable = (count) => {
 };
 
 /**
- * Pipes multiple observer operations together.
+ * Returns the specified property of a value.
  *
  * Basic usage example:
  *
  * ```ts
- * const observable = new Observable();
- * const observer = new Observer(
- * pipe(
- * 	filter((num) => num < 15),
- * 	(num) => console.log(num * 4)
- * ));
- * observable.subscribe(observer);
- * observable.emit(10);
- * observable.emit(20);
+ * import * as tx from '@tsaqib/trex';
+ * // or CommonJS: const tx = require("@tsaqib/trex");
+ *
+ * const observable = new tx.Observable();
+ * observable
+ * 	.pipe(tx.take(1), tx.pluck('email'))
+ * 	.subscribe(new tx.Observer(console.log));
+ * observable.emit({ name: 'King', email: 'email@kingdom' });
+ * observable.emit({ name: 'Queen', email: 'email@queendom' });
  * ```
  *
  * Output:
- * 40
+ * email@kingdom
  *
- * @param {Function[]} fns The list of actions to form a chain of
+ * @param {string} propName The name of the property to return from the item
  */
-// tslint:disable-next-line:ban-types
-export const pipe: (...fns: Function[]) => (item: any) => any = (...fns) => (
-	item
-) => {
-	// tslint:disable-next-line:ban-types
-	return fns.reduce((acc: any, fn: Function) => fn(acc), item);
+export const pluck: (propName: string) => IObservable = (propName) => {
+	return new PluckOperator(propName);
 };
