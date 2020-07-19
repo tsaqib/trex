@@ -1,6 +1,7 @@
 import { MapOperator } from './operators/MapOperator';
 import { FilterOperator } from './operators/FilterOperator';
 import { TakeOperator } from './operators/TakeOperator';
+import { TapOperator } from './operators/TapOperator';
 import { PluckOperator } from './operators/PluckOperator';
 import { IObservable } from './IObservable';
 
@@ -113,4 +114,28 @@ export const take: (count: number) => IObservable = (count: number) => {
  */
 export const pluck: (propName: string) => IObservable = (propName: string) => {
 	return new PluckOperator(propName);
+};
+
+/**
+ * Applies a function, but returns the original item
+ *
+ * Basic usage example:
+ *
+ * ```ts
+ * import * as tx from '@tsaqib/trex';
+ * // or CommonJS: const tx = require("@tsaqib/trex");
+ *
+ * const square = (num) => num * num;
+ * const observable = new tx.Observable();
+ * const observer = new tx.Observer(console.log);
+ * observable.pipe(tx.tap(square)).subscribe(observer);
+ * observable.emit(10);
+ * 
+ * // Output: 10
+ * ```
+ *
+ * @param {Function} fn The function to apply on the item.
+ */
+export const tap: (fn: (item: any) => any) => IObservable = (fn) => {
+	return new TapOperator(fn);
 };
