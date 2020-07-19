@@ -9,7 +9,7 @@ import { OperatorBase } from './OperatorBase';
  * ```ts
  * import * as tx from '@tsaqib/trex';
  * // or CommonJS: const tx = require("@tsaqib/trex");
- * 
+ *
  * const observer = new tx.Observer(console.log);
  * observable.pipe(tx.take(3)).subscribe(observer);
  * observable.emit([10, 20, 30, 40, 50, 60]);
@@ -35,7 +35,7 @@ export class TakeOperator extends OperatorBase {
 
 	/**
 	 *
-	 * Emits the item as long as the current count of items doesn't exceed the total allocated 
+	 * Emits the item as long as the current count of items doesn't exceed the total allocated
 	 * by `count`.
 	 *
 	 * @param {any} item The item

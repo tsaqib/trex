@@ -5,21 +5,20 @@ import { TxContext } from './TxContext';
 import { OperatorBase } from './operators/OperatorBase';
 
 /**
- * An `Observable` listens to the streams of data and passes on to its observers. 
- * You use the `subscribe` function to subscribe and `emit` function to add a new data to 
+ * An `Observable` listens to the streams of data and passes on to its observers.
+ * You use the `subscribe` function to subscribe and `emit` function to add a new data to
  * the stream.
- * 
+ *
  * Basic usage example:
- * 
+ *
  * ```ts
  * import * as tx from '@tsaqib/trex';
  * // or CommonJS: const tx = require("@tsaqib/trex");
- * 
+ *
  * const observable = new Observable();
  * ```
  *
  * @class
- * @inheritdoc
  * @implements {IObservable}
  */
 export class Observable implements IObservable {

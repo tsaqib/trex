@@ -5,7 +5,6 @@ import { IObserver } from './IObserver';
  * the constructor or you can subclass the class itself to make your own observer.
  *
  * @class
- * @inheritdoc
  * @implements {IObservable}
  */
 export class Observer implements IObserver {
@@ -20,7 +19,7 @@ export class Observer implements IObserver {
 	 * ```ts
 	 * import * as tx from '@tsaqib/trex';
 	 * // or CommonJS: const tx = require("@tsaqib/trex");
-	 * 
+	 *
 	 * // The Observer is the implementation of IObserver
 	 * const observer1 = new tx.Observer(
 	 * 	(item: string) => console.log(item),
@@ -30,7 +29,7 @@ export class Observer implements IObserver {
 	 * ```
 	 *
 	 * @constructor
-	 * @param {next: (item: any)} next - The function t invoke on data arrival
+	 * @param {next: (item: any)} next - The function to invoke on data arrival
 	 * @param {error: (err: any)} error - The error handler function
 	 */
 	constructor(next: (item: any) => void, error?: (err: any) => void) {

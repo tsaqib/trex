@@ -2,7 +2,7 @@ import { IObserver } from './IObserver';
 import { LinkedList } from './Shorthands';
 
 /**
- * The interface behind the `ObservableBase`, maintains the contract for all observables.
+ * The interface behind the `Observable`, maintains the contract for all observables.
  *
  * @interface
  */

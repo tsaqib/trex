@@ -34,7 +34,9 @@ export type LinkedList<T> = {
  *
  * @param {Function} fn The function to apply on the item
  */
-export const map: (fn: (item: any) => any) => IObservable = (fn) => {
+export const map: (fn: (item: any) => () => void) => IObservable = (
+	fn: (item: any) => () => void
+) => {
 	return new MapOperator(fn);
 };
 
@@ -63,7 +65,9 @@ export const map: (fn: (item: any) => any) => IObservable = (fn) => {
  *
  * @param {Function} fn The predcate to check with the item
  */
-export const filter: (fn: (item: any) => any) => IObservable = (fn) => {
+export const filter: (fn: (item: any) => () => void) => IObservable = (
+	fn: (item: any) => () => void
+) => {
 	return new FilterOperator(fn);
 };
 
@@ -88,7 +92,7 @@ export const filter: (fn: (item: any) => any) => IObservable = (fn) => {
  *
  * @param {number} count The total number of items will be allowed to pass through further
  */
-export const take: (count: number) => IObservable = (count) => {
+export const take: (count: number) => IObservable = (count: number) => {
 	return new TakeOperator(count);
 };
 
@@ -114,6 +118,6 @@ export const take: (count: number) => IObservable = (count) => {
  *
  * @param {string} propName The name of the property to return from the item
  */
-export const pluck: (propName: string) => IObservable = (propName) => {
+export const pluck: (propName: string) => IObservable = (propName: string) => {
 	return new PluckOperator(propName);
 };

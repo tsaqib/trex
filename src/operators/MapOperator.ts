@@ -1,8 +1,8 @@
 import { OperatorBase } from './OperatorBase';
 
 /**
- * Executes standard 1:1 map function on an incoming item and returns the computed item back. 
- * The default behaviour of the `OperatorBase` is `MapOperator`. Therefore, this class is 
+ * Executes standard 1:1 map function on an incoming item and returns the computed item back.
+ * The default behaviour of the `OperatorBase` is `MapOperator`. Therefore, this class is
  * a placeholder.
  *
  * Basic usage example:
@@ -10,7 +10,7 @@ import { OperatorBase } from './OperatorBase';
  * ```ts
  * import * as tx from '@tsaqib/trex';
  * // or CommonJS: const tx = require("@tsaqib/trex");
- * 
+ *
  * const observer = new tx.Observer(console.log);
  * observable
  * 	.pipe(

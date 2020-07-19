@@ -26,7 +26,7 @@ import { OperatorBase } from './OperatorBase';
  */
 export class PluckOperator extends OperatorBase {
 	/**
-	 * Constructs the `TakeOperator`
+	 * Constructs the `PluckOperator`
 	 */
 	/* istanbul ignore next */
 	constructor(private propName: string = '') {
@@ -38,8 +38,7 @@ export class PluckOperator extends OperatorBase {
 
 	/**
 	 *
-	 * Emits the item as long as the current count of items doesn't exceed the total allocated
-	 * by `count`.
+	 * Emits the property of an item as specified by the propName in the PluckOperator's constructor.
 	 *
 	 * @param {any} item The item
 	 */
