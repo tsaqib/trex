@@ -34,9 +34,7 @@ export type LinkedList<T> = {
  *
  * @param {Function} fn The function to apply on the item
  */
-export const map: (fn: (item: any) => () => void) => IObservable = (
-	fn: (item: any) => () => void
-) => {
+export const map: (fn: (item: any) => any) => IObservable = (fn) => {
 	return new MapOperator(fn);
 };
 
@@ -65,9 +63,7 @@ export const map: (fn: (item: any) => () => void) => IObservable = (
  *
  * @param {Function} fn The predcate to check with the item
  */
-export const filter: (fn: (item: any) => () => void) => IObservable = (
-	fn: (item: any) => () => void
-) => {
+export const filter: (fn: (item: any) => any) => IObservable = (fn) => {
 	return new FilterOperator(fn);
 };
 

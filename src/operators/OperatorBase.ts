@@ -37,7 +37,7 @@ export class OperatorBase extends Observable {
 	 * @constructor
 	 * @param {function} fn The function to apply to the item
 	 */
-	constructor(fn: (item: any) => () => void) {
+	constructor(fn: (item: any) => any) {
 		super();
 		this.fn = fn;
 		this.observable = new Observable();
