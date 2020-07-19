@@ -79,9 +79,9 @@ export const filter: (fn: (item: any) => any) => IObservable = (fn) => {
  * observable.emit([10, 20, 30, 40, 50, 60]);
  * 
  * // Output:
- * 10
- * 20
- * 30
+ * // 10
+ * // 20
+ * // 30
  * ```
  *
  * @param {number} count The total number of items will be allowed to pass through further
@@ -106,8 +106,7 @@ export const take: (count: number) => IObservable = (count: number) => {
  * observable.emit({ name: 'King', email: 'email@kingdom' });
  * observable.emit({ name: 'Queen', email: 'email@queendom' });
  * 
- * // Output:
- * email@kingdom
+ * // Output: email@kingdom
  * ```
  *
  * @param {string} propName The name of the property to return from the item

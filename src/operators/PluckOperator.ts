@@ -16,8 +16,7 @@ import { OperatorBase } from './OperatorBase';
  * observable.emit({ name: 'King', email: 'email@kingdom' });
  * observable.emit({ name: 'Queen', email: 'email@queendom' });
  * 
- * // Output:
- * email@kingdom
+ * // Output: email@kingdom
  * ```
  * 
  * @class
