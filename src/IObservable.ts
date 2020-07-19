@@ -92,8 +92,8 @@ export interface IObservable {
 	 * const observable = new tx.Observable();
 	 * observable
 	 * 	.pipe(
-	 * 		map(x => x * 2),
-	 * 		filter(x => x > 5)
+	 * 		tx.map(x => x * 2),
+	 * 		tx.filter(x => x > 5)
 	 * 	)
 	 * 	.subscribe(new tx.Observer(console.log));
 	 * observable.emit(50);
@@ -120,8 +120,8 @@ export interface IObservable {
 	 * const observable = new tx.Observable();
 	 * observable
 	 * 	.pipe(
-	 * 		map(x => x * 2),
-	 * 		filter(x => x > 5)
+	 * 		tx.map(x => x * 2),
+	 * 		tx.filter(x => x > 5)
 	 * 	)
 	 * 	.multicast(observer1, observer2);
 	 * observable.emit(50);
@@ -143,10 +143,7 @@ export interface IObservable {
 	 *
 	 * // Observer is an implementation of IObservable
 	 * const observable = new tx.Observable();
-	 * const observer = new tx.Observer((num) => {
-	 * 	console.log(num / 2);
-	 * })
-	 * .subscribe(new tx.Observer((x) => console.log(x)));
+	 * observable.subscribe(new tx.Observer(console.log));
 	 * observable.emit(10);
 	 * observable.destroy();
 	 * ```
