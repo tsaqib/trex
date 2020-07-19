@@ -1,6 +1,6 @@
 {
 	"name": "@tsaqib/trex",
-	"version": "0.9.27",
+	"version": "0.9.29",
 	"description": "Reactive Extension in TypeScript (TRex)",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",

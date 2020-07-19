@@ -40,7 +40,7 @@ messageObservable
 	.pipe(
 		tx.tap(log),
 		tx.take(10), // Take first 10 messages
-		tx.filter((message) => validateJSON(message)),
+		tx.filter((m) => validateJSON(m)),
 		tx.map((m) => JSON.parse(m)),
 		tx.pluck('message')
 	)
