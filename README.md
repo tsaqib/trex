@@ -197,7 +197,7 @@ observable.emit(10);
 
 _Overrides [OperatorBase](#classesoperatorbasemd).[emit](#emit)_
 
-_Defined in [operators/FilterOperator.ts:32](https://github.com/tsaqib/trex/blob/8f1f9a0/src/operators/FilterOperator.ts#L32)_
+_Defined in [operators/FilterOperator.ts:32](https://github.com/tsaqib/trex/blob/5bc1565/src/operators/FilterOperator.ts#L32)_
 
 Applies the specified predicate on the item and returns it when the predicate returns true.
 
@@ -302,7 +302,7 @@ const observable = new tx.Observable();
 
 \+ **new Observable**(): _[Observable](#classesobservablemd)_
 
-_Defined in [Observable.ts:26](https://github.com/tsaqib/trex/blob/8f1f9a0/src/Observable.ts#L26)_
+_Defined in [Observable.ts:26](https://github.com/tsaqib/trex/blob/5bc1565/src/Observable.ts#L26)_
 
 Constructs an `Observable`, which is an implementation of `IObservable`.
 
@@ -314,7 +314,7 @@ Constructs an `Observable`, which is an implementation of `IObservable`.
 
 • **observers**: _[IObserver](#interfacesiobservermd)[]_
 
-_Defined in [Observable.ts:25](https://github.com/tsaqib/trex/blob/8f1f9a0/src/Observable.ts#L25)_
+_Defined in [Observable.ts:25](https://github.com/tsaqib/trex/blob/5bc1565/src/Observable.ts#L25)_
 
 ---
 
@@ -324,7 +324,7 @@ _Defined in [Observable.ts:25](https://github.com/tsaqib/trex/blob/8f1f9a0/src/O
 
 _Implementation of [IObservable](#interfacesiobservablemd).[pipeHead](#optional-pipehead)_
 
-_Defined in [Observable.ts:26](https://github.com/tsaqib/trex/blob/8f1f9a0/src/Observable.ts#L26)_
+_Defined in [Observable.ts:26](https://github.com/tsaqib/trex/blob/5bc1565/src/Observable.ts#L26)_
 
 ### Methods
 
@@ -334,7 +334,7 @@ _Defined in [Observable.ts:26](https://github.com/tsaqib/trex/blob/8f1f9a0/src/O
 
 _Implementation of [IObservable](#interfacesiobservablemd)_
 
-_Defined in [Observable.ts:131](https://github.com/tsaqib/trex/blob/8f1f9a0/src/Observable.ts#L131)_
+_Defined in [Observable.ts:131](https://github.com/tsaqib/trex/blob/5bc1565/src/Observable.ts#L131)_
 
 **Returns:** _void_
 
@@ -346,7 +346,7 @@ _Defined in [Observable.ts:131](https://github.com/tsaqib/trex/blob/8f1f9a0/src/
 
 _Implementation of [IObservable](#interfacesiobservablemd)_
 
-_Defined in [Observable.ts:68](https://github.com/tsaqib/trex/blob/8f1f9a0/src/Observable.ts#L68)_
+_Defined in [Observable.ts:68](https://github.com/tsaqib/trex/blob/5bc1565/src/Observable.ts#L68)_
 
 **Parameters:**
 
@@ -364,7 +364,7 @@ _Defined in [Observable.ts:68](https://github.com/tsaqib/trex/blob/8f1f9a0/src/O
 
 _Implementation of [IObservable](#interfacesiobservablemd)_
 
-_Defined in [Observable.ts:118](https://github.com/tsaqib/trex/blob/8f1f9a0/src/Observable.ts#L118)_
+_Defined in [Observable.ts:118](https://github.com/tsaqib/trex/blob/5bc1565/src/Observable.ts#L118)_
 
 **Parameters:**
 
@@ -382,7 +382,7 @@ _Defined in [Observable.ts:118](https://github.com/tsaqib/trex/blob/8f1f9a0/src/
 
 _Implementation of [IObservable](#interfacesiobservablemd)_
 
-_Defined in [Observable.ts:96](https://github.com/tsaqib/trex/blob/8f1f9a0/src/Observable.ts#L96)_
+_Defined in [Observable.ts:96](https://github.com/tsaqib/trex/blob/5bc1565/src/Observable.ts#L96)_
 
 **Parameters:**
 
@@ -400,7 +400,7 @@ _Defined in [Observable.ts:96](https://github.com/tsaqib/trex/blob/8f1f9a0/src/O
 
 _Implementation of [IObservable](#interfacesiobservablemd)_
 
-_Defined in [Observable.ts:38](https://github.com/tsaqib/trex/blob/8f1f9a0/src/Observable.ts#L38)_
+_Defined in [Observable.ts:38](https://github.com/tsaqib/trex/blob/5bc1565/src/Observable.ts#L38)_
 
 **Parameters:**
 
@@ -418,7 +418,7 @@ _Defined in [Observable.ts:38](https://github.com/tsaqib/trex/blob/8f1f9a0/src/O
 
 _Implementation of [IObservable](#interfacesiobservablemd)_
 
-_Defined in [Observable.ts:44](https://github.com/tsaqib/trex/blob/8f1f9a0/src/Observable.ts#L44)_
+_Defined in [Observable.ts:44](https://github.com/tsaqib/trex/blob/5bc1565/src/Observable.ts#L44)_
 
 **Parameters:**
 
@@ -464,7 +464,7 @@ the constructor or you can subclass the class itself to make your own observer.
 
 \+ **new Observer**(`next`: function, `error?`: undefined | function): _[Observer](#classesobservermd)_
 
-_Defined in [Observer.ts:12](https://github.com/tsaqib/trex/blob/8f1f9a0/src/Observer.ts#L12)_
+_Defined in [Observer.ts:12](https://github.com/tsaqib/trex/blob/5bc1565/src/Observer.ts#L12)_
 
 Constructs an `Observer`.
 
@@ -510,7 +510,7 @@ The error handler function
 
 _Implementation of [IObserver](#interfacesiobservermd).[error](#optional-error)_
 
-_Defined in [Observer.ts:12](https://github.com/tsaqib/trex/blob/8f1f9a0/src/Observer.ts#L12)_
+_Defined in [Observer.ts:12](https://github.com/tsaqib/trex/blob/5bc1565/src/Observer.ts#L12)_
 
 ---
 
@@ -520,7 +520,7 @@ _Defined in [Observer.ts:12](https://github.com/tsaqib/trex/blob/8f1f9a0/src/Obs
 
 _Implementation of [IObserver](#interfacesiobservermd).[next](#next)_
 
-_Defined in [Observer.ts:11](https://github.com/tsaqib/trex/blob/8f1f9a0/src/Observer.ts#L11)_
+_Defined in [Observer.ts:11](https://github.com/tsaqib/trex/blob/5bc1565/src/Observer.ts#L11)_
 
 ##### Type declaration:
 
@@ -599,7 +599,7 @@ class Squarer : OperatorBase {
 
 _Overrides [Observable](#classesobservablemd).[constructor](#constructor)_
 
-_Defined in [operators/OperatorBase.ts:30](https://github.com/tsaqib/trex/blob/8f1f9a0/src/operators/OperatorBase.ts#L30)_
+_Defined in [operators/OperatorBase.ts:30](https://github.com/tsaqib/trex/blob/5bc1565/src/operators/OperatorBase.ts#L30)_
 
 Constructs an `OperatorBase`.
 
@@ -627,7 +627,7 @@ The function to apply to the item
 
 • **fn**: _function_
 
-_Defined in [operators/OperatorBase.ts:28](https://github.com/tsaqib/trex/blob/8f1f9a0/src/operators/OperatorBase.ts#L28)_
+_Defined in [operators/OperatorBase.ts:28](https://github.com/tsaqib/trex/blob/5bc1565/src/operators/OperatorBase.ts#L28)_
 
 ##### Type declaration:
 
@@ -645,7 +645,7 @@ _Defined in [operators/OperatorBase.ts:28](https://github.com/tsaqib/trex/blob/8
 
 • **observable**: _[IObservable](#interfacesiobservablemd)_
 
-_Defined in [operators/OperatorBase.ts:29](https://github.com/tsaqib/trex/blob/8f1f9a0/src/operators/OperatorBase.ts#L29)_
+_Defined in [operators/OperatorBase.ts:29](https://github.com/tsaqib/trex/blob/5bc1565/src/operators/OperatorBase.ts#L29)_
 
 ---
 
@@ -657,7 +657,7 @@ _Implementation of [IObservable](#interfacesiobservablemd).[pipeHead](#optional-
 
 _Overrides [Observable](#classesobservablemd).[pipeHead](#optional-pipehead)_
 
-_Defined in [operators/OperatorBase.ts:30](https://github.com/tsaqib/trex/blob/8f1f9a0/src/operators/OperatorBase.ts#L30)_
+_Defined in [operators/OperatorBase.ts:30](https://github.com/tsaqib/trex/blob/5bc1565/src/operators/OperatorBase.ts#L30)_
 
 ### Methods
 
@@ -669,7 +669,7 @@ _Implementation of [IObservable](#interfacesiobservablemd)_
 
 _Overrides [Observable](#classesobservablemd).[emit](#emit)_
 
-_Defined in [operators/OperatorBase.ts:50](https://github.com/tsaqib/trex/blob/8f1f9a0/src/operators/OperatorBase.ts#L50)_
+_Defined in [operators/OperatorBase.ts:50](https://github.com/tsaqib/trex/blob/5bc1565/src/operators/OperatorBase.ts#L50)_
 
 **Parameters:**
 
@@ -689,7 +689,7 @@ _Implementation of [IObservable](#interfacesiobservablemd)_
 
 _Overrides [Observable](#classesobservablemd).[pipe](#pipe)_
 
-_Defined in [operators/OperatorBase.ts:54](https://github.com/tsaqib/trex/blob/8f1f9a0/src/operators/OperatorBase.ts#L54)_
+_Defined in [operators/OperatorBase.ts:54](https://github.com/tsaqib/trex/blob/5bc1565/src/operators/OperatorBase.ts#L54)_
 
 **Parameters:**
 
@@ -709,7 +709,7 @@ _Implementation of [IObservable](#interfacesiobservablemd)_
 
 _Overrides [Observable](#classesobservablemd).[subscribe](#subscribe)_
 
-_Defined in [operators/OperatorBase.ts:46](https://github.com/tsaqib/trex/blob/8f1f9a0/src/operators/OperatorBase.ts#L46)_
+_Defined in [operators/OperatorBase.ts:46](https://github.com/tsaqib/trex/blob/5bc1565/src/operators/OperatorBase.ts#L46)_
 
 **Parameters:**
 
@@ -739,10 +739,10 @@ observable
 	.subscribe(new tx.Observer(console.log));
 observable.emit({ name: 'King', email: 'email@kingdom' });
 observable.emit({ name: 'Queen', email: 'email@queendom' });
-```
 
-Output:
+// Output:
 email@kingdom
+```
 
 ### Hierarchy
 
@@ -776,7 +776,7 @@ email@kingdom
 
 _Overrides [OperatorBase](#classesoperatorbasemd).[constructor](#constructor)_
 
-_Defined in [operators/PluckOperator.ts:26](https://github.com/tsaqib/trex/blob/8f1f9a0/src/operators/PluckOperator.ts#L26)_
+_Defined in [operators/PluckOperator.ts:26](https://github.com/tsaqib/trex/blob/5bc1565/src/operators/PluckOperator.ts#L26)_
 
 Constructs the `PluckOperator`
 
@@ -794,7 +794,7 @@ Constructs the `PluckOperator`
 
 • **propName**: _string_
 
-_Defined in [operators/PluckOperator.ts:31](https://github.com/tsaqib/trex/blob/8f1f9a0/src/operators/PluckOperator.ts#L31)_
+_Defined in [operators/PluckOperator.ts:31](https://github.com/tsaqib/trex/blob/5bc1565/src/operators/PluckOperator.ts#L31)_
 
 ### Methods
 
@@ -804,7 +804,7 @@ _Defined in [operators/PluckOperator.ts:31](https://github.com/tsaqib/trex/blob/
 
 _Overrides [OperatorBase](#classesoperatorbasemd).[emit](#emit)_
 
-_Defined in [operators/PluckOperator.ts:44](https://github.com/tsaqib/trex/blob/8f1f9a0/src/operators/PluckOperator.ts#L44)_
+_Defined in [operators/PluckOperator.ts:44](https://github.com/tsaqib/trex/blob/5bc1565/src/operators/PluckOperator.ts#L44)_
 
 Emits the property of an item as specified by the propName in the PluckOperator's constructor.
 
@@ -834,12 +834,12 @@ import * as tx from '@tsaqib/trex';
 const observer = new tx.Observer(console.log);
 observable.pipe(tx.take(3)).subscribe(observer);
 observable.emit([10, 20, 30, 40, 50, 60]);
-```
 
-Output:
-10
-20
-30
+// Output:
+10;
+20;
+30;
+```
 
 ### Hierarchy
 
@@ -874,7 +874,7 @@ Output:
 
 _Overrides [OperatorBase](#classesoperatorbasemd).[constructor](#constructor)_
 
-_Defined in [operators/TakeOperator.ts:27](https://github.com/tsaqib/trex/blob/8f1f9a0/src/operators/TakeOperator.ts#L27)_
+_Defined in [operators/TakeOperator.ts:27](https://github.com/tsaqib/trex/blob/5bc1565/src/operators/TakeOperator.ts#L27)_
 
 Constructs the `TakeOperator`
 
@@ -892,7 +892,7 @@ Constructs the `TakeOperator`
 
 • **count**: _number_
 
-_Defined in [operators/TakeOperator.ts:32](https://github.com/tsaqib/trex/blob/8f1f9a0/src/operators/TakeOperator.ts#L32)_
+_Defined in [operators/TakeOperator.ts:32](https://github.com/tsaqib/trex/blob/5bc1565/src/operators/TakeOperator.ts#L32)_
 
 ---
 
@@ -900,7 +900,7 @@ _Defined in [operators/TakeOperator.ts:32](https://github.com/tsaqib/trex/blob/8
 
 • **total**: _number_ = 0
 
-_Defined in [operators/TakeOperator.ts:27](https://github.com/tsaqib/trex/blob/8f1f9a0/src/operators/TakeOperator.ts#L27)_
+_Defined in [operators/TakeOperator.ts:27](https://github.com/tsaqib/trex/blob/5bc1565/src/operators/TakeOperator.ts#L27)_
 
 ### Methods
 
@@ -910,7 +910,7 @@ _Defined in [operators/TakeOperator.ts:27](https://github.com/tsaqib/trex/blob/8
 
 _Overrides [OperatorBase](#classesoperatorbasemd).[emit](#emit)_
 
-_Defined in [operators/TakeOperator.ts:43](https://github.com/tsaqib/trex/blob/8f1f9a0/src/operators/TakeOperator.ts#L43)_
+_Defined in [operators/TakeOperator.ts:43](https://github.com/tsaqib/trex/blob/5bc1565/src/operators/TakeOperator.ts#L43)_
 
 Emits the item as long as the current count of items doesn't exceed the total allocated
 by `count`.
@@ -960,7 +960,7 @@ This is an internal class and not meant for public use, maintains internal state
 
 \+ **new TxContext**(): _[TxContext](#classestxcontextmd)_
 
-_Defined in [TxContext.ts:19](https://github.com/tsaqib/trex/blob/8f1f9a0/src/TxContext.ts#L19)_
+_Defined in [TxContext.ts:19](https://github.com/tsaqib/trex/blob/5bc1565/src/TxContext.ts#L19)_
 
 **Returns:** _[TxContext](#classestxcontextmd)_
 
@@ -970,7 +970,7 @@ _Defined in [TxContext.ts:19](https://github.com/tsaqib/trex/blob/8f1f9a0/src/Tx
 
 ▪ **maps**: _[ObserverMap](#observermap)[]_ = []
 
-_Defined in [TxContext.ts:22](https://github.com/tsaqib/trex/blob/8f1f9a0/src/TxContext.ts#L22)_
+_Defined in [TxContext.ts:22](https://github.com/tsaqib/trex/blob/5bc1565/src/TxContext.ts#L22)_
 
 ### Methods
 
@@ -978,7 +978,7 @@ _Defined in [TxContext.ts:22](https://github.com/tsaqib/trex/blob/8f1f9a0/src/Tx
 
 ▸ **addMap**(`observer`: [IObserver](#interfacesiobservermd), `observable`: [IObservable](#interfacesiobservablemd), `chainHead?`: [LinkedList](#linkedlist)‹[IObservable](#interfacesiobservablemd)›): _void_
 
-_Defined in [TxContext.ts:44](https://github.com/tsaqib/trex/blob/8f1f9a0/src/TxContext.ts#L44)_
+_Defined in [TxContext.ts:44](https://github.com/tsaqib/trex/blob/5bc1565/src/TxContext.ts#L44)_
 
 Adds a tuple of observer, observable and the head of the call's linked list.
 
@@ -1002,7 +1002,7 @@ Adds a tuple of observer, observable and the head of the call's linked list.
 
 ▸ **getMap**(`observer`: [IObserver](#interfacesiobservermd)): _[ObserverMap](#observermap)[] | undefined_
 
-_Defined in [TxContext.ts:60](https://github.com/tsaqib/trex/blob/8f1f9a0/src/TxContext.ts#L60)_
+_Defined in [TxContext.ts:60](https://github.com/tsaqib/trex/blob/5bc1565/src/TxContext.ts#L60)_
 
 Gets a tuple list of observer, observable and the head of the call's linked list for a given
 `IObserver`
@@ -1025,7 +1025,7 @@ Gets a tuple list of observer, observable and the head of the call's linked list
 
 ▸ **print**(): _void_
 
-_Defined in [TxContext.ts:31](https://github.com/tsaqib/trex/blob/8f1f9a0/src/TxContext.ts#L31)_
+_Defined in [TxContext.ts:31](https://github.com/tsaqib/trex/blob/5bc1565/src/TxContext.ts#L31)_
 
 **Returns:** _void_
 
@@ -1035,7 +1035,7 @@ _Defined in [TxContext.ts:31](https://github.com/tsaqib/trex/blob/8f1f9a0/src/Tx
 
 ▸ **removeMap**(`map`: [ObserverMap](#observermap)): _void_
 
-_Defined in [TxContext.ts:71](https://github.com/tsaqib/trex/blob/8f1f9a0/src/TxContext.ts#L71)_
+_Defined in [TxContext.ts:71](https://github.com/tsaqib/trex/blob/5bc1565/src/TxContext.ts#L71)_
 
 Removes a tuple for a given `ObserverMap` instance
 
@@ -1093,7 +1093,7 @@ Removes a tuple for a given `ObserverMap` instance
 
 Ƭ **LinkedList**: _object_
 
-_Defined in [Shorthands.ts:7](https://github.com/tsaqib/trex/blob/8f1f9a0/src/Shorthands.ts#L7)_
+_Defined in [Shorthands.ts:7](https://github.com/tsaqib/trex/blob/5bc1565/src/Shorthands.ts#L7)_
 
 #### Type declaration:
 
@@ -1107,7 +1107,7 @@ _Defined in [Shorthands.ts:7](https://github.com/tsaqib/trex/blob/8f1f9a0/src/Sh
 
 Ƭ **ObserverMap**: _object_
 
-_Defined in [TxContext.ts:5](https://github.com/tsaqib/trex/blob/8f1f9a0/src/TxContext.ts#L5)_
+_Defined in [TxContext.ts:5](https://github.com/tsaqib/trex/blob/5bc1565/src/TxContext.ts#L5)_
 
 #### Type declaration:
 
@@ -1123,7 +1123,7 @@ _Defined in [TxContext.ts:5](https://github.com/tsaqib/trex/blob/8f1f9a0/src/TxC
 
 ▸ **filter**(`fn`: function): _[FilterOperator](#classesfilteroperatormd)‹›_
 
-_Defined in [Shorthands.ts:66](https://github.com/tsaqib/trex/blob/8f1f9a0/src/Shorthands.ts#L66)_
+_Defined in [Shorthands.ts:64](https://github.com/tsaqib/trex/blob/5bc1565/src/Shorthands.ts#L64)_
 
 Returns an item only when the specified predicate is true.
 
@@ -1143,10 +1143,9 @@ const observer = new tx.Observer(
 observable.subscribe(observer);
 observable.emit(10);
 observable.emit(20);
-```
 
-Output:
-40
+// Output: 40
+```
 
 **Parameters:**
 
@@ -1170,7 +1169,7 @@ The predcate to check with the item
 
 ▸ **map**(`fn`: function): _[MapOperator](#classesmapoperatormd)‹›_
 
-_Defined in [Shorthands.ts:37](https://github.com/tsaqib/trex/blob/8f1f9a0/src/Shorthands.ts#L37)_
+_Defined in [Shorthands.ts:36](https://github.com/tsaqib/trex/blob/5bc1565/src/Shorthands.ts#L36)_
 
 Executes standard 1:1 map function on an incoming item and returns the computed item back.
 
@@ -1189,10 +1188,9 @@ observable
 	)
 	.subscribe(observer);
 observable.emit(10);
-```
 
-Output:
-60
+// Output: 60
+```
 
 **Parameters:**
 
@@ -1216,7 +1214,7 @@ The function to apply on the item
 
 ▸ **pluck**(`propName`: string): _[PluckOperator](#classespluckoperatormd)‹›_
 
-_Defined in [Shorthands.ts:117](https://github.com/tsaqib/trex/blob/8f1f9a0/src/Shorthands.ts#L117)_
+_Defined in [Shorthands.ts:115](https://github.com/tsaqib/trex/blob/5bc1565/src/Shorthands.ts#L115)_
 
 Returns the specified property of a value.
 
@@ -1232,10 +1230,10 @@ observable
 	.subscribe(new tx.Observer(console.log));
 observable.emit({ name: 'King', email: 'email@kingdom' });
 observable.emit({ name: 'Queen', email: 'email@queendom' });
-```
 
-Output:
+// Output:
 email@kingdom
+```
 
 **Parameters:**
 
@@ -1251,7 +1249,7 @@ email@kingdom
 
 ▸ **take**(`count`: number): _[TakeOperator](#classestakeoperatormd)‹›_
 
-_Defined in [Shorthands.ts:91](https://github.com/tsaqib/trex/blob/8f1f9a0/src/Shorthands.ts#L91)_
+_Defined in [Shorthands.ts:89](https://github.com/tsaqib/trex/blob/5bc1565/src/Shorthands.ts#L89)_
 
 Returns up to a specified number of items.
 
@@ -1264,12 +1262,12 @@ import * as tx from '@tsaqib/trex';
 const observer = new tx.Observer(console.log);
 observable.pipe(tx.take(3)).subscribe(observer);
 observable.emit([10, 20, 30, 40, 50, 60]);
-```
 
-Output:
-10
-20
-30
+// Output:
+10;
+20;
+30;
+```
 
 **Parameters:**
 
@@ -1325,7 +1323,7 @@ The interface behind the `Observable`, maintains the contract for all observable
 
 • **pipeHead**? : _[LinkedList](#linkedlist)‹[IObservable](#interfacesiobservablemd)›_
 
-_Defined in [IObservable.ts:80](https://github.com/tsaqib/trex/blob/8f1f9a0/src/IObservable.ts#L80)_
+_Defined in [IObservable.ts:80](https://github.com/tsaqib/trex/blob/5bc1565/src/IObservable.ts#L80)_
 
 \*\* Warning: Do not use this. This is an internal pointer for tracking and cleaning up subscriptions.
 
@@ -1337,7 +1335,7 @@ _Defined in [IObservable.ts:80](https://github.com/tsaqib/trex/blob/8f1f9a0/src/
 
 ▸ **destroy**(): _void_
 
-_Defined in [IObservable.ts:156](https://github.com/tsaqib/trex/blob/8f1f9a0/src/IObservable.ts#L156)_
+_Defined in [IObservable.ts:156](https://github.com/tsaqib/trex/blob/5bc1565/src/IObservable.ts#L156)_
 
 Destroys an `Observable` along with all its subscribers.
 
@@ -1366,7 +1364,7 @@ observable.destroy();
 
 ▸ **emit**(`item`: any | any[]): _void_
 
-_Defined in [IObservable.ts:72](https://github.com/tsaqib/trex/blob/8f1f9a0/src/IObservable.ts#L72)_
+_Defined in [IObservable.ts:72](https://github.com/tsaqib/trex/blob/5bc1565/src/IObservable.ts#L72)_
 
 Emits an item to the stream
 
@@ -1399,7 +1397,7 @@ observable.emit(10);
 
 ▸ **multicast**(...`observers`: [IObserver](#interfacesiobservermd)[]): _void_
 
-_Defined in [IObservable.ts:133](https://github.com/tsaqib/trex/blob/8f1f9a0/src/IObservable.ts#L133)_
+_Defined in [IObservable.ts:133](https://github.com/tsaqib/trex/blob/5bc1565/src/IObservable.ts#L133)_
 
 Subscribes an array of observers in one go, typically followed by a pipe.
 
@@ -1439,7 +1437,7 @@ observable.emit(50);
 
 ▸ **pipe**(...`observables`: [IObservable](#interfacesiobservablemd)[]): _[IObservable](#interfacesiobservablemd)_
 
-_Defined in [IObservable.ts:105](https://github.com/tsaqib/trex/blob/8f1f9a0/src/IObservable.ts#L105)_
+_Defined in [IObservable.ts:105](https://github.com/tsaqib/trex/blob/5bc1565/src/IObservable.ts#L105)_
 
 Pipes a series of operations per item in the stream. All operators must be inside a pipe.
 
@@ -1476,7 +1474,7 @@ observable.emit(50);
 
 ▸ **subscribe**(`observer`: [IObserver](#interfacesiobservermd)): _void_
 
-_Defined in [IObservable.ts:29](https://github.com/tsaqib/trex/blob/8f1f9a0/src/IObservable.ts#L29)_
+_Defined in [IObservable.ts:29](https://github.com/tsaqib/trex/blob/5bc1565/src/IObservable.ts#L29)_
 
 Subscribes an `Observer` instance
 
@@ -1509,7 +1507,7 @@ observable.emit(10);
 
 ▸ **unsubscribe**(`observer`: [IObserver](#interfacesiobservermd)): _void_
 
-_Defined in [IObservable.ts:51](https://github.com/tsaqib/trex/blob/8f1f9a0/src/IObservable.ts#L51)_
+_Defined in [IObservable.ts:51](https://github.com/tsaqib/trex/blob/5bc1565/src/IObservable.ts#L51)_
 
 Unsubscribes an `Observer` instance
 
@@ -1571,7 +1569,7 @@ The interface behind the `Observer`, maintains the contract for all observers.
 
 • **next**: _function_
 
-_Defined in [IObserver.ts:13](https://github.com/tsaqib/trex/blob/8f1f9a0/src/IObserver.ts#L13)_
+_Defined in [IObserver.ts:13](https://github.com/tsaqib/trex/blob/5bc1565/src/IObserver.ts#L13)_
 
 Whenever a new item is available in the stream, the `next` function is called with that.
 
@@ -1595,7 +1593,7 @@ Whenever a new item is available in the stream, the `next` function is called wi
 
 ▸ **error**(`err`: any): _void_
 
-_Defined in [IObserver.ts:21](https://github.com/tsaqib/trex/blob/8f1f9a0/src/IObserver.ts#L21)_
+_Defined in [IObserver.ts:21](https://github.com/tsaqib/trex/blob/5bc1565/src/IObserver.ts#L21)_
 
 The error handler for the potential exception occured inside the `next` function.
 

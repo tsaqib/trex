@@ -13,12 +13,12 @@ import { OperatorBase } from './OperatorBase';
  * const observer = new tx.Observer(console.log);
  * observable.pipe(tx.take(3)).subscribe(observer);
  * observable.emit([10, 20, 30, 40, 50, 60]);
- * ```
- *
- * Output:
+ * 
+ * // Output:
  * 10
  * 20
  * 30
+ * ```
  *
  * @class
  * @noInheritDoc

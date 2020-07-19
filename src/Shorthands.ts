@@ -27,10 +27,9 @@ export type LinkedList<T> = {
  * 	)
  * .subscribe(observer);
  * observable.emit(10);
+ * 
+ * // Output: 60
  * ```
- *
- * Output:
- * 60
  *
  * @param {Function} fn The function to apply on the item
  */
@@ -56,10 +55,9 @@ export const map: (fn: (item: any) => any) => IObservable = (fn) => {
  * observable.subscribe(observer);
  * observable.emit(10);
  * observable.emit(20);
+ * 
+ * // Output: 40
  * ```
- *
- * Output:
- * 40
  *
  * @param {Function} fn The predcate to check with the item
  */
@@ -79,12 +77,12 @@ export const filter: (fn: (item: any) => any) => IObservable = (fn) => {
  * const observer = new tx.Observer(console.log);
  * observable.pipe(tx.take(3)).subscribe(observer);
  * observable.emit([10, 20, 30, 40, 50, 60]);
- * ```
- *
- * Output:
+ * 
+ * // Output:
  * 10
  * 20
  * 30
+ * ```
  *
  * @param {number} count The total number of items will be allowed to pass through further
  */
@@ -107,10 +105,10 @@ export const take: (count: number) => IObservable = (count: number) => {
  * 	.subscribe(new tx.Observer(console.log));
  * observable.emit({ name: 'King', email: 'email@kingdom' });
  * observable.emit({ name: 'Queen', email: 'email@queendom' });
- * ```
- *
- * Output:
+ * 
+ * // Output:
  * email@kingdom
+ * ```
  *
  * @param {string} propName The name of the property to return from the item
  */
