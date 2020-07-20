@@ -45,6 +45,18 @@ test('Pipe, map and filter operators applied to observable can filter values.', 
 	expect(result).toStrictEqual([60, 90]);
 });
 
+test('Multiple pipes of the same obversable on multiple observers work.', () => {
+	const result: number[] = [];
+	const observable = new tx.Observable();
+	const observer1 = new tx.Observer((num) => result.push(num * 2));
+	const observer2 = new tx.Observer((num) => result.push(num * 5));
+	observable.pipe(tx.filter((num) => num > 100)).subscribe(observer1);
+	observable.pipe(tx.filter((num) => num < 200)).subscribe(observer2);
+	observable.emit(100);
+	observable.emit(200);
+	expect(result).toStrictEqual([500, 400]);
+});
+
 test('Throws error for nested observable pipes.', () => {
 	const observable = new tx.Observable();
 	const observer = new tx.Observer((num) => {

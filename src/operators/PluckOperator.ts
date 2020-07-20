@@ -15,10 +15,10 @@ import { OperatorBase } from './OperatorBase';
  * 	.subscribe(new tx.Observer(console.log));
  * observable.emit({ name: 'King', email: 'email@kingdom' });
  * observable.emit({ name: 'Queen', email: 'email@queendom' });
- * 
+ *
  * // Output: email@kingdom
  * ```
- * 
+ *
  * @class
  * @noInheritDoc
  */

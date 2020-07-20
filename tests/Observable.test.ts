@@ -1,4 +1,5 @@
 import * as tx from '../src/index';
+import { TxContext } from '../src/TxContext';
 
 test('Observable can emit multiple values in an array.', () => {
 	const expected = [1, 2, 3, 4, 5];
@@ -32,7 +33,9 @@ test('Unsubscribe cleans up for observable pipe.', () => {
 		)
 		.subscribe(observer);
 	observable.emit(10);
+	expect(observable.observers.length).toBe(1);
 	observable.unsubscribe(observer);
+	expect(observable.observers.length).toBe(0);
 	observable.emit(20);
 	expect(result).toStrictEqual([4]);
 });
@@ -45,13 +48,16 @@ test('Unsubscribe cleans up for multiple observers.', () => {
 	observable.subscribe(observer1);
 	observable.subscribe(observer2);
 	observable.emit(10);
+	expect(observable.observers.length).toBe(2);
 	observable.unsubscribe(observer2);
+	expect(observable.observers.length).toBe(1);
 	observable.emit(10);
 	expect(result).toStrictEqual([10, 20, 10]);
 });
 
 test('Unsubscribe cleans up for multicast to multiple observers using pipe, maps and filter.', () => {
 	const result: number[] = [];
+	TxContext.maps = []; // Do this only for unit tests
 	const observable = new tx.Observable();
 	const observer1 = new tx.Observer((num) => result.push(num));
 	const observer2 = new tx.Observer((num) => result.push(num / 5));
@@ -64,8 +70,30 @@ test('Unsubscribe cleans up for multicast to multiple observers using pipe, maps
 		.multicast(observer1, observer2);
 	observable.emit(10);
 	observable.emit(100);
+	expect(TxContext.maps.length).toBe(2);
 	observable.unsubscribe(observer1);
+	expect(TxContext.maps.length).toBe(1);
 	observable.emit(10);
 	observable.emit(100);
 	expect(result).toStrictEqual([600, 120, 120]);
+});
+
+test('Destroy properly cleans up the internal LinkedList.', () => {
+	TxContext.maps = []; // Do this only for unit tests
+	const observable = new tx.Observable();
+	const observer1 = new tx.Observer(console.log);
+	const observer2 = new tx.Observer(console.log);
+	observable
+		.pipe(
+			tx.take(5),
+			tx.map((num: number) => num * 2),
+			tx.tap(console.log),
+			tx.filter((num: number) => num > 5),
+			tx.pluck('test')
+		)
+		.multicast(observer1, observer2);
+	var x = TxContext.maps;
+	expect(TxContext.maps.length).toBe(2);
+	observable.destroy();
+	expect(TxContext.maps.length).toBe(0);
 });

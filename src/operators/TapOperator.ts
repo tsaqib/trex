@@ -15,10 +15,10 @@ import { OperatorBase } from './OperatorBase';
  * const observer = new tx.Observer(console.log);
  * observable.pipe(tx.tap(square)).subscribe(observer);
  * observable.emit(10);
- * 
+ *
  * // Output: 10
  * ```
- * 
+ *
  * @class
  * @noInheritDoc
  */

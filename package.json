@@ -1,6 +1,6 @@
 {
 	"name": "@tsaqib/trex",
-	"version": "0.9.29",
+	"version": "0.9.31",
 	"description": "Reactive Extension in TypeScript (TRex)",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
@@ -40,6 +40,5 @@
 		"typedoc-plugin-markdown": "^2.3.1",
 		"typedoc-plugin-no-inherit": "^1.1.10",
 		"typescript": "^3.9.6"
-	},
-	"dependencies": {}
+	}
 }

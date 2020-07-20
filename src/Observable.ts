@@ -22,7 +22,7 @@ import { OperatorBase } from './operators/OperatorBase';
  * @implements {IObservable}
  */
 export class Observable implements IObservable {
-	private observers: IObserver[];
+	observers: IObserver[];
 	pipeHead?: LinkedList<IObservable>;
 
 	/**
@@ -129,7 +129,31 @@ export class Observable implements IObservable {
 
 	/* istanbul ignore next */
 	destroy() {
-		// TODO: also clean up using TxContext
-		this.observers.splice(0, this.observers.length);
+		const unsubscribeByObservable = (observable: IObservable) => {
+			if (observable) {
+				observable.observers = [];
+			}
+		};
+
+		const unsubscribeRec = (head: LinkedList<IObservable> | undefined) => {
+			if (head) {
+				const value = head?.value;
+				unsubscribeRec(head?.next);
+				if (value) {
+					const op = value as OperatorBase;
+					unsubscribeByObservable(op && op.observable ? op.observable : op);
+					delete head?.value;
+				}
+			}
+		};
+
+		// ((head?.value as OperatorBase).observable as OperatorBase).observable,
+		// (head?.value as OperatorBase).observable
+		const maps = TxContext.maps.filter((m) => m.chainHead?.value === this);
+		maps.forEach((m) => {
+			unsubscribeRec(m.chainHead);
+			TxContext.removeMap(m);
+		});
+		this.observers = [];
 	}
 }

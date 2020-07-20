@@ -8,6 +8,16 @@ import { LinkedList } from './Shorthands';
  */
 export interface IObservable {
 	/**
+	 * Maintains a list of observers subscribed to the observable.
+	 *
+	 * ** Warning: Never touch this in your use.
+	 *
+	 * @type {IObserver[]} An array of `IObserver`
+	 * @memberof IObservable
+	 */
+	observers: IObserver[];
+
+	/**
 	 * Subscribes an `Observer` instance
 	 *
 	 * Basic usage example:

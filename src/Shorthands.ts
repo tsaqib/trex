@@ -28,7 +28,7 @@ export type LinkedList<T> = {
  * 	)
  * .subscribe(observer);
  * observable.emit(10);
- * 
+ *
  * // Output: 60
  * ```
  *
@@ -56,7 +56,7 @@ export const map: (fn: (item: any) => any) => IObservable = (fn) => {
  * observable.subscribe(observer);
  * observable.emit(10);
  * observable.emit(20);
- * 
+ *
  * // Output: 40
  * ```
  *
@@ -78,7 +78,7 @@ export const filter: (fn: (item: any) => any) => IObservable = (fn) => {
  * const observer = new tx.Observer(console.log);
  * observable.pipe(tx.take(3)).subscribe(observer);
  * observable.emit([10, 20, 30, 40, 50, 60]);
- * 
+ *
  * // Output:
  * // 10
  * // 20
@@ -106,7 +106,7 @@ export const take: (count: number) => IObservable = (count: number) => {
  * 	.subscribe(new tx.Observer(console.log));
  * observable.emit({ name: 'King', email: 'email@kingdom' });
  * observable.emit({ name: 'Queen', email: 'email@queendom' });
- * 
+ *
  * // Output: email@kingdom
  * ```
  *
@@ -130,7 +130,7 @@ export const pluck: (propName: string) => IObservable = (propName: string) => {
  * const observer = new tx.Observer(console.log);
  * observable.pipe(tx.tap(square)).subscribe(observer);
  * observable.emit(10);
- * 
+ *
  * // Output: 10
  * ```
  *
